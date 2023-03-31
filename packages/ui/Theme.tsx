@@ -1,6 +1,11 @@
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { blue } from '@mui/material/colors';
 
+declare module '@mui/material/styles/createPalette' {
+    interface PaletteOptions {
+        customColor?: PaletteColorOptions;
+    }
+}
 
 export const MyTheme = createTheme({
     palette: {
@@ -10,9 +15,13 @@ export const MyTheme = createTheme({
             light: '#f11',
         },
         secondary: blue,
+        customColor: {
+            dark: "#13ce66",
+            main: "#13ce66",
+            light: "#13ce66",
+        }
     }
 });
-
 
 export function ThemeContainer({ children }: any) {
     return (
