@@ -1,25 +1,36 @@
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { blue, red } from '@mui/material/colors';
 
 
 declare module '@mui/material/styles/createPalette' {
     interface PaletteOptions {
-        customColor?: PaletteColorOptions;
+        silver?: PaletteColorOptions;
     }
 }
 
 export const MyTheme = createTheme({
     palette: {
         primary: {
-            dark: '#5a0e07',
-            main: '#970e05',
-            light: '#f11',
+            main: '#116EA3',
         },
-        secondary: blue,
-        customColor: {
-            dark: "#13ce66",
-            main: "#13ce66",
-            light: "#13ce66",
+        secondary: {
+            main: '#FFBF00',
+        },
+        common: {
+            white: '#fff',
+            black: '#333333',
+        },
+        silver: {
+            main: '#C4C4C4'
+        },
+        success: {
+            light: '#14FF65',
+            main: '#17E672',
+            dark: '#13C76B',
+        },
+        warning: {
+            main: '#A81C1E',
+            dark: '#99191B',
+            light: '#BF127B',
         }
     }
 });
