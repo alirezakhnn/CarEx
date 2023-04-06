@@ -1,6 +1,9 @@
+import { BtnRotator } from "./Button";
 
 export function Nav() {
     return (
-        <div>Nav</div>
+        <div>
+            <BtnRotator href="#">Nav</BtnRotator>
+        </div>
     );
 }

@@ -1,11 +1,9 @@
-
-import { Button, Typography } from '@mui/material';
-import { MyTheme } from 'ui';
+import { Typography } from '@mui/material';
 
 export default function Web() {
   return (
-    <>
-      <Button color="warning" variant='contained' href="#">Main</Button>
-    </>
+    <div>
+      <Typography variant='h5' color="primary.light">Main</Typography>
+    </div>
   );
 }
