@@ -18,7 +18,18 @@ module.exports = {
       midnight:'#333333',
       silver:'#C4C4C4',
     },
+    fontSize: {
+      'xs': '.8rem',
+      'sm':'1rem',
+      'md':'1.5rem',
+      'lg':"2rem",
+      'xl':'2.5rem',
+      '2xl':'3rem',
+      '3xl':'4rem',
+    },
     screens: {
+      xxs:'300px',
+      xs:'400px',
       sm: '480px',
       md: '768px',
       lg: '976px',
