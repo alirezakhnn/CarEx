@@ -11,6 +11,13 @@ module.exports = {
   ],
   darkMode: 'class',
   theme: {
+    colors: {
+      oceanBlue: '#116AE3',
+      aboveOcean: '#2b83fe',
+      deepOcean:'#0f5dcb',
+      midnight:'#333333',
+      silver:'#C4C4C4',
+    },
     screens: {
       sm: '480px',
       md: '768px',
