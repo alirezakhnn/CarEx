@@ -4,7 +4,7 @@ import { Nav } from './Nav';
 
 export function Layout({ children }: any) {
     return (
-        <div className="grid">
+        <div className="grid bg-midnight">
             <Header />
             <Nav />
             <main>{children}</main>

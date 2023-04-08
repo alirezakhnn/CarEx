@@ -2,13 +2,13 @@
 export function Switcher() {
     return (
         <>
-            <input type="checkbox" id="checkbox" />
-            <label htmlFor="checkbox" className="switch bg-gradient-to-b from-oceanBlue to-silver">
+            <input type="checkbox" id="switcher" />
+            <label htmlFor="switcher" className="switch bg-gradient-to-b from-oceanBlue to-silver">
                 <div className="powersign"></div>
             </label>
 
             <style>{`
-            #checkbox {
+            #switcher {
                 display: none;
             }
 
@@ -22,7 +22,6 @@ export function Switcher() {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                box-shadow: 0px 0px 3px rgb(2, 2, 2) inset;
             }
 
             .powersign {
@@ -38,12 +37,12 @@ export function Switcher() {
             }
 
             .powersign::before {
-                content:"";
-                width:4px;
-                height:90%;
+                content: "";
+                width: 4px;
+                height: 90%;
                 background-color: transparent;
-                z-index:2;
-                top:-60%;
+                z-index: 2;
+                top: -60%;
             }
             .powersign::after {
                 content: "";
@@ -54,18 +53,18 @@ export function Switcher() {
                 top: -75%;
                 z-index: 3;
             }
-            #checkbox:checked + .switch .powersign {
+            #switcher:checked + .switch .powersign {
                 border: 4px solid rgb(255, 255, 255);
                 box-shadow: 0px 0px 10px rgb(151, 243, 255),
                     0px 0px 5px rgb(151, 243, 255) inset;
             }
 
-            #checkbox:checked + .switch .powersign::after {
+            #switcher:checked + .switch .powersign::after {
                 background-color: rgb(255, 255, 255);
                 box-shadow: 0px 0px 5px rgb(151, 243, 255);
             }
 
-            #checkbox:checked + .switch {
+            #switcher:checked + .switch {
                     box-shadow: 0px 0px 1px rgb(151, 243, 255) inset,
                     0px 0px 2px rgb(151, 243, 255) inset,
                     0px 0px 10px rgb(151, 243, 255) inset,
@@ -76,11 +75,35 @@ export function Switcher() {
                     background-color: rgb(146, 180, 184);
             }
 
-            #checkbox:checked + .switch .powersign::before {
+            #switcher:checked + .switch .powersign::before {
                 background-color: rgb(146, 180, 184);
             }
+            @media screen and (max-width:768px) {
+                .switch {
+                    width:40px;
+                    height:40px;
+                    margin-top: .3rem;
+                }
+                .powersign {
+                    width:30%;
+                    heigth:25%;
+                }
+                .powersign::before {
+                    content: "";
+                    width: 4px;
+                    height: 1vh;
+                    top:160%;
+                }
+                .powersign::after {
+                    content: "";
+                    width: 4px;
+                    height: 1vh;
+                    top: -190%;
+                    border-radius:50vw;
+                }
+            }
             `}
-            </style>
+            </style >
         </>
     );
 }

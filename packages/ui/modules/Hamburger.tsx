@@ -1,14 +1,20 @@
+import { useState } from "react";
+import { DropDown } from "./DropDown";
 
-export function Hamburger({ className }: any) {
+export function Hamburger() {
+    const [drop, setDrop] = useState(false);
     return (
         <>
-            <div className={className}>
-                <input type="checkbox" id="Hamburger" />
+            <div className="lg:hidden mt-2 ml-5">
+                <input type="checkbox" id="Hamburger" onClick={() => setDrop(prev => !prev)} />
                 <label htmlFor="Hamburger" className="toggle">
                     <div className="bars" id="bar1"></div>
                     <div className="bars" id="bar2"></div>
                     <div className="bars" id="bar3"></div>
                 </label>
+                <div className={`${drop ? 'grid' : 'hidden'}`}>
+                    <DropDown />
+                </div>
             </div>
             <style>{`
                 #Hamburger {
@@ -70,6 +76,23 @@ export function Hamburger({ className }: any) {
                 #Hamburger:checked + .toggle {
                     transition-duration: .5s;
                     transform: rotate(180deg);
+                }
+                @media screen and (max-width: 768px) {
+                    .bars {
+                        height: 2.5px;
+                    }
+                    #bar1, #bar3 {
+                        width:50%;
+                    }
+                    #bar2 {
+                        width:55%;
+                    }
+                    #Hamburger:checked + .toggle #bar1 {
+                        width: 70%;
+                    }
+                    #Hamburger:checked + .toggle #bar3 {
+                        width: 70%;
+                    }
                 }
             `}</style>
         </>

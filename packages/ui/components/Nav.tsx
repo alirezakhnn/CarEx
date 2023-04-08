@@ -6,7 +6,7 @@ import { Hamburger } from "../modules/Hamburger";
 
 export function Nav() {
     return (
-        <div className={`container flex justify-between align-baseline 
+        <div className={`flex justify-between align-baseline text-silver
         w-9/12 py-3 shadow-lg shadow-oceanBlue justify-self-center rounded-lg px-2
         `}>
             <div className="flex gap-4">
@@ -24,7 +24,7 @@ export function Nav() {
                     <Link className="transition-all hover:scale-110" href="/">SignIn</Link>
                     <BtnRotator href="#">SignUp</BtnRotator>
                 </div>
-                <Hamburger className="lg:hidden mt-2 ml-5" />
+                <Hamburger />
             </div>
         </div>
     );
