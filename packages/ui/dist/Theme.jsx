@@ -1,12 +1,5 @@
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-
-declare module '@mui/material/styles/createPalette' {
-    interface PaletteOptions {
-        silver?: PaletteColorOptions;
-    }
-}
-
 export const MyTheme = createTheme({
     palette: {
         mode: 'dark',
@@ -34,13 +27,9 @@ export const MyTheme = createTheme({
         }
     }
 });
-
-
-export function ThemeContainer({ children }: any) {
-    return (
-        <ThemeProvider theme={MyTheme}>
+export function ThemeContainer({ children }) {
+    return (<ThemeProvider theme={MyTheme}>
             <CssBaseline />
             {children}
-        </ThemeProvider>
-    );
+        </ThemeProvider>);
 }
