@@ -2,7 +2,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 export const MyTheme = createTheme({
     palette: {
-        mode: 'dark',
+        mode: 'light',
         primary: {
             main: '#116EA3',
             light: '#2b83fe',

@@ -17,6 +17,7 @@ module.exports = {
       deepOcean:'#0f5dcb',
       midnight:'#333333',
       silver:'#C4C4C4',
+      white:'#fff',
     },
     fontSize: {
       'xs': '.8rem',
