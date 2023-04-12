@@ -3,7 +3,7 @@ exports.__esModule = true;
 exports.DropDown = void 0;
 var link_1 = require("next/link");
 function DropDown() {
-    return (React.createElement("div", { className: "bg-midnight text-silver absolute px-10 py-6 \n        rounded-lg right-[12.222%] top-[20%] xxs:text-xs md:text-sm" },
+    return (React.createElement("div", { style: { animationIterationCount: '0.5' }, className: "shadow-lg shadow-silver dark:bg-midnight \n        dark:text-silver text-midnight dark:shadow-lg dark:shadow-deepOcean \n        absolute px-10 py-6 rounded-lg right-[2%]\n        top-[120%] xxs:text-xs md:text-sm animate-bounce font-monsterrat" },
         React.createElement("ul", { className: "grid gap-y-3" },
             React.createElement(link_1["default"], { href: "/" }, "All"),
             React.createElement(link_1["default"], { href: "/" }, "City"),

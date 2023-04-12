@@ -22,7 +22,7 @@ var MyDocument = /** @class */ (function (_super) {
     MyDocument.prototype.render = function () {
         return (React.createElement(document_1.Html, { lang: "en" },
             React.createElement(document_1.Head, null),
-            React.createElement("body", { className: "bg-white dark:bg-midnight" },
+            React.createElement("body", { className: "bg-white dark:bg-midnight transition-all duration-500" },
                 React.createElement(document_1.Main, null),
                 React.createElement(document_1.NextScript, null))));
     };

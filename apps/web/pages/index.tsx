@@ -1,9 +1,10 @@
 import { Typography } from '@mui/material';
+import { Main } from 'ui';
 
 export default function Web() {
   return (
     <div>
-      <Typography variant='h5' color="primary.light">Main</Typography>
+      <Main />
     </div>
   );
 }

@@ -31,16 +31,17 @@ module.exports = {
       lg: '976px',
       xl: '1440px'
     },
-    sans: ['Graphik', 'sans-serif'],
-    serif: ['Merriweather', 'serif']
-  },
-  extend: {
-    spacing: {
-      '128': '32rem',
-      '144': '36rem'
+    fontFamily: {
+      monsterrat: ['monsterrat', 'sans-serif']
     },
-    borderRadius: {
-      '4xl': '2rem'
+    extend: {
+      spacing: {
+        '128': '32rem',
+        '144': '36rem'
+      },
+      borderRadius: {
+        '4xl': '2rem'
+      }
     }
   },
   plugins: []

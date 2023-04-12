@@ -36,8 +36,8 @@ module.exports = {
       lg: '976px',
       xl: '1440px',
     },
-      sans: ['Graphik', 'sans-serif'],
-      serif: ['Merriweather', 'serif'],
+    fontFamily: {
+      monsterrat: ['monsterrat', 'sans-serif']
     },
     extend: {
       spacing: {
@@ -47,6 +47,7 @@ module.exports = {
       borderRadius: {
         '4xl': '2rem',
       },
+    },
   },
   plugins: [],
 }

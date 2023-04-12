@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family:monsterrat;
+    src: url('/fonts/monsterrat.otf') format('truetype');
+    font-weight:normal;
+}

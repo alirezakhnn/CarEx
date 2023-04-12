@@ -7,18 +7,19 @@ var link_1 = require("next/link");
 var Switcher_1 = require("../modules/Switcher");
 var Hamburger_1 = require("../modules/Hamburger");
 function Nav() {
-    return (React.createElement("div", { className: "flex justify-between align-baseline text-silver\n        w-9/12 py-3 shadow-lg shadow-oceanBlue justify-self-center rounded-lg px-2\n        " },
+    var navListItemsLink = "\n        text-midnight dark:text-white hover:text-silver hover:dark:text-aboveOcean transition-all\n    ";
+    return (React.createElement("div", { className: "flex justify-between align-baseline text-silver\n        w-9/12 py-3 px-3 shadow-lg dark:shadow-oceanBlue\n        shadow-silver justify-self-center rounded-lg\n        relative shadow-md before:absolute\n        before:z-[-1] before:bg-gradient-to-r \n        before:from-silver before:to-midnight\n        after:absolute after:inset-1\n        after:dark:blur-3xl after:dark:bg-gradient-to-r \n        after:from-oceanBlue after:via-transparent after:to-transparent\n        transform -skew-x-1 font-monsterrat\n        " },
         React.createElement("div", { className: "flex gap-4" },
             React.createElement(Switcher_1.Switcher, null),
             React.createElement(Logo_1.Logo, null)),
-        React.createElement("div", { className: "flex justify-end" },
+        React.createElement("div", { className: "flex justify-end z-10" },
             React.createElement("ul", { className: "flex gap-4 text-sm mt-3 transition-color ease-in-out duration-500 xxs:hidden lg:flex" },
-                React.createElement(link_1["default"], { className: "hover:text-silver", href: "/" }, "All"),
-                React.createElement(link_1["default"], { className: "hover:text-silver", href: "/" }, "City"),
-                React.createElement(link_1["default"], { className: "hover:text-silver", href: "/" }, "Contact"),
-                React.createElement(link_1["default"], { className: "hover:text-silver", href: "/" }, "Blog")),
+                React.createElement(link_1["default"], { className: navListItemsLink, href: "/" }, "All"),
+                React.createElement(link_1["default"], { className: navListItemsLink, href: "/" }, "City"),
+                React.createElement(link_1["default"], { className: navListItemsLink, href: "/" }, "Contact"),
+                React.createElement(link_1["default"], { className: navListItemsLink, href: "/" }, "Blog")),
             React.createElement("div", { className: "ml-10 xxs:hidden lg:block" },
-                React.createElement(link_1["default"], { className: "transition-all hover:scale-110", href: "/" }, "SignIn"),
+                React.createElement(link_1["default"], { className: navListItemsLink, href: "/" }, "SignIn"),
                 React.createElement(Button_1.BtnRotator, { href: "#" }, "SignUp")),
             React.createElement(Hamburger_1.Hamburger, null))));
 }
