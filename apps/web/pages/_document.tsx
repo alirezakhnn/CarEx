@@ -1,5 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 
+// full structure of our app wrapps here
 class MyDocument extends Document {
     render() {
         return (

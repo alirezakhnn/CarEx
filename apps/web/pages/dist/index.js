@@ -1,5 +1,6 @@
 "use strict";
 exports.__esModule = true;
+// ui is in packages directory
 var ui_1 = require("ui");
 function Web() {
     return (React.createElement("div", null,

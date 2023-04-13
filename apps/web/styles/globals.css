@@ -1,7 +1,9 @@
+/* to add tailwind styles  */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* to import custom fonts into tailwind.config.theme.fontFamily */
 @font-face {
     font-family:monsterrat;
     src: url('/fonts/monsterrat.otf') format('truetype');

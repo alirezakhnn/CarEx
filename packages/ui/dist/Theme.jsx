@@ -1,5 +1,6 @@
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
+// to overwrite the MUI's theme
 export const MyTheme = createTheme({
     palette: {
         mode: 'light',
@@ -27,8 +28,11 @@ export const MyTheme = createTheme({
         }
     }
 });
-export function ThemeContainer({ children }) {
-    return (<ThemeProvider theme={MyTheme}>
+export function MuiThemeContainer({ children }) {
+    return (
+    // all the MUI styles wrapps by this component below
+    <ThemeProvider theme={MyTheme}>
+            
             <CssBaseline />
             {children}
         </ThemeProvider>);

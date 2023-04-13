@@ -5,11 +5,20 @@ import { Switcher } from '../modules/Switcher';
 import { Hamburger } from "../modules/Hamburger";
 
 export function Nav() {
-    const navListItemsLink = `
-        text-midnight dark:text-white hover:text-silver hover:dark:text-aboveOcean transition-all
-    `
+    // for the navbar styles on Desktop Mode
+    const navListItemsLinkStyle = `
+        text-midnight dark:text-white hover:text-silver 
+        hover:dark:text-aboveOcean transition-all
+    `;
+    const navItem = [
+        { id: 1, title: 'All', href: '/' },
+        { id: 2, title: 'City', href: '/' },
+        { id: 3, title: 'Contact', href: '/' },
+        { id: 4, title: 'Blog', href: '/' },
+    ]
+
     return (
-        <div className={`flex justify-between align-baseline text-silver
+        <div className={`flex justify-between align-baseline text-silver mt-4
         w-9/12 py-3 px-3 shadow-lg dark:shadow-oceanBlue
         shadow-silver justify-self-center rounded-lg
         relative shadow-md before:absolute
@@ -25,16 +34,15 @@ export function Nav() {
                 <Logo />
             </div>
             <div className="flex justify-end z-10">
-                <ul className="flex gap-4 text-sm mt-3 transition-color ease-in-out duration-500 xxs:hidden lg:flex"
-
-                >
-                    <Link className={navListItemsLink} href="/">All</Link>
-                    <Link className={navListItemsLink} href="/">City</Link>
-                    <Link className={navListItemsLink} href="/">Contact</Link>
-                    <Link className={navListItemsLink} href="/">Blog</Link>
+                <ul className="flex gap-4 text-sm mt-3 transition-color ease-in-out duration-500 xxs:hidden lg:flex">
+                    {
+                        navItem.map(({ id, href, title }) => (
+                            <Link className={navListItemsLinkStyle} href={href} key={id}>{title}</Link>
+                        ))
+                    }
                 </ul>
                 <div className="ml-10 xxs:hidden lg:block">
-                    <Link className={navListItemsLink} href="/">SignIn</Link>
+                    <Link className={navListItemsLinkStyle} href="/">SignIn</Link>
                     <BtnRotator href="#">SignUp</BtnRotator>
                 </div>
                 <Hamburger />

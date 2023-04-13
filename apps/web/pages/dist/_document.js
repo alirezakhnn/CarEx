@@ -14,6 +14,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 exports.__esModule = true;
 var document_1 = require("next/document");
+// full structure of our app wrapps here
 var MyDocument = /** @class */ (function (_super) {
     __extends(MyDocument, _super);
     function MyDocument() {

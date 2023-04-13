@@ -1,12 +1,14 @@
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 
+// add a new property type to the path below
 declare module '@mui/material/styles/createPalette' {
     interface PaletteOptions {
         silver?: PaletteColorOptions;
     }
 }
 
+// to overwrite the MUI's theme
 export const MyTheme = createTheme({
     palette: {
         mode: 'light',
@@ -36,9 +38,12 @@ export const MyTheme = createTheme({
 });
 
 
-export function ThemeContainer({ children }: any) {
+export function MuiThemeContainer({ children }: any) {
     return (
+        // all the MUI styles wrapps by this component below
         <ThemeProvider theme={MyTheme}>
+            {/* cssBaseline is for configure the 
+            mode(dark, light) property of MUI's theme */}
             <CssBaseline />
             {children}
         </ThemeProvider>

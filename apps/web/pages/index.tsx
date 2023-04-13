@@ -1,10 +1,12 @@
-import { Typography } from '@mui/material';
+// ui is in packages directory
 import { Main } from 'ui';
 
-export default function Web() {
+function Web() {
   return (
     <div>
       <Main />
     </div>
   );
 }
+
+export default Web;
