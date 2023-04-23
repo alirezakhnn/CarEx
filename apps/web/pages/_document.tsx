@@ -8,7 +8,7 @@ class MyDocument extends Document {
                 <Head>
                     {/* add meta tags, favicon, global stylesheets, etc. */}
                 </Head>
-                <body className="bg-white dark:bg-darknight transition-all duration-500 xl:w-[100rem]">
+                <body className="bg-white dark:bg-darknight transition-all duration-500 xl:w-[100rem] overflow-x-hidden">
                     <Main />
                     <NextScript />
                 </body>

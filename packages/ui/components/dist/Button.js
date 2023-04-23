@@ -12,6 +12,6 @@ exports.BtnRotator = function (_a) {
             clipPath: 'polygon(20% 0, 80% 0, 100% 50%, 80% 100%, 20% 100%, 0% 50%)'
         }, 
         // when the mouse is on the button and of it negatives the current state
-        onMouseEnter: function () { return setRotate(function (prev) { return !prev; }); }, onMouseLeave: function () { return setRotate(function (prev) { return !prev; }); }, className: "\n      w-[100px] h-[53px] " + (rotate ? 'scale-110 rotate-[-234deg]' : 'rotate-[54deg]') + "\n      rounded-full transition-all duration-500 ease-in-out shadow-xl \n      hover:bg-gradient-to-r from-oceanBlue to-aboveOcean z-10 font-monsterrat " + className + "\n      ", color: 'primary', variant: "contained", href: href },
+        onMouseEnter: function () { return setRotate(function (prev) { return !prev; }); }, onMouseLeave: function () { return setRotate(function (prev) { return !prev; }); }, className: "\n      w-[100px] h-[53px] " + (rotate ? 'scale-110 rotate-[-234deg]' : 'rotate-[54deg]') + "\n      bg-gradient-to-l from-deepOcean via-aboveOcean to-deepOcean rounded-full transition-all duration-500 ease-in-out shadow-xl \n      hover:bg-gradient-to-r from-oceanBlue to-aboveOcean z-10 font-monsterratBold " + className + "\n      ", color: 'primary', variant: "contained", href: href },
         React.createElement("span", { className: "\n      " + (rotate ? 'rotate-[235deg]' : 'rotate-[-55deg]') + " \n      transition-transform duration-500 ease-in-out\n      py-10 px-20\n      " }, children)));
 };

@@ -4,18 +4,19 @@ import Link from 'next/link';
 import { Switcher } from '../modules/Switcher';
 import { Hamburger } from "../modules/Hamburger";
 
+export const navItem = [
+    { id: 1, title: 'All', href: '/' },
+    { id: 2, title: 'City', href: '/' },
+    { id: 3, title: 'Contact', href: '/' },
+    { id: 4, title: 'Blog', href: '/' },
+];
+
 export function Nav() {
     // for the navbar styles on Desktop Mode
     const navListItemsLinkStyle = `
         text-midnight dark:text-white hover:text-silver 
         hover:dark:text-aboveOcean transition-all
     `;
-    const navItem = [
-        { id: 1, title: 'All', href: '/' },
-        { id: 2, title: 'City', href: '/' },
-        { id: 3, title: 'Contact', href: '/' },
-        { id: 4, title: 'Blog', href: '/' },
-    ]
 
     return (
         <div className={`flex justify-between align-baseline text-silver mt-4
@@ -27,7 +28,7 @@ export function Nav() {
         after:absolute after:inset-1
         after:dark:blur-3xl after:dark:bg-gradient-to-r 
         after:from-oceanBlue after:via-transparent after:to-transparent
-        transform -skew-x-1 font-monsterrat
+        transform font-monsterratBold
         `}>
             <div className="flex gap-4">
                 <Switcher />
@@ -42,7 +43,7 @@ export function Nav() {
                     }
                 </ul>
                 <div className="ml-10 xxs:hidden lg:block">
-                    <Link className={navListItemsLinkStyle} href="/">SignIn</Link>
+                    <Link className={`${navListItemsLinkStyle} uppercase`} href="/">SignIn</Link>
                     <BtnRotator href="#">SignUp</BtnRotator>
                 </div>
                 <Hamburger />

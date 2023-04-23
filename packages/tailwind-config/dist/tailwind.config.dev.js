@@ -33,7 +33,9 @@ module.exports = {
       xl: '1440px'
     },
     fontFamily: {
-      monsterrat: ['monsterrat', 'sans-serif']
+      monsterratBold: ['monsterratBold', 'sans-serif'],
+      monsterratMedium: ['monsterratMedium', 'sans-serif'],
+      monsterratItalic: ['monsterratItalic', 'sans-serif']
     },
     extend: {
       spacing: {
@@ -42,6 +44,10 @@ module.exports = {
       },
       borderRadius: {
         '4xl': '2rem'
+      },
+      fontSize: {
+        'mlg': '2.1rem',
+        '4xl': '4.5rem'
       }
     }
   },

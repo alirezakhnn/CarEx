@@ -5,7 +5,19 @@
 
 /* to import custom fonts into tailwind.config.theme.fontFamily */
 @font-face {
-    font-family:monsterrat;
-    src: url('/fonts/monsterrat.otf') format('truetype');
+    font-family:monsterratBold;
+    src: url('/fonts/Montserrat-Bold.ttf') format('truetype');
+    font-weight:normal;
+}
+
+@font-face {
+    font-family:monsterratMedium;
+    src: url('/fonts/Montserrat-Medium.ttf') format('truetype');
+    font-weight:normal;
+}
+
+@font-face {
+    font-family:monsterratItalic;
+    src: url('/fonts/monsterrat-italic.otf') format('truetype');
     font-weight:normal;
 }
