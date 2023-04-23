@@ -21,9 +21,9 @@ var MyDocument = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     MyDocument.prototype.render = function () {
-        return (React.createElement(document_1.Html, { lang: "en" },
+        return (React.createElement(document_1.Html, { lang: "en", className: "xl:grid justify-center" },
             React.createElement(document_1.Head, null),
-            React.createElement("body", { className: "bg-white dark:bg-midnight transition-all duration-500" },
+            React.createElement("body", { className: "bg-white dark:bg-darknight transition-all duration-500 xl:w-[100rem]" },
                 React.createElement(document_1.Main, null),
                 React.createElement(document_1.NextScript, null))));
     };

@@ -3,11 +3,11 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import Link from 'next/link';
+import Button from '@mui/material/Button';
 
 const ContactsStyle = `
-    bg-silver rounded-full text-midnight w-[50px] h-[50px] 
-    text-center p-1 mt-20 cursor-pointer
+    rounded-full dark:text-white text-darknight w-[60px] h-[60px] hover:text-oceanBlue
+    text-center p-3 mt-20 cursor-pointer opacity-70
 `;
 
 const ArrowStyle = `
@@ -15,49 +15,65 @@ const ArrowStyle = `
     text-white w-[50px] h-[50px] hover:bg-deepOcean
 `;
 
+const DimensionsArrow = `w-[50px] h-[50px]`;
+
 export function Telegram() {
     return (
-        <Link href="/">
+        <Button
+            className={ContactsStyle}
+        >
             <TelegramIcon
-                className={ContactsStyle}
+                className={DimensionsArrow}
             />
-        </Link>
+        </Button>
     );
 }
 
 export function Instagram() {
     return (
-        <Link href='/'>
+        <Button
+            className={ContactsStyle}
+        >
             <InstagramIcon
-                className={ContactsStyle}
+                className={DimensionsArrow}
             />
-        </Link>
+        </Button>
     );
 }
 
 export function GitHub() {
     return (
-        <Link href='/'>
+        <Button
+            className={ContactsStyle}
+        >
             <GitHubIcon
-                className={ContactsStyle}
+                className={DimensionsArrow}
             />
-        </Link>
+        </Button>
     );
 }
 
 
 export function LeftArrow() {
     return (
-        <ChevronLeftIcon
+        <Button
+            variant="contained"
+            href="#"
             className={ArrowStyle}
-        />
+        >
+            <ChevronLeftIcon className={DimensionsArrow} />
+        </Button>
     );
 }
 
 export function RightArrow() {
     return (
-        <ChevronRightIcon
+        <Button
+            variant="contained"
+            href="#"
             className={ArrowStyle}
-        />
+        >
+            <ChevronRightIcon className={DimensionsArrow} />
+        </Button>
     );
 }

@@ -9,8 +9,8 @@ export function Header() {
     return (
         <header className="flex font-monsterrat justify-around">
             <Image src={imageSource} alt="CarExHead" width={500} height={500}
-                className={`absolute top-0 object-cover opacity-10 w-[78%]
-                    h-[85%] bg-center bg-fixed justify-self-center z-[-1]
+                className={` hidden dark:block absolute top-0 object-cover opacity-[12%] w-full
+                    h-[80%] bg-center bg-fixed justify-self-center z-[-1]
                     `}
             />
             <div className="grid mt-5">
@@ -18,7 +18,8 @@ export function Header() {
                 <Typography
                     variant="h3"
                     className="dark:text-white text-3xl max-w-[450px]">
-                    Feel Modernity and Futuristic
+                    <span className="text-oceanBlue">Feel</span> Modernity and
+                    <span className="bg-gradient-to-r from-oceanBlue to-silver bg-clip-text text-transparent text-oceanBlue">Futuristic</span>
                 </Typography>
                 <Typography
                     className="dark:text-white flex gap-1 text-md"
@@ -29,7 +30,7 @@ export function Header() {
                 </Typography>
                 <BtnRotator
                     href="#"
-                    className={`w-[150px] h-[80px] text-sm mt-10 justify-self-left text-[22px]
+                    className={`w-[150px] h-[80px] text-sm mt-5 justify-self-left text-[22px]
                     `}
                 >Start
                 </BtnRotator>
