@@ -1,9 +1,8 @@
 import Button from '@mui/material/Button';
 import { useState } from 'react';
-export const BtnRotator = ({ children, href }: any) => {
+export const BtnRotator = ({ children, href, className }: any) => {
   // this state is for handling the rotation of the button
   const [rotate, setRotate] = useState(false);
-
   return (
     <Button
       sx={{
@@ -17,7 +16,7 @@ export const BtnRotator = ({ children, href }: any) => {
       className={`
       w-[100px] h-[53px] ${rotate ? 'scale-110 rotate-[-234deg]' : 'rotate-[54deg]'}
       rounded-full transition-all duration-500 ease-in-out shadow-xl 
-      hover:bg-gradient-to-r from-oceanBlue to-aboveOcean z-10 font-monsterrat
+      hover:bg-gradient-to-r from-oceanBlue to-aboveOcean z-10 font-monsterrat ${className}
       `}
 
       color='primary'

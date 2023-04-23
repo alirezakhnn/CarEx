@@ -4,7 +4,7 @@ import { Main, Header } from 'ui';
 function Web() {
   return (
     <div>
-      <Header src="/images/outCar.jpg" />
+      <Header />
       <Main />
     </div>
   );

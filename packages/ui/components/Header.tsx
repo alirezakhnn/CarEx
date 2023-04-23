@@ -1,24 +1,48 @@
 import { Logo } from "../modules/Logo";
 import Image from 'next/image';
+import { BtnRotator } from "./Button";
+import { GitHub, Instagram, Telegram, LeftArrow, RightArrow } from "../modules/Icons";
+import { Typography } from '@mui/material'
 
-export function Header({ src }: any) {
+export function Header() {
+    const imageSource = '/images/outCar.jpg';
     return (
-        <header className="grid grid-cols-3 font-monsterrat">
-            <Image src={src} alt="CarExHead" width={500} height={500}
-                className="absolute object-cover opacity-40 w-full h-[90%]"
+        <header className="flex font-monsterrat justify-around">
+            <Image src={imageSource} alt="CarExHead" width={500} height={500}
+                className={`absolute top-0 object-cover opacity-10 w-[78%]
+                    h-[85%] bg-center bg-fixed justify-self-center z-[-1]
+                    `}
             />
-            <div className="ml-5 mt-5">
+            <div className="grid mt-5">
                 <Logo className='xl:text-2xl' />
-                <h3 className="dark:text-white text-3xl">
+                <Typography
+                    variant="h3"
+                    className="dark:text-white text-3xl max-w-[450px]">
                     Feel Modernity and Futuristic
-                </h3>
-                <h4 className="dark:text-white flex gap-1 text-md">
+                </Typography>
+                <Typography
+                    className="dark:text-white flex gap-1 text-md"
+                    variant="h4"
+                >
                     Car
                     <strong className="text-oceanBlue font-bold">Exhibition</strong>
-                </h4>
+                </Typography>
+                <BtnRotator
+                    href="#"
+                    className={`w-[150px] h-[80px] text-sm mt-10 justify-self-left text-[22px]
+                    `}
+                >Start
+                </BtnRotator>
             </div>
-            <div></div>
-            <div></div>
+            <div className="grid place-items-center">
+                <Telegram />
+                <Instagram />
+                <GitHub />
+                <div className="flex gap-3 mt-10">
+                    <LeftArrow />
+                    <RightArrow />
+                </div>
+            </div>
         </header>
     );
 }
