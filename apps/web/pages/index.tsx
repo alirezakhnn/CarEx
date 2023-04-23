@@ -1,9 +1,10 @@
 // ui is in packages directory
-import { Main } from 'ui';
+import { Main, Header } from 'ui';
 
 function Web() {
   return (
     <div>
+      <Header src="/images/outCar.jpg" />
       <Main />
     </div>
   );
