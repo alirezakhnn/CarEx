@@ -8,7 +8,7 @@ var ChevronLeft_1 = require("@mui/icons-material/ChevronLeft");
 var ChevronRight_1 = require("@mui/icons-material/ChevronRight");
 var Button_1 = require("@mui/material/Button");
 var ContactsStyle = "\n    bg-gradient-to-r from-white to-silver rounded-full dark:text-midnight \n    dark:hover:text-oceanBlue transition-all duration-500 dark:mix-blend-screen\n    text-darknight w-[40px] h-[60px] hover:text-oceanBlue\n    text-center p-3 cursor-pointer opacity-70 hover:scale-110\n";
-var ArrowStyle = "\n    bg-gradient-to-l from-oceanBlue via-aboveOcean to-deepOcean rounded-full text-center cursor-pointer \n    text-white w-[50px] h-[50px] hover:bg-deepOcean\n";
+var ArrowStyle = "\n    bg-gradient-to-l from-oceanBlue via-aboveOcean to-oceanBlue rounded-full text-center cursor-pointer \n    text-white w-[50px] h-[50px] hover:bg-deepOcean\n";
 var DimensionsArrow = "w-[30px] h-[30px]";
 function Telegram() {
     return (React.createElement(Button_1["default"], { href: "#", className: ContactsStyle },

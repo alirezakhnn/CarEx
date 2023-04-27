@@ -13,7 +13,7 @@ const ContactsStyle = `
 `;
 
 const ArrowStyle = `
-    bg-gradient-to-l from-oceanBlue via-aboveOcean to-deepOcean rounded-full text-center cursor-pointer 
+    bg-gradient-to-l from-oceanBlue via-aboveOcean to-oceanBlue rounded-full text-center cursor-pointer 
     text-white w-[50px] h-[50px] hover:bg-deepOcean
 `;
 

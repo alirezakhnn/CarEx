@@ -9,7 +9,7 @@ module.exports = {
     colors: {
       oceanBlue: '#116AE3',
       aboveOcean: '#2b83fe',
-      deepOcean: '#0f5dcb',
+      deepOcean: '#03234f',
       midnight: '#333333',
       darknight: '#000',
       silver: '#C4C4C4',
