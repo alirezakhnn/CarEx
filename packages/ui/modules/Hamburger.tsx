@@ -7,7 +7,7 @@ export function Hamburger() {
     const [drop, setDrop] = useState(false);
 
     return (
-        <div className="lg:hidden mt-2 ml-5">
+        <div className="lg:hidden mt-2 ml-5 z-10">
             <input type="checkbox" id="Hamburger" onClick={() => setDrop(prev => !prev)} />
             <label htmlFor="Hamburger" className="toggle">
                 <div className="bars" id="bar1"></div>

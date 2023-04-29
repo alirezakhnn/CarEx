@@ -27,6 +27,7 @@
     "eslint": "7.32.0",
     "eslint-config-custom": "*",
     "postcss": "^8.4.21",
+    "swiper": "^9.2.4",
     "tailwind-config": "*",
     "tailwindcss": "^3.2.7",
     "tsconfig": "*",

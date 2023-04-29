@@ -1,6 +1,9 @@
+import { Slider } from "../modules/Slider";
 
 export function Main() {
     return (
-        <div>Main</div>
+        <div>
+            main
+        </div>
     );
 }

@@ -46,8 +46,7 @@ module.exports = {
         '4xl': '2rem'
       },
       fontSize: {
-        'mlg': '2.1rem',
-        '4xl': '4.5rem'
+        '4xl': '5rem'
       }
     }
   },
