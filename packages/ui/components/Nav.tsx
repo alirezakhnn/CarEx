@@ -20,7 +20,7 @@ export function Nav() {
 
     return (
         <div className="flex justify-between align-baseline text-silver mt-4
-        w-9/12 py-3 px-3 shadow-lg dark:shadow-oceanBlue
+        xl:w-9/12 py-3 px-3 shadow-lg dark:shadow-oceanBlue
         shadow-silver justify-self-center rounded-lg
         relative shadow-md before:absolute
         before:z-[-1] before:bg-gradient-to-r 
@@ -28,14 +28,15 @@ export function Nav() {
         after:absolute after:inset-1
         after:dark:blur-3xl after:dark:bg-gradient-to-r 
         after:from-oceanBlue after:via-transparent after:to-transparent
-        transform font-monsterratBold z-10
+        transform font-monsterratBold z-10 md:w-9/12 lg:w-[60%]
+        xxs:w-[90%]
         ">
             <div className="flex gap-4">
                 <Switcher />
                 <Logo />
             </div>
             <div className="flex justify-end">
-                <ul className="flex gap-4 text-sm mt-3 transition-color ease-in-out duration-500 xxs:hidden lg:flex">
+                <ul className="flex gap-4 xl:text-sm lg:text-xs mt-3 transition-color ease-in-out duration-500 xxs:hidden lg:flex">
                     {
                         navItem.map(({ id, href, title }) => (
                             <Link className={navListItemsLinkStyle} href={href} key={id}>{title}</Link>
@@ -43,8 +44,8 @@ export function Nav() {
                     }
                 </ul>
                 <div className="ml-10 xxs:hidden lg:block z-10">
-                    <Link className={`${navListItemsLinkStyle} uppercase`} href="/">SignIn</Link>
-                    <BtnRotator href="#">SignUp</BtnRotator>
+                    <Link className={`${navListItemsLinkStyle} uppercase lg:text-xs `} href="/">SignIn</Link>
+                    <BtnRotator className="lg:text-xs" href="#">SignUp</BtnRotator>
                 </div>
                 <Hamburger />
             </div>

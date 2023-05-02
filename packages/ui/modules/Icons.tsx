@@ -2,8 +2,7 @@ import TelegramIcon from '@mui/icons-material/Telegram';
 import SearchIcon from '@mui/icons-material/Search';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FaceBookIcon from '@mui/icons-material/Facebook';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import CircleIcon from '@mui/icons-material/Circle';
 import Button from '@mui/material/Button';
 import { useState } from 'react';
 
@@ -14,12 +13,7 @@ const ContactsStyle = `
     text-center p-3 cursor-pointer opacity-70 hover:scale-110 z-1000
 `;
 
-const ArrowStyle = `
-    bg-gradient-to-l from-oceanBlue via-aboveOcean to-oceanBlue rounded-full text-center cursor-pointer 
-    text-white w-[50px] h-[50px] hover:bg-deepOcean z-100
-`;
-
-const DimensionsArrow = `w-[30px] h-[30px]`;
+const DimensionContactIcons = `w-[30px] h-[30px]`;
 
 export function Telegram() {
     return (
@@ -28,7 +22,7 @@ export function Telegram() {
             className={ContactsStyle}
         >
             <TelegramIcon
-                className={DimensionsArrow}
+                className={DimensionContactIcons}
             />
         </Button>
     );
@@ -41,7 +35,7 @@ export function Instagram() {
             className={ContactsStyle}
         >
             <InstagramIcon
-                className={DimensionsArrow}
+                className={DimensionContactIcons}
             />
         </Button>
     );
@@ -53,11 +47,29 @@ export function Facebook() {
             className={ContactsStyle}
         >
             <FaceBookIcon
-                className={DimensionsArrow}
+                className={DimensionContactIcons}
             />
         </Button>
     );
 }
+
+const threeDotStyle = `
+xxs:w-[15px] xxs:pb-1
+`;
+
+// export function ThreeDot() {
+//     return (
+//         <div className="grid bg-silver opacity-[65%]
+//         xxs:h-[65px] xxs:w-[65px]
+//         rounded-full place-items-center 
+//         cursor-pointer
+//         ">
+//             <CircleIcon className={threeDotStyle} />
+//             <CircleIcon className={threeDotStyle} />
+//             <CircleIcon className={threeDotStyle} />
+//         </div>
+//     )
+// }
 
 export function SearchBarIcon() {
     const [inputAppear, setInputAppear] = useState(false);
@@ -65,8 +77,10 @@ export function SearchBarIcon() {
     return (
         <div className="flex">
             <input type="text" placeholder="search for Car"
-                className={`${inputAppear ? 'block' : 'hidden'} rounded-full py-4 px-3 
-                placeholder-white z-10 outline-none bg-gradient-to-r from-oceanBlue via-deepOcean to-oceanBlue sticky 
+                className={`${inputAppear ? 'block' : 'hidden'} 
+                rounded-full py-4 px-3 
+                placeholder-white z-10 outline-none bg-gradient-to-r 
+                from-oceanBlue via-deepOcean to-oceanBlue sticky 
                 top-[23%] right-[20%] text-white animate-pulse w-[80px] h-[80px]
                 `}
             />
@@ -77,7 +91,8 @@ export function SearchBarIcon() {
                 `}
             >
                 <SearchIcon
-                    className="h-[55px] w-[55px] hover:text-oceanBlue transition-all duration-500 hover:scale-110"
+                    className="h-[55px] w-[55px] hover:text-oceanBlue 
+                    transition-all duration-500 hover:scale-110"
                 />
             </Button>
         </div>

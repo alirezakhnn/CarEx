@@ -3,29 +3,33 @@ exports.__esModule = true;
 exports.Slider = void 0;
 var swiper_1 = require("swiper");
 var react_1 = require("swiper/react");
-require("swiper/swiper-bundle.min.css");
+// import 'swiper/swiper-bundle.min.css';
+require("../css/Slider.css");
 var image_1 = require("next/image");
-swiper_1["default"].use([swiper_1.Navigation, swiper_1.Pagination, swiper_1.Autoplay]);
+swiper_1["default"].use([
+    swiper_1.Navigation, swiper_1.Pagination, swiper_1.Autoplay,
+    swiper_1.EffectCoverflow
+]);
 var images = [
     { src: '/images/colorSpotCar.jpg', alt: 'spotCar' },
     { src: '/images/edgeCar.jpg', alt: 'edgeCar' },
-    { src: '/images/outCar.jpg', alt: 'outCar' },
     { src: '/images/backCar.jpg', alt: 'backCar' },
 ];
 function Slider() {
-    return (React.createElement("div", { className: "container hidden dark:block \n    absolute top-[-25%] w-full \n    bg-center bg-fixed justify-self-center z-0" },
-        React.createElement(react_1.Swiper, { navigation: true, slidesPerView: 1, pagination: { clickable: true }, scrollbar: { draggable: false }, effect: 'cube', loop: true, autoplay: {
+    return (React.createElement("div", { className: " container min-w-[100vw] hidden \n        dark:block absolute lg:top-[-35vh] xxs:top-0 \n        xxs:min-h-[450] w-screen justify-center\n        bg-center bg-fixed justify-self-center z-0 xs:top-[-5%]" },
+        React.createElement(react_1.Swiper, { slidesPerView: 1, pagination: { clickable: true }, scrollbar: { draggable: false }, effect: 'coverflow', centeredSlides: true, loop: true, spaceBetween: 0, autoplay: {
                 delay: 4000,
-                pauseOnMouseEnter: false,
+                pauseOnMouseEnter: true,
                 waitForTransition: true,
                 reverseDirection: true,
                 disableOnInteraction: true
-            }, cubeEffect: {
-                shadow: true,
-                slideShadows: true,
-                shadowOffset: 20,
-                shadowScale: 0.94
+            }, coverflowEffect: {
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true
             } }, images.map(function (pic, index) { return (React.createElement(react_1.SwiperSlide, null,
-            React.createElement(image_1["default"], { src: pic.src, key: index, width: 1500, height: 500, alt: pic.alt, className: "opacity-[45%] object-cover" }))); }))));
+            React.createElement(image_1["default"], { src: pic.src, key: index, width: 1500, height: 500, alt: pic.alt, className: "opacity-[45%] w-full object-cover\n                                bg-center xxs:min-h-[50vh]\n                                xs:min-h-[100%]" }))); }))));
 }
 exports.Slider = Slider;
