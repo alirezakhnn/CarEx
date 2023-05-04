@@ -16,7 +16,7 @@ export const BtnRotator = ({ children, href, className }: any) => {
       className={`
       w-[100px] h-[53px] ${rotate ? 'scale-110 rotate-[-234deg]' : 'rotate-[54deg]'}
       bg-gradient-to-l from-oceanBlue via-aboveOcean to-oceanBlue rounded-full transition-all duration-500 ease-in-out shadow-xl 
-      hover:bg-gradient-to-r from-oceanBlue to-aboveOcean z-10 font-monsterratBold ${className}
+      hover:bg-gradient-to-r from-oceanBlue to-aboveOcean z-1 font-monsterratBold ${className}
       `}
 
       color='primary'

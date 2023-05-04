@@ -19,7 +19,7 @@
     }
     /* FONT_END */
     :root {
-    --swiper-theme-color: #007aff;
+    --swiper-theme-color: #116AE3;
     /*
     --swiper-preloader-color: var(--swiper-theme-color);
     --swiper-wrapper-transition-timing-function: initial;
@@ -656,7 +656,7 @@
     .swiper-flip .swiper-slide {
     pointer-events: none;
     -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
+    backface-visibility: hidden;
     z-index: 1;
     }
     .swiper-flip .swiper-slide .swiper-slide {
@@ -676,7 +676,7 @@
     }
     .swiper-creative .swiper-slide {
     -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
+    backface-visibility: hidden;
     overflow: hidden;
     transition-property: transform, opacity, height;
     }
@@ -686,13 +686,13 @@
     .swiper-cards .swiper-slide {
     transform-origin: center bottom;
     -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
+    backface-visibility: hidden;
     overflow: hidden;
     }
 
 
-    @media screen and (max-width:400px) {
+    @media screen and (max-width:440px) {
         .swiper-wrapper {
-            max-height:380vh;
+            min-height: 55vh;
         }
     }

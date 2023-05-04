@@ -2,7 +2,6 @@ import TelegramIcon from '@mui/icons-material/Telegram';
 import SearchIcon from '@mui/icons-material/Search';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FaceBookIcon from '@mui/icons-material/Facebook';
-import CircleIcon from '@mui/icons-material/Circle';
 import Button from '@mui/material/Button';
 import { useState } from 'react';
 
@@ -10,7 +9,7 @@ const ContactsStyle = `
     rounded-full dark:text-white
     dark:hover:text-midnight dark:hover:bg-gradient-to-r from-silver to-white transition-all duration-300 
     text-darknight w-[20px] h-[60px] hover:text-oceanBlue
-    text-center p-3 cursor-pointer opacity-70 hover:scale-110 z-1000
+    text-center p-3 cursor-pointer opacity-70 hover:scale-110 z-1
 `;
 
 const DimensionContactIcons = `w-[30px] h-[30px]`;
@@ -52,24 +51,6 @@ export function Facebook() {
         </Button>
     );
 }
-
-const threeDotStyle = `
-xxs:w-[15px] xxs:pb-1
-`;
-
-// export function ThreeDot() {
-//     return (
-//         <div className="grid bg-silver opacity-[65%]
-//         xxs:h-[65px] xxs:w-[65px]
-//         rounded-full place-items-center 
-//         cursor-pointer
-//         ">
-//             <CircleIcon className={threeDotStyle} />
-//             <CircleIcon className={threeDotStyle} />
-//             <CircleIcon className={threeDotStyle} />
-//         </div>
-//     )
-// }
 
 export function SearchBarIcon() {
     const [inputAppear, setInputAppear] = useState(false);

@@ -11,7 +11,7 @@ import '../css/Slider.css';
 import Image from 'next/image';
 
 SwiperCore.use([
-    Navigation, Pagination, Autoplay,
+    Pagination, Autoplay,
     EffectCoverflow
 ]);
 
@@ -24,9 +24,9 @@ const images = [
 
 export function Slider(): any {
     return (
-        <div className=" container min-w-[100vw] hidden 
+        <div className=" container xl:min-w-[100rem] min-w-[100vw] hidden 
         dark:block absolute lg:top-[-35vh] xxs:top-0 
-        xxs:min-h-[450] w-screen justify-center
+        w-screen justify-center
         bg-center bg-fixed justify-self-center z-0 xs:top-[-5%]">
             <Swiper
                 slidesPerView={1}
@@ -35,7 +35,7 @@ export function Slider(): any {
                 effect={'coverflow'}
                 centeredSlides={true}
                 loop
-                spaceBetween={0}
+                spaceBetween={500}
                 autoplay={{
                     delay: 4000,
                     pauseOnMouseEnter: true,
@@ -48,20 +48,21 @@ export function Slider(): any {
                     stretch: 0,
                     depth: 100,
                     modifier: 1,
-                    slideShadows: true
+                    slideShadows: true,
                 }}
             >
                 {
                     images.map((pic, index: number) => (
-                        <SwiperSlide>
+                        <SwiperSlide key={index}>
                             <Image
-                                src={pic.src} key={index}
+                                src={pic.src}
                                 width={1500}
                                 height={500}
                                 alt={pic.alt}
-                                className="opacity-[45%] w-full object-cover
-                                bg-center xxs:min-h-[50vh]
-                                xs:min-h-[100%]"
+                                className="opacity-[45%] w-full 
+                                object-cover
+                                bg-center xxs:min-h-[73vh]
+                                md:min-h-[100%]"
                             />
                         </SwiperSlide>
                     ))
