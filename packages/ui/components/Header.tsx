@@ -1,7 +1,9 @@
 import { BtnRotator } from "./Button";
 import { Facebook, Instagram, Telegram } from "../modules/Icons";
 import { Typography } from '@mui/material';
-import { Slider } from '../modules/Slider';
+import dynamic from 'next/dynamic';
+// import { Slider } from '../modules/Slider';
+const Slider = dynamic(() => import('../modules/Slider'), { ssr: false });
 
 export function Header() {
     return (

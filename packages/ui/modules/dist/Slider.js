@@ -1,22 +1,28 @@
 "use strict";
 exports.__esModule = true;
-exports.Slider = void 0;
 var swiper_1 = require("swiper");
 var react_1 = require("swiper/react");
 // import 'swiper/swiper-bundle.min.css';
 require("../css/Slider.css");
 var image_1 = require("next/image");
+var next_themes_1 = require("next-themes");
 swiper_1["default"].use([
     swiper_1.Pagination, swiper_1.Autoplay,
     swiper_1.EffectCoverflow
 ]);
-var images = [
+var backgroundSliderStyle = "\n    opacity-[45%] w-full \n    object-cover\n    bg-center xxs:min-h-[73vh]\n    md:min-h-[100%]\n";
+var darkImages = [
     { src: '/images/colorSpotCar.jpg', alt: 'spotCar' },
     { src: '/images/edgeCar.jpg', alt: 'edgeCar' },
     { src: '/images/backCar.jpg', alt: 'backCar' },
 ];
+var lightImages = [
+    { src: '/images/silverWhiteModernCar.jpg', alt: 'trans' },
+    { src: '/images/noBackgroundWhiteModernCar.jpg', alt: 'parent' },
+];
 function Slider() {
-    return (React.createElement("div", { className: " container xl:min-w-[100rem] min-w-[100vw] hidden \n        dark:block absolute lg:top-[-35vh] xxs:top-0 \n        w-screen justify-center\n        bg-center bg-fixed justify-self-center z-0 xs:top-[-5%]" },
+    var theme = next_themes_1.useTheme().theme;
+    return (React.createElement("div", { className: " container xl:min-w-[100rem] min-w-[100vw]\n        dark:block absolute lg:top-[-35vh] xxs:top-0 \n        w-screen justify-center\n        bg-center bg-fixed justify-self-center z-0 xs:top-[-5%]" },
         React.createElement(react_1.Swiper, { slidesPerView: 1, pagination: { clickable: true }, scrollbar: { draggable: false }, effect: 'coverflow', centeredSlides: true, loop: true, spaceBetween: 500, autoplay: {
                 delay: 4000,
                 pauseOnMouseEnter: true,
@@ -29,7 +35,16 @@ function Slider() {
                 depth: 100,
                 modifier: 1,
                 slideShadows: true
-            } }, images.map(function (pic, index) { return (React.createElement(react_1.SwiperSlide, { key: index },
-            React.createElement(image_1["default"], { src: pic.src, width: 1500, height: 500, alt: pic.alt, className: "opacity-[45%] w-full \n                                object-cover\n                                bg-center xxs:min-h-[73vh]\n                                md:min-h-[100%]" }))); }))));
+            } }, theme == 'dark' ?
+            darkImages.map(function (pic, index) {
+                var src = pic.src, alt = pic.alt;
+                return (React.createElement(react_1.SwiperSlide, { key: index, className: "dark:block hidden" },
+                    React.createElement(image_1["default"], { src: src, alt: alt, width: 1500, height: 500, className: backgroundSliderStyle })));
+            }) :
+            lightImages.map(function (pic, index) {
+                var src = pic.src, alt = pic.alt;
+                return (React.createElement(react_1.SwiperSlide, { key: index, className: "dark:hidden block" },
+                    React.createElement(image_1["default"], { src: src, alt: alt, width: 1500, height: 500, className: backgroundSliderStyle })));
+            }))));
 }
-exports.Slider = Slider;
+exports["default"] = Slider;

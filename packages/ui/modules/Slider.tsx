@@ -1,6 +1,5 @@
 import SwiperCore,
 {
-    Navigation,
     Pagination,
     Autoplay,
     EffectCoverflow
@@ -9,22 +8,35 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 // import 'swiper/swiper-bundle.min.css';
 import '../css/Slider.css';
 import Image from 'next/image';
+import { useTheme } from 'next-themes';
 
 SwiperCore.use([
     Pagination, Autoplay,
     EffectCoverflow
 ]);
 
+const backgroundSliderStyle = `
+    opacity-[45%] w-full 
+    object-cover
+    bg-center xxs:min-h-[73vh]
+    md:min-h-[100%]
+`;
 
-const images = [
+const darkImages = [
     { src: '/images/colorSpotCar.jpg', alt: 'spotCar' },
     { src: '/images/edgeCar.jpg', alt: 'edgeCar' },
     { src: '/images/backCar.jpg', alt: 'backCar' },
 ];
 
-export function Slider(): any {
+const lightImages = [
+    { src: '/images/silverWhiteModernCar.jpg', alt: 'trans' },
+    { src: '/images/noBackgroundWhiteModernCar.jpg', alt: 'parent' },
+];
+
+export default function Slider(): any {
+    const { theme } = useTheme();
     return (
-        <div className=" container xl:min-w-[100rem] min-w-[100vw] hidden 
+        <div className=" container xl:min-w-[100rem] min-w-[100vw]
         dark:block absolute lg:top-[-35vh] xxs:top-0 
         w-screen justify-center
         bg-center bg-fixed justify-self-center z-0 xs:top-[-5%]">
@@ -51,23 +63,37 @@ export function Slider(): any {
                     slideShadows: true,
                 }}
             >
-                {
-                    images.map((pic, index: number) => (
-                        <SwiperSlide key={index}>
-                            <Image
-                                src={pic.src}
-                                width={1500}
-                                height={500}
-                                alt={pic.alt}
-                                className="opacity-[45%] w-full 
-                                object-cover
-                                bg-center xxs:min-h-[73vh]
-                                md:min-h-[100%]"
-                            />
-                        </SwiperSlide>
-                    ))
+                {theme == 'dark' ?
+                    darkImages.map((pic, index: number) => {
+                        const { src, alt } = pic;
+                        return (
+                            <SwiperSlide key={index} className="dark:block hidden">
+                                <Image
+                                    src={src}
+                                    alt={alt}
+                                    width={1500}
+                                    height={500}
+                                    className={backgroundSliderStyle}
+                                />
+                            </SwiperSlide>
+                        );
+                    }) :
+                    lightImages.map((pic, index: number) => {
+                        const { src, alt } = pic;
+                        return (
+                            <SwiperSlide key={index} className="dark:hidden block">
+                                <Image
+                                    src={src}
+                                    alt={alt}
+                                    width={1500}
+                                    height={500}
+                                    className={backgroundSliderStyle}
+                                />
+                            </SwiperSlide>
+                        );
+                    })
                 }
             </Swiper>
-        </div>
+        </div >
     );
 }
