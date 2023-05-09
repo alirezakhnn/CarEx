@@ -1,4 +1,4 @@
-import { BtnRotator } from "./Button";
+import { BtnRotator } from "../modules/Button";
 import { Logo } from "../modules/Logo";
 import Link from 'next/link';
 import { Switcher } from '../modules/Switcher';

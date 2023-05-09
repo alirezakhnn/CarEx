@@ -4,8 +4,6 @@ import { navItem } from '../components/Nav';
 and hamburger menu is checked */
 export function DropDown() {
     return (
-        /* style below iterate the animation execution course. 
-        0.5 means it executes the half of the full animation */
         <div
             className={`shadow-lg shadow-silver dark:bg-darknight 
             bg-white
@@ -13,7 +11,8 @@ export function DropDown() {
             lg:text-2xl
             dark:shadow-deepOcean absolute px-10 py-32 rounded-lg 
             xxs:text-lg 
-            w-[100vw] h-[100vh]
+            w-[100vw] h-[100vh] md:landscape:h-[130vh] 
+            sm:landscape:h-[150vh]
             transition-all
             duration-500 font-monsterratMedium z-20`}>
             <ul className="grid gap-y-3">

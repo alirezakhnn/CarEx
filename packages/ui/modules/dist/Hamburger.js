@@ -14,7 +14,7 @@ function Hamburger() {
             React.createElement("div", { className: "bars", id: "bar2" }),
             React.createElement("div", { className: "bars", id: "bar3" })),
         React.createElement("div", { className: "\n            transition-all duration-700 absolute top-[-100%] text-center\n            " + (drop ? 'grid right-[100%] dark:opacity-[90%] z-50 xxs:right-[95vw] md:right-[87.5vw]'
-                : "absolute opacity-[10%] hidden") },
+                : "absolute opacity-[10%] right-[400vw]") },
             React.createElement(DropDown_1.DropDown, null))));
 }
 exports.Hamburger = Hamburger;

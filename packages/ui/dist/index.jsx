@@ -1,5 +1,5 @@
 // this file exports every components in ui/**/* directory
-export * from "./components/Button";
+export * from "./modules/Button";
 export * from './components/Layout';
 export * from './components/Main';
 export * from './components/Nav';

@@ -37,7 +37,7 @@ export default function Slider(): any {
     const { theme } = useTheme();
     return (
         <div className=" container xl:min-w-[100rem] min-w-[100vw]
-        dark:block absolute lg:top-[-35vh] xxs:top-0 
+        dark:block absolute lg:top-[-35vh] md:landscape:top-[-20vh] xxs:top-0 
         w-screen justify-center
         bg-center bg-fixed justify-self-center z-0 xs:top-[-5%]">
             <Swiper

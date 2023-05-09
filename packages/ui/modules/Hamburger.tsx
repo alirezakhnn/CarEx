@@ -18,7 +18,7 @@ export function Hamburger() {
             <div className={`
             transition-all duration-700 absolute top-[-100%] text-center
             ${drop ? 'grid right-[100%] dark:opacity-[90%] z-50 xxs:right-[95vw] md:right-[87.5vw]'
-                    : "absolute opacity-[10%] hidden"
+                    : "absolute opacity-[10%] right-[400vw]"
                 }`}>
                 <DropDown />
             </div>
