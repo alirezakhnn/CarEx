@@ -15,11 +15,13 @@ var darkImages = [
     { src: '/images/dark/colorSpotCar.jpg', alt: 'spotCar' },
     { src: '/images/dark/edgeCar.jpg', alt: 'edgeCar' },
     { src: '/images/dark/backCar.jpg', alt: 'backCar' },
+    { src: '/images/dark/modernDarkCarMoonlightBlue.jpg', alt: 'modernDarkCarMoonlightBlue' },
 ];
 var lightImages = [
-    { src: '/images/light/silverSuperSportCar.webp', alt: 'silverSuperSportCar' },
-    { src: '/images/light/metalWhiteCar.webp', alt: 'metalWhiteCar' },
+    { src: '/images/light/silverSuperSportCar.jpg', alt: 'silverSuperSportCar' },
+    { src: '/images/light/metalWhiteCar.jpg', alt: 'metalWhiteCar' },
     { src: '/images/light/halfmetalWhiteCar.jpg', alt: 'halfmetalWhiteCar' },
+    { src: '/images/light/bugattiLikeModernWhiteCar.jpg', alt: 'bugattiLikeModernWhiteCar' },
 ];
 function Slider() {
     var theme = next_themes_1.useTheme().theme;
