@@ -16,21 +16,21 @@ SwiperCore.use([
 ]);
 
 const backgroundSliderStyle = `
-    opacity-[45%] w-full 
+    w-full 
     object-cover
     bg-center xxs:min-h-[73vh]
     md:min-h-[100%]
 `;
 
 const darkImages = [
-    { src: '/images/colorSpotCar.jpg', alt: 'spotCar' },
-    { src: '/images/edgeCar.jpg', alt: 'edgeCar' },
-    { src: '/images/backCar.jpg', alt: 'backCar' },
+    { src: '/images/dark/colorSpotCar.jpg', alt: 'spotCar' },
+    { src: '/images/dark/edgeCar.jpg', alt: 'edgeCar' },
+    { src: '/images/dark/backCar.jpg', alt: 'backCar' },
 ];
 
 const lightImages = [
-    { src: '/images/silverWhiteModernCar.jpg', alt: 'trans' },
-    { src: '/images/noBackgroundWhiteModernCar.jpg', alt: 'parent' },
+    { src: '/images/light/metalWhiteCar.webp', alt: 'metalWhiteCar' },
+    { src: '/images/light/halfmetalWhiteCar.jpg', alt: 'halfmetalWhiteCar' },
 ];
 
 export default function Slider(): any {
@@ -53,7 +53,7 @@ export default function Slider(): any {
                     pauseOnMouseEnter: true,
                     waitForTransition: true,
                     reverseDirection: true,
-                    disableOnInteraction: true,
+                    disableOnInteraction: false,
                 }}
                 coverflowEffect={{
                     rotate: 50,
@@ -73,7 +73,7 @@ export default function Slider(): any {
                                     alt={alt}
                                     width={1500}
                                     height={500}
-                                    className={backgroundSliderStyle}
+                                    className={`${backgroundSliderStyle} opacity-[45%]`}
                                 />
                             </SwiperSlide>
                         );
@@ -87,7 +87,7 @@ export default function Slider(): any {
                                     alt={alt}
                                     width={1500}
                                     height={500}
-                                    className={backgroundSliderStyle}
+                                    className={`${backgroundSliderStyle} opacity-[35%]`}
                                 />
                             </SwiperSlide>
                         );
