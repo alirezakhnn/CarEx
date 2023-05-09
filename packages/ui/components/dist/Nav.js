@@ -1,7 +1,7 @@
 "use strict";
 exports.__esModule = true;
 exports.Nav = exports.navItem = void 0;
-var Button_1 = require("./Button");
+var Button_1 = require("../modules/Button");
 var Logo_1 = require("../modules/Logo");
 var link_1 = require("next/link");
 var Switcher_1 = require("../modules/Switcher");

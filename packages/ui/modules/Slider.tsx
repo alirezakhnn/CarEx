@@ -29,9 +29,9 @@ const darkImages = [
 ];
 
 const lightImages = [
+    { src: '/images/light/silverSuperSportCar.webp', alt: 'silverSuperSportCar' },
     { src: '/images/light/metalWhiteCar.webp', alt: 'metalWhiteCar' },
     { src: '/images/light/halfmetalWhiteCar.jpg', alt: 'halfmetalWhiteCar' },
-    { src: '/images/light/silverSuperSportCar.webp', alt: 'silverSuperSportCar' },
 ];
 
 export default function Slider(): any {

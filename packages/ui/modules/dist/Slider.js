@@ -17,9 +17,9 @@ var darkImages = [
     { src: '/images/dark/backCar.jpg', alt: 'backCar' },
 ];
 var lightImages = [
+    { src: '/images/light/silverSuperSportCar.webp', alt: 'silverSuperSportCar' },
     { src: '/images/light/metalWhiteCar.webp', alt: 'metalWhiteCar' },
     { src: '/images/light/halfmetalWhiteCar.jpg', alt: 'halfmetalWhiteCar' },
-    { src: '/images/light/silverSuperSportCar.webp', alt: 'silverSuperSportCar' },
 ];
 function Slider() {
     var theme = next_themes_1.useTheme().theme;
