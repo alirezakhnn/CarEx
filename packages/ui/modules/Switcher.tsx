@@ -1,5 +1,5 @@
 'use client';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import '../css/switcher.css';
 // for the handling dark and light mode
 import { useTheme } from 'next-themes';
@@ -9,6 +9,9 @@ export function Switcher() {
     const currentTheme = theme === 'system' ? systemTheme : theme;
     // handling the check state of switcher(when is true the button turns on)
     const [checked, setChecked] = useState(true);
+    useEffect(() => {
+        setChecked(theme === 'dark');
+    }, [theme]);
     // handles the changes of input checkbox
     const checkHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setChecked(e.target.checked)

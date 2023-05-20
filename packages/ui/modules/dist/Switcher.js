@@ -11,6 +11,9 @@ function Switcher() {
     var currentTheme = theme === 'system' ? systemTheme : theme;
     // handling the check state of switcher(when is true the button turns on)
     var _b = react_1.useState(true), checked = _b[0], setChecked = _b[1];
+    react_1.useEffect(function () {
+        setChecked(theme === 'dark');
+    }, [theme]);
     // handles the changes of input checkbox
     var checkHandler = function (e) {
         setChecked(e.target.checked);
