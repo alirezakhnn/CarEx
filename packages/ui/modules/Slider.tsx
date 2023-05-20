@@ -7,7 +7,6 @@ import SwiperCore,
 import { Swiper, SwiperSlide } from 'swiper/react';
 // import 'swiper/swiper-bundle.min.css';
 import '../css/Slider.css';
-import Image from 'next/image';
 import { useTheme } from 'next-themes';
 
 SwiperCore.use([
@@ -71,7 +70,7 @@ export default function Slider(): any {
                         const { src, alt } = pic;
                         return (
                             <SwiperSlide key={index} className="dark:block hidden">
-                                <Image
+                                <img
                                     src={src}
                                     alt={alt}
                                     width={1500}
@@ -85,7 +84,7 @@ export default function Slider(): any {
                         const { src, alt } = pic;
                         return (
                             <SwiperSlide key={index} className="dark:hidden block">
-                                <Image
+                                <img
                                     src={src}
                                     alt={alt}
                                     width={1500}

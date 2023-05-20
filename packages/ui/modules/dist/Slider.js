@@ -4,7 +4,6 @@ var swiper_1 = require("swiper");
 var react_1 = require("swiper/react");
 // import 'swiper/swiper-bundle.min.css';
 require("../css/Slider.css");
-var image_1 = require("next/image");
 var next_themes_1 = require("next-themes");
 swiper_1["default"].use([
     swiper_1.Pagination, swiper_1.Autoplay,
@@ -42,12 +41,12 @@ function Slider() {
             darkImages.map(function (pic, index) {
                 var src = pic.src, alt = pic.alt;
                 return (React.createElement(react_1.SwiperSlide, { key: index, className: "dark:block hidden" },
-                    React.createElement(image_1["default"], { src: src, alt: alt, width: 1500, height: 500, className: backgroundSliderStyle + " opacity-[45%]" })));
+                    React.createElement("img", { src: src, alt: alt, width: 1500, height: 500, className: backgroundSliderStyle + " opacity-[45%]" })));
             }) :
             lightImages.map(function (pic, index) {
                 var src = pic.src, alt = pic.alt;
                 return (React.createElement(react_1.SwiperSlide, { key: index, className: "dark:hidden block" },
-                    React.createElement(image_1["default"], { src: src, alt: alt, width: 1500, height: 500, className: backgroundSliderStyle + " opacity-[35%]" })));
+                    React.createElement("img", { src: src, alt: alt, width: 1500, height: 500, className: backgroundSliderStyle + " opacity-[35%]" })));
             }))));
 }
 exports["default"] = Slider;
