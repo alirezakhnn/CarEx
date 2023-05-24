@@ -1,14 +1,12 @@
 import { BtnRotator } from "../modules/Button";
 import { Facebook, Instagram, Telegram } from "../modules/Icons";
-import { Typography } from '@mui/material';
 import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
-// import { Slider } from '../modules/Slider';
 const Slider = dynamic(() => import('../modules/Slider'), { ssr: false });
 
 export function Header() {
     return (
-        <header className="xs:block sm:flex justify-center md:ml-16 xl:ml-0 align-center">
+        <header className="xs:block sm:flex justify-center xxs:mr-16 md:mr-0 align-center">
             <div className="grid grid-cols-1 font-monsterratBold xl:px-[13%]">
                 <Slider />
                 <div className="grid sm:mt-[-3%] xs:mt-[-8%] md:mt-[4%]
@@ -20,30 +18,33 @@ export function Header() {
                         transition={{ duration: 0.7 }}
                         className="dark:text-white 
                         xl:landscape:text-4xl md:text-3xl
-                        sm:text-2xl xs:text-xl
+                        xxs:text-2xl
                         xl:max-w-[680px] lg:max-w-[550px] md:max-w-[550px] 
                         sm:max-w-[400px] xs:max-w-[300px]
                         sm:justify-self-left
                         font-monsterratBold font-bolder mt-14
                         ">
-                        <span className="bg-clip-text dark:mix-blend-screen 
+                        <motion.span
+                            className="bg-clip-text dark:mix-blend-screen
                         text-oceanBlue">
                             Feel
-                        </span> Modernity and
+                        </motion.span> Modernity and
                         <span className="bg-clip-text dark:mix-blend-screen 
                         text-oceanBlue"> Futuristic</span>
                     </motion.h3>
-                    <Typography
+                    <motion.h4
                         className="dark:text-white flex gap-1 xs:text-sm
                         md:text-md xxs:text-sm xxs:mt-2 xs:mt-0 font-monsterratBold"
-                        variant="h4"
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5 }}
                     >
                         Car
                         <strong className="text-oceanBlue dark:mix-blend-screen 
                         font-bold
                         ">Exhibition
                         </strong>
-                    </Typography>
+                    </motion.h4>
                     <BtnRotator
                         href="#"
                         className="lg:w-[150px] lg:h-[80px] xs:h-[60px] 
