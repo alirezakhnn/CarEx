@@ -3,8 +3,10 @@ exports.__esModule = true;
 var swiper_1 = require("swiper");
 var react_1 = require("swiper/react");
 // import 'swiper/swiper-bundle.min.css';
+var image_1 = require("next/image");
 require("../css/Slider.css");
 var next_themes_1 = require("next-themes");
+var react_2 = require("react");
 swiper_1["default"].use([
     swiper_1.Pagination, swiper_1.Autoplay,
     swiper_1.EffectCoverflow
@@ -24,7 +26,7 @@ var lightImages = [
 ];
 function Slider() {
     var theme = next_themes_1.useTheme().theme;
-    return (React.createElement("div", { className: " container xl:min-w-[100rem] min-w-[100vw]\n        dark:block absolute lg:top-[-35vh] xxs:top-0 \n        w-screen justify-center\n        bg-center bg-fixed justify-self-center z-0 xs:top-[-5%]" },
+    return (React.createElement("div", { className: " container xl:min-w-[100rem] ml-16 min-w-[100vw]\n        dark:block absolute lg:top-[-35vh] xxs:top-0 \n        w-screen justify-center\n        bg-center bg-fixed justify-self-center z-0 xs:top-[-5%]" },
         React.createElement(react_1.Swiper, { slidesPerView: 1, pagination: { clickable: true }, scrollbar: { draggable: false }, effect: 'coverflow', centeredSlides: true, loop: true, spaceBetween: 500, autoplay: {
                 delay: 4000,
                 pauseOnMouseEnter: true,
@@ -37,16 +39,17 @@ function Slider() {
                 depth: 100,
                 modifier: 1,
                 slideShadows: true
-            } }, theme == 'dark' ?
-            darkImages.map(function (pic, index) {
-                var src = pic.src, alt = pic.alt;
-                return (React.createElement(react_1.SwiperSlide, { key: index, className: "dark:block hidden" },
-                    React.createElement("img", { src: src, alt: alt, width: 1500, height: 500, className: backgroundSliderStyle + " opacity-[45%]" })));
-            }) :
-            lightImages.map(function (pic, index) {
-                var src = pic.src, alt = pic.alt;
-                return (React.createElement(react_1.SwiperSlide, { key: index, className: "dark:hidden block" },
-                    React.createElement("img", { src: src, alt: alt, width: 1500, height: 500, className: backgroundSliderStyle + " opacity-[35%]" })));
-            }))));
+            } },
+            React.createElement(react_2.Suspense, { fallback: React.createElement("h1", null, "Loading...") }, theme == 'dark' ?
+                darkImages.map(function (pic, index) {
+                    var src = pic.src, alt = pic.alt;
+                    return (React.createElement(react_1.SwiperSlide, { key: index, className: "dark:block hidden" },
+                        React.createElement(image_1["default"], { src: src, alt: alt, width: 1500, height: 500, className: backgroundSliderStyle + " opacity-[45%]" })));
+                }) :
+                lightImages.map(function (pic, index) {
+                    var src = pic.src, alt = pic.alt;
+                    return (React.createElement(react_1.SwiperSlide, { key: index, className: "dark:hidden block" },
+                        React.createElement(image_1["default"], { src: src, alt: alt, width: 1500, height: 500, className: backgroundSliderStyle + " opacity-[35%]" })));
+                })))));
 }
 exports["default"] = Slider;

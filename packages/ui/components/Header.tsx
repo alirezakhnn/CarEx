@@ -2,6 +2,7 @@ import { BtnRotator } from "../modules/Button";
 import { Facebook, Instagram, Telegram } from "../modules/Icons";
 import { Typography } from '@mui/material';
 import dynamic from 'next/dynamic';
+import { motion } from 'framer-motion';
 // import { Slider } from '../modules/Slider';
 const Slider = dynamic(() => import('../modules/Slider'), { ssr: false });
 
@@ -13,9 +14,11 @@ export function Header() {
                 <div className="grid sm:mt-[-3%] xs:mt-[-8%] md:mt-[4%]
                 sm:gap-y-0 md:gap-y-5
                 select-none xxs:mt-[-7%] xxs:ml-10 ml-0 ">
-                    <Typography style={{ animationIterationCount: '1.4' }}
-                        variant="h3"
-                        className="animate-pulse dark:text-white 
+                    <motion.h3
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7 }}
+                        className="dark:text-white 
                         xl:landscape:text-4xl md:text-3xl
                         sm:text-2xl xs:text-xl
                         xl:max-w-[680px] lg:max-w-[550px] md:max-w-[550px] 
@@ -29,7 +32,7 @@ export function Header() {
                         </span> Modernity and
                         <span className="bg-clip-text dark:mix-blend-screen 
                         text-oceanBlue"> Futuristic</span>
-                    </Typography>
+                    </motion.h3>
                     <Typography
                         className="dark:text-white flex gap-1 xs:text-sm
                         md:text-md xxs:text-sm xxs:mt-2 xs:mt-0 font-monsterratBold"

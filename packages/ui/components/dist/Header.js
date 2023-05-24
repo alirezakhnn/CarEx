@@ -5,6 +5,7 @@ var Button_1 = require("../modules/Button");
 var Icons_1 = require("../modules/Icons");
 var material_1 = require("@mui/material");
 var dynamic_1 = require("next/dynamic");
+var framer_motion_1 = require("framer-motion");
 // import { Slider } from '../modules/Slider';
 var Slider = dynamic_1["default"](function () { return Promise.resolve().then(function () { return require('../modules/Slider'); }); }, { ssr: false });
 function Header() {
@@ -12,7 +13,7 @@ function Header() {
         React.createElement("div", { className: "grid grid-cols-1 font-monsterratBold xl:px-[13%]" },
             React.createElement(Slider, null),
             React.createElement("div", { className: "grid sm:mt-[-3%] xs:mt-[-8%] md:mt-[4%]\n                sm:gap-y-0 md:gap-y-5\n                select-none xxs:mt-[-7%] xxs:ml-10 ml-0 " },
-                React.createElement(material_1.Typography, { style: { animationIterationCount: '1.4' }, variant: "h3", className: "animate-pulse dark:text-white \n                        xl:landscape:text-4xl md:text-3xl\n                        sm:text-2xl xs:text-xl\n                        xl:max-w-[680px] lg:max-w-[550px] md:max-w-[550px] \n                        sm:max-w-[400px] xs:max-w-[300px]\n                        sm:justify-self-left\n                        font-monsterratBold font-bolder mt-14\n                        " },
+                React.createElement(framer_motion_1.motion.h3, { initial: { opacity: 0, y: 20 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.7 }, className: "dark:text-white \n                        xl:landscape:text-4xl md:text-3xl\n                        sm:text-2xl xs:text-xl\n                        xl:max-w-[680px] lg:max-w-[550px] md:max-w-[550px] \n                        sm:max-w-[400px] xs:max-w-[300px]\n                        sm:justify-self-left\n                        font-monsterratBold font-bolder mt-14\n                        " },
                     React.createElement("span", { className: "bg-clip-text dark:mix-blend-screen \n                        text-oceanBlue" }, "Feel"),
                     " Modernity and",
                     React.createElement("span", { className: "bg-clip-text dark:mix-blend-screen \n                        text-oceanBlue" }, " Futuristic")),

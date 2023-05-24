@@ -26,11 +26,12 @@
     */
     }
     .swiper,
-    swiper-container {
+    .swiper-container {
     position: relative;
     overflow: hidden;
     list-style: none;
     padding: 0;
+    top:0;
     /* Fix of Webkit flickering */
     z-index: 1;
     display: grid;
