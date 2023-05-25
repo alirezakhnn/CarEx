@@ -40,16 +40,23 @@ function Slider() {
                 modifier: 1,
                 slideShadows: true
             } },
-            React.createElement(react_2.Suspense, { fallback: React.createElement("h1", null, "Loading...") }, theme == 'dark' ?
-                darkImages.map(function (pic, index) {
+            React.createElement(react_2.Suspense, { fallback: React.createElement("h1", null, "Loading...") },
+                theme == 'dark' ?
+                    darkImages.map(function (pic, index) {
+                        var src = pic.src, alt = pic.alt;
+                        return (React.createElement(react_1.SwiperSlide, { key: index, className: "dark:block hidden" },
+                            React.createElement(image_1["default"], { src: src, alt: alt, width: 1500, height: 500, className: backgroundSliderStyle + " opacity-[45%]" })));
+                    }) :
+                    lightImages.map(function (pic, index) {
+                        var src = pic.src, alt = pic.alt;
+                        return (React.createElement(react_1.SwiperSlide, { key: index, className: "dark:hidden block" },
+                            React.createElement(image_1["default"], { src: src, alt: alt, width: 1500, height: 500, className: backgroundSliderStyle + " opacity-[35%]" })));
+                    }),
+                theme == 'system' ? darkImages.map(function (pic, index) {
                     var src = pic.src, alt = pic.alt;
-                    return (React.createElement(react_1.SwiperSlide, { key: index, className: "dark:block hidden" },
-                        React.createElement(image_1["default"], { src: src, alt: alt, width: 1500, height: 500, className: backgroundSliderStyle + " opacity-[45%]" })));
-                }) :
-                lightImages.map(function (pic, index) {
-                    var src = pic.src, alt = pic.alt;
-                    return (React.createElement(react_1.SwiperSlide, { key: index, className: "dark:hidden block" },
+                    return (React.createElement(react_1.SwiperSlide, { key: index },
                         React.createElement(image_1["default"], { src: src, alt: alt, width: 1500, height: 500, className: backgroundSliderStyle + " opacity-[35%]" })));
-                })))));
+                })
+                    : null))));
 }
 exports["default"] = Slider;

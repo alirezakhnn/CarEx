@@ -7,6 +7,7 @@ class MyDocument extends Document {
             <Html lang="en" className="xl:grid justify-center">
                 <Head>
                     {/* add meta tags, favicon, global stylesheets, etc. */}
+                    {/* <link rel="icon" type="image/svg+xml" href="/CarEx.svg" /> */}
                 </Head>
                 <body className="bg-white dark:bg-darknight transition-all duration-500 xl:w-[100rem] overflow-x-hidden">
                     <Main />

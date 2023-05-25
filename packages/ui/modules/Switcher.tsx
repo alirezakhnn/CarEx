@@ -10,7 +10,7 @@ export function Switcher() {
     // handling the check state of switcher(when is true the button turns on)
     const [checked, setChecked] = useState(true);
     useEffect(() => {
-        setChecked(theme === 'dark');
+        setChecked(theme === 'dark' || theme === 'system')
     }, [theme]);
     // handles the changes of input checkbox
     const checkHandler = (e: ChangeEvent<HTMLInputElement>) => {

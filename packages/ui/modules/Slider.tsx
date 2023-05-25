@@ -99,6 +99,23 @@ export default function Slider(): any {
                             );
                         })
                     }
+                    {
+                        theme == 'system' ? darkImages.map((pic, index: number) => {
+                            const { src, alt } = pic;
+                            return (
+                                <SwiperSlide key={index}>
+                                    <Image
+                                        src={src}
+                                        alt={alt}
+                                        width={1500}
+                                        height={500}
+                                        className={`${backgroundSliderStyle} opacity-[35%]`}
+                                    />
+                                </SwiperSlide>
+                            )
+                        })
+                            : null
+                    }
                 </Suspense>
             </Swiper>
         </div >
