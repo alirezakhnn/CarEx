@@ -3,6 +3,7 @@ import { Logo } from "../modules/Logo";
 import Link from 'next/link';
 import { Switcher } from '../modules/Switcher';
 import { Hamburger } from "../modules/Hamburger";
+import { motion } from 'framer-motion';
 
 export const navItem = [
     { id: 1, title: 'All', href: '/' },
@@ -31,10 +32,14 @@ export function Nav() {
         transform font-monsterratBold z-10 md:w-9/12 lg:w-[60%]
         xxs:w-[90%]
         ">
-            <div className="flex gap-4">
+            <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+                className="flex gap-4">
                 <Switcher />
                 <Logo />
-            </div>
+            </motion.div>
             <div className="flex justify-end">
                 <ul className="flex gap-4 xl:text-sm lg:text-xs mt-3 transition-color ease-in-out duration-500 xxs:hidden lg:flex">
                     {
@@ -43,10 +48,15 @@ export function Nav() {
                         ))
                     }
                 </ul>
-                <div className="ml-10 xxs:hidden lg:block z-10">
+                <motion.div
+                    initial={{ opacity: 0, x: 30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="ml-10 xxs:hidden lg:block z-10">
                     <Link className={`${navListItemsLinkStyle} uppercase lg:text-xs `} href="/">SignIn</Link>
                     <BtnRotator className="lg:text-xs" href="#">SignUp</BtnRotator>
-                </div>
+                </motion.div>
+
                 <Hamburger />
             </div>
         </div>

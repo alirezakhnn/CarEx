@@ -9,7 +9,11 @@ export function Header() {
         <header className="xs:block sm:flex justify-center xxs:mr-16 md:mr-0 align-center">
             <div className="grid grid-cols-1 font-monsterratBold xl:px-[13%]">
                 <Slider />
-                <div className="grid sm:mt-[-3%] xs:mt-[-8%] md:mt-[4%]
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="grid sm:mt-[-3%] xs:mt-[-8%] md:mt-[4%]
                 sm:gap-y-0 md:gap-y-5
                 select-none xxs:mt-[-7%] xxs:ml-10 ml-0 ">
                     <motion.h3
@@ -51,15 +55,20 @@ export function Header() {
                         xs:w-[120px] xxs:mt-8 xxs:text-[14px] xs:text-sm
                         ">Start
                     </BtnRotator>
-                </div>
+                </motion.div>
             </div>
-            <div className="xxs:hidden md:grid justify-end 
+            <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+                className="xxs:hidden md:grid justify-end 
             xs:mt-[-5%] sm:mt-[9%] md:py-16
             ">
                 <Telegram />
                 <Instagram />
                 <Facebook />
-            </div>
+            </motion.div>
+
         </header>
     );
 }
