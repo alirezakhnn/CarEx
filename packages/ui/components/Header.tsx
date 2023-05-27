@@ -2,6 +2,8 @@ import { BtnRotator } from "../modules/Button";
 import { Facebook, Instagram, Telegram } from "../modules/Icons";
 import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
+
+// we import Slider by next-dynamic to render the Slider component in browser
 const Slider = dynamic(() => import('../modules/Slider'), { ssr: false });
 
 export function Header() {
@@ -9,13 +11,18 @@ export function Header() {
         <header className="xs:block sm:flex justify-center xxs:mr-16 md:mr-0 align-center">
             <div className="grid grid-cols-1 font-monsterratBold xl:px-[13%]">
                 <Slider />
+                {/* 
+                the motion from framer-motion is to make animation of elements
+                and for delaying "initial, animate and transition is 
+                the motion's props"
+                 */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                     className="grid sm:mt-[-3%] xs:mt-[-8%] md:mt-[4%]
-                sm:gap-y-0 md:gap-y-5
-                select-none xxs:mt-[-7%] xxs:ml-10 ml-0 ">
+                    sm:gap-y-0 md:gap-y-5
+                    select-none xxs:mt-[-7%] xxs:ml-10 ml-0 ">
                     <motion.h3
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -62,7 +69,7 @@ export function Header() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
                 className="xxs:hidden md:grid justify-end 
-            xs:mt-[-5%] sm:mt-[9%] md:py-16
+                xs:mt-[-5%] sm:mt-[9%] md:py-16
             ">
                 <Telegram />
                 <Instagram />

@@ -5,6 +5,7 @@ import { Switcher } from '../modules/Switcher';
 import { Hamburger } from "../modules/Hamburger";
 import { motion } from 'framer-motion';
 
+// these are the navbar list contexts
 export const navItem = [
     { id: 1, title: 'All', href: '/' },
     { id: 2, title: 'City', href: '/' },
@@ -33,6 +34,7 @@ export function Nav() {
         xxs:w-[90%]
         ">
             <motion.div
+                // i've just added left to write animation on switcher and logo container component
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
@@ -42,6 +44,7 @@ export function Nav() {
             </motion.div>
             <div className="flex justify-end">
                 <ul className="flex gap-4 xl:text-sm lg:text-xs mt-3 transition-color ease-in-out duration-500 xxs:hidden lg:flex">
+                    {/* i've just mapped over the navbar list contexts */}
                     {
                         navItem.map(({ id, href, title }) => (
                             <Link className={navListItemsLinkStyle} href={href} key={id}>{title}</Link>
@@ -49,6 +52,7 @@ export function Nav() {
                     }
                 </ul>
                 <motion.div
+                    // this is motion rtl for button
                     initial={{ opacity: 0, x: 30 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5 }}

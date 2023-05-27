@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 export function Layout({ children }: any) {
     // this is the wrapper component
     return (
+        // i've just added animation to the whole lay out
         <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
