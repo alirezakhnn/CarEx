@@ -33,25 +33,35 @@ const backgroundSliderStyle = `
 `;
 
 // the images to render in dark mode
-const darkImages = [
-    { src: '/images/dark/colorSpotCar.jpg', alt: 'spotCar' },
-    { src: '/images/dark/edgeCar.jpg', alt: 'edgeCar' },
-    { src: '/images/dark/backCar.jpg', alt: 'backCar' },
-    { src: '/images/dark/modernDarkCarMoonlightBlue.jpg', alt: 'modernDarkCarMoonlightBlue' },
-];
+
+// const darkImages = [
+//     { src: '/images/dark/colorSpotCar.jpg', alt: 'spotCar' },
+//     { src: '/images/dark/edgeCar.jpg', alt: 'edgeCar' },
+//     { src: '/images/dark/backCar.jpg', alt: 'backCar' },
+//     { src: '/images/dark/modernDarkCarMoonlightBlue.jpg', alt: 'modernDarkCarMoonlightBlue' },
+// ];
 
 // the images to render in light mode 
-const lightImages = [
-    { src: '/images/light/silverSuperSportCar.jpg', alt: 'silverSuperSportCar' },
-    { src: '/images/light/metalWhiteCar.jpg', alt: 'metalWhiteCar' },
-    { src: '/images/light/halfmetalWhiteCar.jpg', alt: 'halfmetalWhiteCar' },
-    { src: '/images/light/bugattiLikeModernWhiteCar.jpg', alt: 'bugattiLikeModernWhiteCar' },
-];
 
-export default function Slider(): any {
+// const lightImages = [
+//     { src: '/images/light/silverSuperSportCar.jpg', alt: 'silverSuperSportCar' },
+//     { src: '/images/light/metalWhiteCar.jpg', alt: 'metalWhiteCar' },
+//     { src: '/images/light/halfmetalWhiteCar.jpg', alt: 'halfmetalWhiteCar' },
+//     { src: '/images/light/bugattiLikeModernWhiteCar.jpg', alt: 'bugattiLikeModernWhiteCar' },
+// ];
+
+interface SliderProps {
+    pictureContent: any;
+}
+
+export function Slider(props: SliderProps): any {
+    const { pictureContent } = props;
+    const { dark, light } = pictureContent;
+
     const { theme } = useTheme();
+
     return (
-        <div className=" container xl:min-w-[100rem] ml-16 min-w-[100vw]
+        <div className=" container ml-16 min-w-[100vw]
         dark:block absolute lg:top-[-35vh] xxs:top-0 
         w-screen justify-center
         bg-center bg-fixed justify-self-center z-0 xs:top-[-5%]">
@@ -90,55 +100,59 @@ export default function Slider(): any {
             >
                 {/* the fallback props shows the component of loading 
                 untill it downloaded*/}
-                <Suspense fallback={<h1>Loading...</h1>}>
-                    {theme == 'dark' ?
-                        darkImages.map((pic, index: number) => {
-                            const { src, alt } = pic;
-                            return (
-                                <SwiperSlide key={index} className="dark:block hidden">
-                                    <Image
-                                        src={src}
-                                        alt={alt}
-                                        width={1500}
-                                        height={500}
-                                        className={`${backgroundSliderStyle} opacity-[45%]`}
-                                    />
-                                </SwiperSlide>
-                            );
-                        }) :
-                        lightImages.map((pic, index: number) => {
-                            const { src, alt } = pic;
-                            return (
-                                <SwiperSlide key={index} className="dark:hidden block">
-                                    <Image
-                                        src={src}
-                                        alt={alt}
-                                        width={1500}
-                                        height={500}
-                                        className={`${backgroundSliderStyle} opacity-[35%]`}
-                                    />
-                                </SwiperSlide>
-                            );
-                        })
-                    }
-                    {
-                        theme == 'system' ? darkImages.map((pic, index: number) => {
-                            const { src, alt } = pic;
-                            return (
-                                <SwiperSlide key={index}>
-                                    <Image
-                                        src={src}
-                                        alt={alt}
-                                        width={1500}
-                                        height={500}
-                                        className={`${backgroundSliderStyle} opacity-[35%]`}
-                                    />
-                                </SwiperSlide>
-                            )
-                        })
-                            : null
-                    }
-                </Suspense>
+
+                {theme === 'dark' ?
+                    dark.map((pic: any, index: any) => {
+                        const { downloadUrl, name } = pic;
+                        // const { src, alt } = pic;
+                        return (
+                            <SwiperSlide key={index} className="dark:block hidden">
+                                <Image
+                                    src={downloadUrl}
+                                    alt={name}
+                                    width={1500}
+                                    height={500}
+                                    className={`${backgroundSliderStyle} opacity-[45%]`}
+                                />
+                            </SwiperSlide>
+                        );
+                    }) : null
+                }
+                {theme === 'light' ?
+                    light.map((pic: any, index: any) => {
+                        const { downloadUrl, name } = pic;
+                        // const { src, alt } = pic;
+                        return (
+                            <SwiperSlide key={index} className="dark:hidden block">
+                                <Image
+                                    src={downloadUrl}
+                                    alt={name}
+                                    width={1500}
+                                    height={500}
+                                    className={`${backgroundSliderStyle} opacity-[35%]`}
+                                />
+                            </SwiperSlide>
+                        );
+                    }) : null
+                }
+                {
+                    theme === 'system' ? dark.map((pic: any, index: any) => {
+                        const { downloadUrl, name } = pic;
+                        // const { src, alt } = pic;
+                        return (
+                            <SwiperSlide key={index}>
+                                <Image
+                                    src={downloadUrl}
+                                    alt={name}
+                                    width={1500}
+                                    height={500}
+                                    className={`${backgroundSliderStyle} opacity-[35%]`}
+                                />
+                            </SwiperSlide>
+                        )
+                    })
+                        : null
+                }
             </Swiper>
         </div >
     );

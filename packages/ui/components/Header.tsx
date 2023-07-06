@@ -4,13 +4,19 @@ import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
 
 // we import Slider by next-dynamic to render the Slider component in browser
-const Slider = dynamic(() => import('../modules/Slider'), { ssr: false });
+// const Slider = dynamic(() => import('../modules/Slider'), { ssr: false });
+import { Slider } from "../modules/Slider";
+interface SliderProps {
+    pictureContent: any
+}
 
-export function Header() {
+type Slider = SliderProps;
+
+export function Header({ pictureContent }: any) {
     return (
         <header className="xs:block sm:flex justify-center xxs:mr-16 md:mr-0 align-center">
             <div className="grid grid-cols-1 font-monsterratBold xl:px-[13%]">
-                <Slider />
+                <Slider pictureContent={pictureContent} />
                 {/* 
                 the motion from framer-motion is to make animation of elements
                 and for delaying "initial, animate and transition is 
