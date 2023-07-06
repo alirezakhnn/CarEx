@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { navItem } from '../components/Nav';
+import { navItems } from '../components/Nav';
 /* this component works when the screen is on tablet size or less
 and hamburger menu is checked */
 export function DropDown() {
@@ -17,7 +17,7 @@ export function DropDown() {
             duration-500 font-monsterratMedium z-20`}>
             <ul className="grid gap-y-3">
                 {
-                    navItem.map(({ id, href, title }) => (
+                    navItems.map(({ id, href, title }) => (
                         <Link
                             className="hover:text-oceanBlue
                             transition-all

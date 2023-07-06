@@ -1,14 +1,22 @@
 import { Footer } from './Footer';
 import { Nav } from './Nav';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 
-export function Layout({ children }: any) {
-    // this is the wrapper component
+interface LayoutProps {
+    children: React.ReactNode;
+}
+
+const layoutVariants: Variants = {
+    initial: { opacity: 0, x: 20 },
+    animate: { opacity: 1, x: 0 },
+};
+
+export function Layout({ children }: LayoutProps): React.ReactElement {
     return (
-        // i've just added animation to the whole lay out
         <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
+            variants={layoutVariants}
+            initial="initial"
+            animate="animate"
             transition={{ duration: 0.5 }}
             className="grid"
         >

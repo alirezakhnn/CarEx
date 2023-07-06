@@ -40,19 +40,6 @@ exports.getStaticProps = void 0;
 var react_1 = require("react");
 var ui_1 = require("ui");
 var axios_1 = require("axios");
-function Web(_a) {
-    var pictureContent = _a.pictureContent;
-    var _b = react_1.useState(true), isLoading = _b[0], setIsLoading = _b[1];
-    react_1.useEffect(function () {
-        if (pictureContent.dark.length > 0 && pictureContent.light.length > 0) {
-            setIsLoading(false);
-        }
-    }, [pictureContent]);
-    return (react_1["default"].createElement("div", null, isLoading ? (react_1["default"].createElement(ui_1.SquareLoader, null)) : (react_1["default"].createElement(react_1["default"].Fragment, null,
-        react_1["default"].createElement(ui_1.Header, { pictureContent: pictureContent }),
-        react_1["default"].createElement(ui_1.Main, null)))));
-}
-exports["default"] = Web;
 function getAuthorizationHeader() {
     return __awaiter(this, void 0, void 0, function () {
         var token;
@@ -64,7 +51,7 @@ function getAuthorizationHeader() {
 }
 function getStaticProps() {
     return __awaiter(this, void 0, void 0, function () {
-        var baseUrl, headers, directories, promises, _a, dir1Files, dir2Files, pictureContent;
+        var baseUrl, headers, directoriesResponse, directories, promises, _a, dir1Files, dir2Files, pictureContent;
         var _this = this;
         return __generator(this, function (_b) {
             switch (_b.label) {
@@ -73,20 +60,15 @@ function getStaticProps() {
                     return [4 /*yield*/, getAuthorizationHeader()];
                 case 1:
                     headers = _b.sent();
-                    return [4 /*yield*/, axios_1["default"]({
-                            method: 'get',
-                            url: baseUrl + "/contents",
-                            headers: headers
-                        }).then(function (res) { return res.data; })];
+                    return [4 /*yield*/, axios_1["default"].get(baseUrl + "/contents", { headers: headers })];
                 case 2:
-                    directories = _b.sent();
+                    directoriesResponse = _b.sent();
+                    directories = directoriesResponse.data;
                     promises = directories.map(function (directory) { return __awaiter(_this, void 0, void 0, function () {
-                        var dirUrl, dirResponse, files;
+                        var dirResponse, files;
                         return __generator(this, function (_a) {
                             switch (_a.label) {
-                                case 0:
-                                    dirUrl = directory.url;
-                                    return [4 /*yield*/, axios_1["default"].get(dirUrl, { headers: headers })];
+                                case 0: return [4 /*yield*/, axios_1["default"].get(directory.url, { headers: headers })];
                                 case 1:
                                     dirResponse = _a.sent();
                                     files = dirResponse.data;
@@ -114,3 +96,16 @@ function getStaticProps() {
     });
 }
 exports.getStaticProps = getStaticProps;
+function Web(_a) {
+    var pictureContent = _a.pictureContent;
+    var _b = react_1.useState(true), isLoading = _b[0], setIsLoading = _b[1];
+    react_1.useEffect(function () {
+        if (pictureContent.dark.length > 0 && pictureContent.light.length > 0) {
+            setIsLoading(false);
+        }
+    }, [pictureContent]);
+    return (react_1["default"].createElement("div", null, isLoading ? (react_1["default"].createElement(ui_1.SquareLoader, null)) : (react_1["default"].createElement(react_1["default"].Fragment, null,
+        react_1["default"].createElement(ui_1.Header, { pictureContent: pictureContent }),
+        react_1["default"].createElement(ui_1.Main, null)))));
+}
+exports["default"] = Web;

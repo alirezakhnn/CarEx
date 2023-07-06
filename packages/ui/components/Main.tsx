@@ -1,4 +1,3 @@
-import { SquareLoader } from "../modules/SquareLoader";
 
 export function Main() {
     return (
