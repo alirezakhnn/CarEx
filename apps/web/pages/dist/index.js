@@ -40,6 +40,7 @@ exports.getStaticProps = void 0;
 var react_1 = require("react");
 var ui_1 = require("ui");
 var axios_1 = require("axios");
+var material_1 = require("@mui/material");
 function getAuthorizationHeader() {
     return __awaiter(this, void 0, void 0, function () {
         var token;
@@ -51,16 +52,17 @@ function getAuthorizationHeader() {
 }
 function getStaticProps() {
     return __awaiter(this, void 0, void 0, function () {
-        var baseUrl, headers, directoriesResponse, directories, promises, _a, dir1Files, dir2Files, pictureContent;
+        var baseUrl, headers_1, directoriesResponse, directories, promises, _a, dir1Files, dir2Files, pictureContent, error_1;
         var _this = this;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
+                    _b.trys.push([0, 4, , 5]);
                     baseUrl = 'https://api.github.com/repos/alirezakhnn/CarExPics';
                     return [4 /*yield*/, getAuthorizationHeader()];
                 case 1:
-                    headers = _b.sent();
-                    return [4 /*yield*/, axios_1["default"].get(baseUrl + "/contents", { headers: headers })];
+                    headers_1 = _b.sent();
+                    return [4 /*yield*/, axios_1["default"].get(baseUrl + "/contents", { headers: headers_1 })];
                 case 2:
                     directoriesResponse = _b.sent();
                     directories = directoriesResponse.data;
@@ -68,7 +70,9 @@ function getStaticProps() {
                         var dirResponse, files;
                         return __generator(this, function (_a) {
                             switch (_a.label) {
-                                case 0: return [4 /*yield*/, axios_1["default"].get(directory.url, { headers: headers })];
+                                case 0: return [4 /*yield*/, axios_1["default"].get(directory.url, {
+                                        headers: headers_1
+                                    })];
                                 case 1:
                                     dirResponse = _a.sent();
                                     files = dirResponse.data;
@@ -91,6 +95,15 @@ function getStaticProps() {
                                 pictureContent: pictureContent
                             }
                         }];
+                case 4:
+                    error_1 = _b.sent();
+                    console.error('Error fetching data:', error_1);
+                    return [2 /*return*/, {
+                            props: {
+                                pictureContent: null
+                            }
+                        }];
+                case 5: return [2 /*return*/];
             }
         });
     });
@@ -99,13 +112,20 @@ exports.getStaticProps = getStaticProps;
 function Web(_a) {
     var pictureContent = _a.pictureContent;
     var _b = react_1.useState(true), isLoading = _b[0], setIsLoading = _b[1];
+    var _c = react_1.useState(false), error = _c[0], setError = _c[1];
     react_1.useEffect(function () {
-        if (pictureContent.dark.length > 0 && pictureContent.light.length > 0) {
+        if (pictureContent) {
+            if (pictureContent.dark.length > 0 && pictureContent.light.length > 0) {
+                setIsLoading(false);
+            }
+        }
+        else {
+            setError(true);
             setIsLoading(false);
         }
     }, [pictureContent]);
-    return (react_1["default"].createElement("div", null, isLoading ? (react_1["default"].createElement(ui_1.SquareLoader, null)) : (react_1["default"].createElement(react_1["default"].Fragment, null,
+    return (react_1["default"].createElement("div", null, isLoading ? (react_1["default"].createElement(ui_1.SquareLoader, null)) : (react_1["default"].createElement(react_1["default"].Fragment, null, error ? (react_1["default"].createElement(material_1.Typography, { variant: "h3", color: "primary.main", className: "text-center mt-[10%]  xxs:text-md sm:text-lg lg:text-xl mx-20" }, "Bad Credential or Request Limit Reached!")) : (react_1["default"].createElement(react_1["default"].Fragment, null,
         react_1["default"].createElement(ui_1.Header, { pictureContent: pictureContent }),
-        react_1["default"].createElement(ui_1.Main, null)))));
+        react_1["default"].createElement(ui_1.Main, null)))))));
 }
 exports["default"] = Web;

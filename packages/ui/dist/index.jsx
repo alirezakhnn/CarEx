@@ -6,4 +6,5 @@ export * from './components/Nav';
 export * from './components/Header';
 export * from './modules/Logo';
 export * from './modules/SquareLoader';
+export * from './modules/TimeLine';
 export * from './Theme';
