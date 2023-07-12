@@ -7,6 +7,7 @@ require("../css/React_vertical_timeline.css");
 var Button_1 = require("../modules/Button");
 // import ChangeHistoryIcon from '@mui/icons-material/ChangeHistory';
 var Icons_1 = require("./Icons");
+var Add_1 = require("@mui/icons-material/Add");
 var timelineElements = [
     {
         id: 1,
@@ -54,10 +55,14 @@ var timelineElements = [
     },
 ];
 exports.TimeLine = function () {
-    return (React.createElement(react_vertical_timeline_component_1.VerticalTimeline, null, timelineElements.map(function (element) { return (React.createElement(react_vertical_timeline_component_1.VerticalTimelineElement, { key: element.id, className: "vertical-timeline-element vertical-timeline-element--work text-midnight dark:text-white", date: element.date, iconStyle: element.iconStyle, icon: element.icon },
-        React.createElement("img", { src: element.picture, alt: element.alt, className: "opacity-[85%] ml-8 rounded-xl", width: 400, height: 400 }),
-        React.createElement("h3", { className: "vertical-timeline-element-title font-bold font-monsterratBold" }, element.title),
-        React.createElement("h4", { className: "vertical-timeline-element-subtitle font-monsterratItalic text-oceanBlue" }, element.subtitle),
-        React.createElement("p", { className: "font-monsterratMedium" }, element.description),
-        React.createElement(Button_1.BtnRotator, { href: "brand_cars/" + element.id, className: 'mt-6 ml-4' }, "More"))); })));
+    return (React.createElement(react_vertical_timeline_component_1.VerticalTimeline, null,
+        timelineElements.map(function (element) { return (React.createElement(react_vertical_timeline_component_1.VerticalTimelineElement, { key: element.id, className: "vertical-timeline-element vertical-timeline-element--work text-midnight dark:text-white", date: element.date, iconStyle: element.iconStyle, icon: element.icon },
+            React.createElement("img", { src: element.picture, alt: element.alt, className: "opacity-[85%] ml-8 rounded-xl", width: 400, height: 400 }),
+            React.createElement("h3", { className: "vertical-timeline-element-title font-bold font-monsterratBold" }, element.title),
+            React.createElement("h4", { className: "vertical-timeline-element-subtitle font-monsterratItalic text-oceanBlue" }, element.subtitle),
+            React.createElement("p", { className: "font-monsterratMedium" }, element.description),
+            React.createElement(Button_1.BtnRotator, { href: "brand_cars/" + element.id, className: 'mt-6 ml-4' }, "More"))); }),
+        React.createElement("div", { className: "flex justify-center" },
+            React.createElement(Button_1.BtnRotator, { href: "/add-car", className: "" },
+                React.createElement(Add_1["default"], null)))));
 };

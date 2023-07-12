@@ -21,6 +21,8 @@
     "node": ">=14.0.0"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "next-auth": "^4.19.2",
     "next-themes": "^0.2.1"
   },
   "packageManager": "npm@9.3.1"

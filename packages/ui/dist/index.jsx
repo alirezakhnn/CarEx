@@ -7,4 +7,5 @@ export * from './components/Header';
 export * from './modules/Logo';
 export * from './modules/SquareLoader';
 export * from './modules/TimeLine';
+export * from './modules/AddCarsComponent';
 export * from './Theme';

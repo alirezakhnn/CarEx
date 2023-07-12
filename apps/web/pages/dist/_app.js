@@ -14,13 +14,13 @@ exports.__esModule = true;
 require("../styles/globals.css");
 var ui_1 = require("ui");
 var next_themes_1 = require("next-themes");
+var react_1 = require("next-auth/react");
 function MyApp(_a) {
     var Component = _a.Component, pageProps = _a.pageProps;
-    return (
-    // the ThemeProvider is for dark mode
-    React.createElement(next_themes_1.ThemeProvider, { attribute: "class" },
-        React.createElement(ui_1.MuiThemeContainer, null,
-            React.createElement(ui_1.Layout, null,
-                React.createElement(Component, __assign({}, pageProps))))));
+    return (React.createElement(react_1.SessionProvider, { session: pageProps.session },
+        React.createElement(next_themes_1.ThemeProvider, { attribute: "class" },
+            React.createElement(ui_1.MuiThemeContainer, null,
+                React.createElement(ui_1.Layout, null,
+                    React.createElement(Component, __assign({}, pageProps)))))));
 }
 exports["default"] = MyApp;

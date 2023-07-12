@@ -11,6 +11,8 @@ import { BtnRotator } from '../modules/Button';
 
 import { Porsche, BMW, Benz, Audi } from './Icons';
 
+import AddIcon from '@mui/icons-material/Add';
+
 
 const timelineElements = [
     {
@@ -91,6 +93,14 @@ export const TimeLine = () => {
                     </BtnRotator>
                 </VerticalTimelineElement>
             ))}
+            <div className="flex justify-center">
+                <BtnRotator
+                    href="/add-car"
+                    className=""
+                >
+                    <AddIcon />
+                </BtnRotator>
+            </div>
         </VerticalTimeline>
     );
 }

@@ -33,8 +33,8 @@ function Nav() {
                 return (React.createElement(link_1["default"], { href: href, key: id, className: navListItemsLinkStyle }, title));
             })),
             React.createElement(framer_motion_1.motion.div, { variants: buttonVariants, initial: "initial", animate: "animate", transition: { duration: 0.5 }, className: "ml-10 xxs:hidden lg:block z-10" },
-                React.createElement(link_1["default"], { href: "/", className: navListItemsLinkStyle + " uppercase lg:text-xs" }, "SignIn"),
-                React.createElement(Button_1.BtnRotator, { className: "lg:text-xs", href: "#" }, "SignUp")),
+                React.createElement(link_1["default"], { href: "/signin", className: navListItemsLinkStyle + " uppercase lg:text-xs" }, "SignIn"),
+                React.createElement(Button_1.BtnRotator, { className: "lg:text-xs", href: "/signup" }, "SignUp")),
             React.createElement(Hamburger_1.Hamburger, null))));
 }
 exports.Nav = Nav;

@@ -61,10 +61,10 @@ export function Nav(): React.ReactElement {
                     transition={{ duration: 0.5 }}
                     className="ml-10 xxs:hidden lg:block z-10"
                 >
-                    <Link href="/" className={`${navListItemsLinkStyle} uppercase lg:text-xs`}>
+                    <Link href="/signin" className={`${navListItemsLinkStyle} uppercase lg:text-xs`}>
                         SignIn
                     </Link>
-                    <BtnRotator className="lg:text-xs" href="#">
+                    <BtnRotator className="lg:text-xs" href="/signup">
                         SignUp
                     </BtnRotator>
                 </motion.div>
