@@ -31,7 +31,6 @@ export function AddCarsComponent() {
     });
 
     const submitHandler = async () => {
-        console.log(cars)
         const res = await fetch("/api/addcar", {
             method: "POST",
             body: JSON.stringify({ data: cars }),

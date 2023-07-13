@@ -72,13 +72,11 @@ function AddCarsComponent() {
         var res, data;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0:
-                    console.log(cars);
-                    return [4 /*yield*/, fetch("/api/addcar", {
-                            method: "POST",
-                            body: JSON.stringify({ data: cars }),
-                            headers: { "Content-Type": "application/json" }
-                        })];
+                case 0: return [4 /*yield*/, fetch("/api/addcar", {
+                        method: "POST",
+                        body: JSON.stringify({ data: cars }),
+                        headers: { "Content-Type": "application/json" }
+                    })];
                 case 1:
                     res = _a.sent();
                     return [4 /*yield*/, res.json()];

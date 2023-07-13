@@ -14,71 +14,44 @@ import { Porsche, BMW, Benz, Audi } from './Icons';
 import AddIcon from '@mui/icons-material/Add';
 
 import { useSession } from 'next-auth/react';
+import { useState, useEffect, CSSProperties } from 'react';
 
-
-const timelineElements = [
-    {
-        id: 1,
-        title: 'Porsche',
-        subtitle: '918 spyder',
-        picture: '/images/TimeLinePics/Porsche.jpg',
-        alt: 'porsche918',
-        date: '2014-15',
-        description: 'The Porsche 918 Spyder is a hybrid hypercar with impressive performance, cutting-edge technology, and limited production.',
-        iconStyle: { background: 'black', color: '#fff', boxShadow: '0 0 20px #116AE3' },
-        icon: <Porsche />,
-    },
-    {
-        id: 2,
-        title: 'BMW',
-        subtitle: 'futuristic',
-        picture: '/images/TimeLinePics/BMW.jpg',
-        alt: 'bMWfutureCar',
-        date: 'coming soon',
-        description: 'BMW is a German luxury automobile manufacturer known for producing high-performance cars with elegant designs and advanced technology.',
-        iconStyle: { background: 'black', color: '#fff', boxShadow: '0 0 20px #116AE3' },
-        icon: <BMW />,
-    },
-    {
-        id: 3,
-        title: 'Benz',
-        subtitle: 'Amg',
-        picture: '/images/TimeLinePics/Benz.jpg',
-        alt: 'BenzAMG',
-        date: '2019 - 2020',
-        description: 'Benz AMG is the high-performance division of Mercedes-Benz, specializing in creating powerful and exhilarating sports cars and luxury vehicles.',
-        iconStyle: { background: 'black', color: '#fff', boxShadow: '0 0 20px #116AE3' },
-        icon: <Benz />,
-    },
-    {
-        id: 4,
-        title: 'Audi',
-        subtitle: 'R8',
-        picture: '/images/TimeLinePics/Audi.jpg',
-        alt: 'AudiR8',
-        date: '2017 - 2018',
-        description: 'The Audi R8 is a high-performance sports car known for its sleek design, powerful performance, and cutting-edge technology.',
-        iconStyle: { background: 'black', color: '#fff', boxShadow: '0 0 20px #116AE3' },
-        icon: <Audi />,
-    },
-
-];
+interface CarData {
+    _id: string;
+    date: string;
+    icon?: any;
+    picture: string;
+    alt: string;
+    title: string;
+    subtitle: string;
+    description: string;
+    id: string;
+    // iconStyle?: CSSProperties | undefined;
+};
 
 export const TimeLine = () => {
     const { status } = useSession();
-
-    return (
+    const [data, setData] = useState<CarData[] | []>([]);
+    useEffect(() => {
+        if (status === 'authenticated') fetch('api/addcar')
+            .then(res => res.json())
+            .then(data => setData(data.data));
+    }, [status]);
+    const iconstyle = `
+    background: 'black', color: '#fff', boxShadow: '0 0 20px #116AE3
+    `;
+    if (data) return (
         <>
             {
                 status === "authenticated" ? (
 
                     <VerticalTimeline>
-                        {timelineElements.map((element) => (
+                        {data.map(element => (
                             <VerticalTimelineElement
-                                key={element.id}
+                                key={element._id}
                                 className="vertical-timeline-element vertical-timeline-element--work text-midnight dark:text-white"
                                 date={element.date}
-                                iconStyle={element.iconStyle}
+                                // iconStyle={iconstyle}
                                 icon={element.icon}
                             >
                                 <img src={element.picture}
@@ -92,7 +65,7 @@ export const TimeLine = () => {
                                 <p className="font-monsterratMedium"
                                 >{element.description}</p>
                                 <BtnRotator
-                                    href={`brand_cars/${element.id}`}
+                                    href='#'
                                     className='mt-6 ml-4'
                                 >
                                     More
@@ -108,7 +81,12 @@ export const TimeLine = () => {
                             </BtnRotator>
                         </div>
                     </VerticalTimeline>
-                ) : null
+                ) : (<p
+                    className="dark:text-white text-midnight text-xl font-monsterratBold"
+                >
+                    Loading...
+                </p>
+                )
             }
         </>
     );
