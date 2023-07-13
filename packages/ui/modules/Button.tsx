@@ -5,13 +5,15 @@ interface BtnRotatorProps {
   children: ReactNode;
   href: string;
   className?: string;
+  onClick?: any;
 }
 
-export const BtnRotator = ({ children, href, className }: BtnRotatorProps): React.ReactElement => {
+export const BtnRotator = ({ children, href, className, onClick }: BtnRotatorProps): React.ReactElement => {
   const [rotate, setRotate] = useState<boolean>(false);
 
   return (
     <Button
+      onClick={onClick}
       sx={{
         clipPath: 'polygon(20% 0, 80% 0, 100% 50%, 80% 100%, 20% 100%, 0% 50%)',
       }}

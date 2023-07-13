@@ -19,10 +19,11 @@ export default function SignUp() {
     font-monsterratMedium
     `;
     const signupHandler = async () => {
+        console.log(email, password);
         const res = await fetch('/api/auth/signup', {
             method: "POST",
             body: JSON.stringify({ email, password }),
-            headers: { "Content-Type": "application/json;" }
+            headers: { "Content-Type": "application/json" }
         });
         const data = await res.json();
         console.log(data);
@@ -39,7 +40,7 @@ export default function SignUp() {
                     />
                 </div>
                 <div className="grid gap-y-2">
-                    <label className={labelsClass} htmlFor="password">password</label>
+                    <label className={labelsClass} htmlFor="password">Password</label>
                     <input id="password" type="password" value={password}
                         onChange={e => setPassword(e.target.value)}
                         className={inputsClass}

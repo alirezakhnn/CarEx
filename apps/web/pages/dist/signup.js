@@ -51,11 +51,13 @@ function SignUp() {
         var res, data;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, fetch('/api/auth/signup', {
-                        method: "POST",
-                        body: JSON.stringify({ email: email, password: password }),
-                        headers: { "Content-Type": "application/json;" }
-                    })];
+                case 0:
+                    console.log(email, password);
+                    return [4 /*yield*/, fetch('/api/auth/signup', {
+                            method: "POST",
+                            body: JSON.stringify({ email: email, password: password }),
+                            headers: { "Content-Type": "application/json" }
+                        })];
                 case 1:
                     res = _a.sent();
                     return [4 /*yield*/, res.json()];
@@ -74,7 +76,7 @@ function SignUp() {
                 React.createElement("label", { className: labelsClass, htmlFor: "email" }, "Email"),
                 React.createElement("input", { id: "email", type: "text", value: email, onChange: function (e) { return setEmail(e.target.value); }, className: inputsClass })),
             React.createElement("div", { className: "grid gap-y-2" },
-                React.createElement("label", { className: labelsClass, htmlFor: "password" }, "password"),
+                React.createElement("label", { className: labelsClass, htmlFor: "password" }, "Password"),
                 React.createElement("input", { id: "password", type: "password", value: password, onChange: function (e) { return setPassword(e.target.value); }, className: inputsClass })),
             React.createElement("button", { className: "bg-oceanBlue hover:bg-aboveOcean text-white font-monsterratBold px-4 py-2 rounded-lg mt-5", onClick: signupHandler }, "SignUp"),
             React.createElement("p", { className: "dark:text-white text-midnight font-monsterratMedium" },

@@ -13,6 +13,8 @@ import { Porsche, BMW, Benz, Audi } from './Icons';
 
 import AddIcon from '@mui/icons-material/Add';
 
+import { useSession } from 'next-auth/react';
+
 
 const timelineElements = [
     {
@@ -63,44 +65,51 @@ const timelineElements = [
 ];
 
 export const TimeLine = () => {
+    const { status } = useSession();
 
     return (
+        <>
+            {
+                status === "authenticated" ? (
 
-        <VerticalTimeline>
-            {timelineElements.map((element) => (
-                <VerticalTimelineElement
-                    key={element.id}
-                    className="vertical-timeline-element vertical-timeline-element--work text-midnight dark:text-white"
-                    date={element.date}
-                    iconStyle={element.iconStyle}
-                    icon={element.icon}
-                >
-                    <img src={element.picture}
-                        alt={element.alt}
-                        className="opacity-[85%] ml-8 rounded-xl"
-                        width={400}
-                        height={400}
-                    />
-                    <h3 className="vertical-timeline-element-title font-bold font-monsterratBold">{element.title}</h3>
-                    <h4 className="vertical-timeline-element-subtitle font-monsterratItalic text-oceanBlue">{element.subtitle}</h4>
-                    <p className="font-monsterratMedium"
-                    >{element.description}</p>
-                    <BtnRotator
-                        href={`brand_cars/${element.id}`}
-                        className='mt-6 ml-4'
-                    >
-                        More
-                    </BtnRotator>
-                </VerticalTimelineElement>
-            ))}
-            <div className="flex justify-center">
-                <BtnRotator
-                    href="/add-car"
-                    className=""
-                >
-                    <AddIcon />
-                </BtnRotator>
-            </div>
-        </VerticalTimeline>
+                    <VerticalTimeline>
+                        {timelineElements.map((element) => (
+                            <VerticalTimelineElement
+                                key={element.id}
+                                className="vertical-timeline-element vertical-timeline-element--work text-midnight dark:text-white"
+                                date={element.date}
+                                iconStyle={element.iconStyle}
+                                icon={element.icon}
+                            >
+                                <img src={element.picture}
+                                    alt={element.alt}
+                                    className="opacity-[85%] ml-8 rounded-xl"
+                                    width={400}
+                                    height={400}
+                                />
+                                <h3 className="vertical-timeline-element-title font-bold font-monsterratBold">{element.title}</h3>
+                                <h4 className="vertical-timeline-element-subtitle font-monsterratItalic text-oceanBlue">{element.subtitle}</h4>
+                                <p className="font-monsterratMedium"
+                                >{element.description}</p>
+                                <BtnRotator
+                                    href={`brand_cars/${element.id}`}
+                                    className='mt-6 ml-4'
+                                >
+                                    More
+                                </BtnRotator>
+                            </VerticalTimelineElement>
+                        ))}
+                        <div className="flex justify-center">
+                            <BtnRotator
+                                href="/add-car"
+                                className=""
+                            >
+                                <AddIcon />
+                            </BtnRotator>
+                        </div>
+                    </VerticalTimeline>
+                ) : null
+            }
+        </>
     );
 }

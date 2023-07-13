@@ -1,14 +1,19 @@
-import { useState } from "react";
-// import { useSession } from "next-auth/react";
+import { useState, useEffect } from "react";
+import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { signIn } from 'next-auth/react';
 import Link from 'next/link';
 
 export default function SignUp() {
     const router = useRouter();
+    const { status } = useSession();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    useEffect(() => {
+        if (status === 'authenticated') router.replace('/');
+    }, [status]);
 
     const labelsClass = `
     font-monsterratBold dark:text-white text-midnight

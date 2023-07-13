@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Switcher } from '../modules/Switcher';
 import { Hamburger } from '../modules/Hamburger';
 import { motion, Variants } from 'framer-motion';
+import { useSession, signOut } from 'next-auth/react';
 
 interface NavItem {
     id: number;
@@ -34,6 +35,10 @@ const buttonVariants: Variants = {
 };
 
 export function Nav(): React.ReactElement {
+    const { status } = useSession();
+    const logOutHandler = () => {
+        signOut();
+    }
     return (
         <div className="flex justify-between align-baseline text-silver mt-4 xl:w-9/12 py-3 px-3 shadow-lg dark:shadow-oceanBlue shadow-silver justify-self-center rounded-lg relative shadow-md before:absolute before:z-[-1] before:bg-gradient-to-r before:from-silver before:to-midnight after:absolute after:inset-1 after:dark:blur-3xl after:dark:bg-gradient-to-r after:from-oceanBlue after:via-transparent after:to-transparent transform font-monsterratBold z-10 md:w-9/12 lg:w-[60%] xxs:w-[90%]">
             <motion.div
@@ -61,12 +66,21 @@ export function Nav(): React.ReactElement {
                     transition={{ duration: 0.5 }}
                     className="ml-10 xxs:hidden lg:block z-10"
                 >
-                    <Link href="/signin" className={`${navListItemsLinkStyle} uppercase lg:text-xs`}>
-                        SignIn
-                    </Link>
-                    <BtnRotator className="lg:text-xs" href="/signup">
-                        SignUp
-                    </BtnRotator>
+                    {
+                        status !== 'authenticated' ? (
+                            <><Link href="/signin" className={`${navListItemsLinkStyle} uppercase lg:text-xs`}>
+                                SignIn
+                            </Link><BtnRotator className="lg:text-xs" href="/signup">
+                                    SignUp
+                                </BtnRotator></>
+
+                        ) : (
+                            <BtnRotator
+                                onClick={logOutHandler}
+                                className="lg:text-xs" href="/signin">
+                                Logout
+                            </BtnRotator>)
+                    }
                 </motion.div>
 
                 <Hamburger />

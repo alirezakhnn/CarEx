@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { BtnRotator } from '../modules/Button';
 import { Slider } from '../modules/Slider';
 import { Facebook, Instagram, Telegram } from '../modules/Icons';
+import { useSession } from 'next-auth/react';
 
 interface HeaderProps {
     pictureContent: any;
@@ -33,6 +34,7 @@ export const Header: React.FC<HeaderProps> = ({ pictureContent }) => {
         transition: { duration: 0.5 },
     };
 
+    const { status } = useSession();
     return (
         <header className="xs:block sm:flex justify-center xxs:mr-16 md:mr-0 align-center">
             <div className="grid grid-cols-1 font-monsterratBold xl:px-[13%]">
@@ -56,10 +58,10 @@ export const Header: React.FC<HeaderProps> = ({ pictureContent }) => {
                         <strong className="text-oceanBlue dark:mix-blend-screen font-bold">Exhibition</strong>
                     </motion.h4>
                     <BtnRotator
-                        href="#"
+                        href="/add-car"
                         className="lg:w-[150px] lg:h-[80px] xs:h-[60px] xs:w-[120px] xxs:mt-8 xxs:text-[14px] xs:text-sm"
                     >
-                        Start
+                        {status === "authenticated" ? "Add" : "Start"}
                     </BtnRotator>
                 </motion.div>
             </div>

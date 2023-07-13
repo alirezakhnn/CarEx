@@ -37,22 +37,27 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 var react_1 = require("react");
-// import { useSession } from "next-auth/react";
-var router_1 = require("next/router");
 var react_2 = require("next-auth/react");
+var router_1 = require("next/router");
+var react_3 = require("next-auth/react");
 var link_1 = require("next/link");
 function SignUp() {
     var _this = this;
     var router = router_1.useRouter();
+    var status = react_2.useSession().status;
     var _a = react_1.useState(""), email = _a[0], setEmail = _a[1];
     var _b = react_1.useState(""), password = _b[0], setPassword = _b[1];
+    react_1.useEffect(function () {
+        if (status === 'authenticated')
+            router.replace('/');
+    }, [status]);
     var labelsClass = "\n    font-monsterratBold dark:text-white text-midnight\n    ";
     var inputsClass = "\n    rounded-lg outline-none border-none px-4 py-1\n    bg-gradient-to-r dark:from-silver dark:to-white\n    from-midnight to-silver dark:text-midnight text-white\n    font-monsterratMedium\n    ";
     var loginHandler = function () { return __awaiter(_this, void 0, void 0, function () {
         var res;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, react_2.signIn("credentials", {
+                case 0: return [4 /*yield*/, react_3.signIn("credentials", {
                         email: email,
                         password: password,
                         redirect: false

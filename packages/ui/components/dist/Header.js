@@ -16,6 +16,7 @@ var framer_motion_1 = require("framer-motion");
 var Button_1 = require("../modules/Button");
 var Slider_1 = require("../modules/Slider");
 var Icons_1 = require("../modules/Icons");
+var react_1 = require("next-auth/react");
 exports.Header = function (_a) {
     var pictureContent = _a.pictureContent;
     var animateHeader = {
@@ -38,6 +39,7 @@ exports.Header = function (_a) {
         animate: { opacity: 1, x: 0 },
         transition: { duration: 0.5 }
     };
+    var status = react_1.useSession().status;
     return (React.createElement("header", { className: "xs:block sm:flex justify-center xxs:mr-16 md:mr-0 align-center" },
         React.createElement("div", { className: "grid grid-cols-1 font-monsterratBold xl:px-[13%]" },
             React.createElement(Slider_1.Slider, { pictureContent: pictureContent }),
@@ -50,7 +52,7 @@ exports.Header = function (_a) {
                 React.createElement(framer_motion_1.motion.h4, __assign({}, animateHeaderSubtitle, { className: "dark:text-white flex gap-1 xs:text-sm md:text-md xxs:text-sm xxs:mt-2 xs:mt-0 font-monsterratBold" }),
                     "Car",
                     React.createElement("strong", { className: "text-oceanBlue dark:mix-blend-screen font-bold" }, "Exhibition")),
-                React.createElement(Button_1.BtnRotator, { href: "#", className: "lg:w-[150px] lg:h-[80px] xs:h-[60px] xs:w-[120px] xxs:mt-8 xxs:text-[14px] xs:text-sm" }, "Start"))),
+                React.createElement(Button_1.BtnRotator, { href: "/add-car", className: "lg:w-[150px] lg:h-[80px] xs:h-[60px] xs:w-[120px] xxs:mt-8 xxs:text-[14px] xs:text-sm" }, status === "authenticated" ? "Add" : "Start"))),
         React.createElement(framer_motion_1.motion.div, __assign({}, animateSocialIcons, { className: "xxs:hidden md:grid justify-end xs:mt-[-5%] sm:mt-[9%] md:py-16" }),
             React.createElement(Icons_1.Telegram, null),
             React.createElement(Icons_1.Instagram, null),

@@ -49,8 +49,16 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 exports.__esModule = true;
 exports.AddCarsComponent = void 0;
 var react_1 = require("react");
+var router_1 = require("next/router");
+var react_2 = require("next-auth/react");
 function AddCarsComponent() {
     var _this = this;
+    var status = react_2.useSession().status;
+    var router = router_1.useRouter();
+    react_1.useEffect(function () {
+        if (status === 'unauthenticated')
+            router.replace('/signin');
+    }, [status, router]);
     var _a = react_1.useState({
         title: "",
         subtitle: "",
@@ -61,17 +69,15 @@ function AddCarsComponent() {
         icon: ""
     }), cars = _a[0], setCars = _a[1];
     var submitHandler = function () { return __awaiter(_this, void 0, void 0, function () {
-        var formData, res, data;
+        var res, data;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    formData = new FormData();
-                    formData.append("data", JSON.stringify(cars));
-                    formData.append("picture", cars.picture);
-                    formData.append("icon", cars.icon);
-                    return [4 /*yield*/, fetch("/api/brandCars", {
+                    console.log(cars);
+                    return [4 /*yield*/, fetch("/api/addcar", {
                             method: "POST",
-                            body: formData
+                            body: JSON.stringify({ data: cars }),
+                            headers: { "Content-Type": "application/json" }
                         })];
                 case 1:
                     res = _a.sent();
@@ -79,19 +85,23 @@ function AddCarsComponent() {
                 case 2:
                     data = _a.sent();
                     console.log(data);
+                    if (data.status === 'success') {
+                        router.push('/');
+                    }
                     return [2 /*return*/];
             }
         });
     }); };
     var changeHandler = function (e) {
-        var _a, _b;
-        var _c = e.target, name = _c.name, value = _c.value, files = _c.files;
-        if (name === "picture" || name === "icon") {
-            setCars(__assign(__assign({}, cars), (_a = {}, _a[name] = files === null || files === void 0 ? void 0 : files[0], _a)));
-        }
-        else {
-            setCars(__assign(__assign({}, cars), (_b = {}, _b[name] = value, _b)));
-        }
+        // const { name, value, files } = e.target;
+        var _a;
+        // if (name === "picture" || name === "icon") {
+        //     setCars({ ...cars, [name]: files?.[0] });
+        // } else {
+        //     setCars({ ...cars, [name]: value });
+        // }
+        var _b = e.target, name = _b.name, value = _b.value;
+        setCars(__assign(__assign({}, cars), (_a = {}, _a[name] = value, _a)));
     };
     var inputsClass = "\n    dark:bg-gradient-to-r dark:from-white dark:via-white dark:to-silver bg-midnight\n    rounded-full py-1 dark:text-midnight text-white\n    font-monsterratMedium px-4 transition-all outline-none border-none\n    ";
     var labelsClass = "\n    dark:text-white text-midnight font-monsterratBold\n    ";

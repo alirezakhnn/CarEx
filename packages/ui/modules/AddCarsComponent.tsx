@@ -1,4 +1,6 @@
-import { useState, ChangeEvent } from "react";
+import { useState, ChangeEvent, useEffect } from "react";
+import { useRouter } from 'next/router';
+import { useSession } from 'next-auth/react';
 
 interface CarsData {
     title: string;
@@ -11,6 +13,13 @@ interface CarsData {
 }
 
 export function AddCarsComponent() {
+    const { status } = useSession();
+    const router = useRouter();
+
+    useEffect(() => {
+        if (status === 'unauthenticated') router.replace('/signin');
+    }, [status, router]);
+
     const [cars, setCars] = useState<CarsData>({
         title: "",
         subtitle: "",
@@ -22,28 +31,29 @@ export function AddCarsComponent() {
     });
 
     const submitHandler = async () => {
-        const formData = new FormData();
-        formData.append("data", JSON.stringify(cars));
-        formData.append("picture", cars.picture);
-        formData.append("icon", cars.icon);
-
-        const res = await fetch("/api/brandCars", {
+        console.log(cars)
+        const res = await fetch("/api/addcar", {
             method: "POST",
-            body: formData,
+            body: JSON.stringify({ data: cars }),
+            headers: { "Content-Type": "application/json" }
         });
-
         const data = await res.json();
         console.log(data);
+        if (data.status === 'success') {
+            router.push('/');
+        }
     };
 
     const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        const { name, value, files } = e.target;
+        // const { name, value, files } = e.target;
 
-        if (name === "picture" || name === "icon") {
-            setCars({ ...cars, [name]: files?.[0] });
-        } else {
-            setCars({ ...cars, [name]: value });
-        }
+        // if (name === "picture" || name === "icon") {
+        //     setCars({ ...cars, [name]: files?.[0] });
+        // } else {
+        //     setCars({ ...cars, [name]: value });
+        // }
+        const { name, value } = e.target;
+        setCars({ ...cars, [name]: value })
     };
 
     const inputsClass = `
