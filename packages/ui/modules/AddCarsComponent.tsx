@@ -1,6 +1,7 @@
 import { useState, ChangeEvent, useEffect } from "react";
 import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/react';
+import React from "react";
 
 interface CarsData {
     title: string;
@@ -44,13 +45,6 @@ export function AddCarsComponent() {
     };
 
     const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        // const { name, value, files } = e.target;
-
-        // if (name === "picture" || name === "icon") {
-        //     setCars({ ...cars, [name]: files?.[0] });
-        // } else {
-        //     setCars({ ...cars, [name]: value });
-        // }
         const { name, value } = e.target;
         setCars({ ...cars, [name]: value })
     };
@@ -74,23 +68,23 @@ export function AddCarsComponent() {
             <h3 className="text-xl dark:text-white text-midnight text- font-monsterratBold mb-4">Add Car</h3>
             <div className={divsClass}>
                 <label className={labelsClass} htmlFor="title">Title</label>
-                <input className={inputsClass} type="text" name="title" id="title" value={cars.title} onChange={changeHandler} />
+                <input className={`capitalize ${inputsClass}`} type="text" name="title" id="title" value={cars.title} onChange={changeHandler} />
             </div>
             <div className={divsClass}>
                 <label className={labelsClass} htmlFor="subtitle">Subtitle</label>
-                <input className={inputsClass} type="text" name="subtitle" id="subtitle" value={cars.subtitle} onChange={changeHandler} />
+                <input className={`capitalize ${inputsClass}`} type="text" name="subtitle" id="subtitle" value={cars.subtitle} onChange={changeHandler} />
             </div>
             <div className={divsClass}>
                 <label className={labelsClass} htmlFor="description">Description</label>
-                <input className={inputsClass} type="text" name="description" id="description" value={cars.description} onChange={changeHandler} />
+                <input className={`capitalize ${inputsClass}`} type="text" name="description" id="description" value={cars.description} onChange={changeHandler} />
             </div>
             <div className={divsClass}>
                 <label className={labelsClass} htmlFor="date">Made Date</label>
-                <input className={inputsClass} type="text" name="date" id="date" value={cars.date} onChange={changeHandler} />
+                <input className={`capitalize ${inputsClass}`} type="text" name="date" id="date" value={cars.date} onChange={changeHandler} />
             </div>
             <div className={divsClass}>
                 <label className={labelsClass} htmlFor="alt">Alt</label>
-                <input className={inputsClass} type="text" name="alt" id="alt" value={cars.alt} onChange={changeHandler} />
+                <input className={`capitalize ${inputsClass}`} type="text" name="alt" id="alt" value={cars.alt} onChange={changeHandler} />
             </div>
             <div className={divsClass}>
                 <label className={labelsClass} htmlFor="picture">Car Picture</label>
