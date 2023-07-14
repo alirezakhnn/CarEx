@@ -7,6 +7,7 @@ export interface IUser extends Document {
     lastName?: string;
     carsTimeline?: ICarTimeline[];
     createdAt: Date;
+    role?: any;
 }
 
 export interface ICarTimeline {

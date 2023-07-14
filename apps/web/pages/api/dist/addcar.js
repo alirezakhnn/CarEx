@@ -1,4 +1,15 @@
 "use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -35,6 +46,17 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
 exports.__esModule = true;
 var connectDB_1 = require("../../utils/connectDB");
 var User_1 = require("../../models/User");
@@ -42,7 +64,7 @@ var react_1 = require("next-auth/react");
 function handler(req, res) {
     var _a, _b, _c;
     return __awaiter(this, void 0, void 0, function () {
-        var err_1, session, user, data, session, user, data, err_2;
+        var err_1, session, user, data, session, user, carsTimeline, data, err_2;
         return __generator(this, function (_d) {
             switch (_d.label) {
                 case 0:
@@ -56,7 +78,7 @@ function handler(req, res) {
                     return [3 /*break*/, 4];
                 case 3:
                     err_1 = _d.sent();
-                    console.log(err_1);
+                    console.error(err_1);
                     return [2 /*return*/, res
                             .status(500)
                             .json({ status: "failed", message: "Error in connecting to DB" })];
@@ -75,13 +97,13 @@ function handler(req, res) {
                     if (!user) {
                         return [2 /*return*/, res
                                 .status(404)
-                                .json({ status: "failed", message: "User doesn't exsit!" })];
+                                .json({ status: "failed", message: "User doesn't exist!" })];
                     }
                     data = req.body.data;
                     if (!data) {
                         return [2 /*return*/, res
                                 .status(422)
-                                .json({ status: "failed", message: "Invaild data!" })];
+                                .json({ status: "failed", message: "Invalid data!" })];
                     }
                     (_b = user.carsTimeline) === null || _b === void 0 ? void 0 : _b.push(data);
                     user.save();
@@ -112,12 +134,21 @@ function handler(req, res) {
                                 .status(404)
                                 .json({ status: "failed", message: "User doesn't exist!" })];
                     }
-                    data = user.carsTimeline;
+                    carsTimeline = user.carsTimeline;
+                    data = carsTimeline === null || carsTimeline === void 0 ? void 0 : carsTimeline.map(function (car) {
+                        var pictureBase64 = Buffer.from(car.picture).toString('base64');
+                        var iconBase64 = Buffer.from(car.icon).toString('base64');
+                        var pictureDataUrl = "data:image/jpg;base64," + pictureBase64;
+                        var iconDataUrl = "data:image/svg+xml;base64," + iconBase64;
+                        var carObject = car.toObject();
+                        var picture = carObject.picture, icon = carObject.icon, restCar = __rest(carObject, ["picture", "icon"]);
+                        return __assign(__assign({}, restCar), { pictureDataUrl: pictureDataUrl, iconDataUrl: iconDataUrl });
+                    });
                     res.status(200).json({ status: "success", data: data });
                     return [3 /*break*/, 13];
                 case 12:
                     err_2 = _d.sent();
-                    console.log(err_2);
+                    console.error(err_2);
                     return [2 /*return*/, res
                             .status(500)
                             .json({ status: "failed", message: "Error in connecting to DB" })];

@@ -6,7 +6,7 @@ import { verifyPassword } from "../../../utils/auth";
 import connectDB from "../../../utils/connectDB";
 
 const authOptions = {
-  session: { strategy: "jwt" },
+  session: { strategy: "jwt"},
   providers: [
     CredentialsProvider({
       async authorize(credentials, _req) {
@@ -28,7 +28,7 @@ const authOptions = {
 
         const isValid = await verifyPassword(password, user.password);
 
-        if (!isValid) throw new Error("Username or password is incorrect!");
+        if (!isValid) throw new Error("Username or Password is incorrect!");
 
         return { email };
       },
