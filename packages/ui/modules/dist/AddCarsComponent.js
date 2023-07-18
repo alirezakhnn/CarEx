@@ -52,6 +52,9 @@ var react_1 = require("react");
 var router_1 = require("next/router");
 var react_2 = require("next-auth/react");
 var react_3 = require("react");
+var Button_1 = require("@mui/material/Button");
+var react_toastify_1 = require("react-toastify");
+require("react-toastify/dist/ReactToastify.css");
 function AddCarsComponent() {
     var _this = this;
     var status = react_2.useSession().status;
@@ -85,6 +88,7 @@ function AddCarsComponent() {
                     data = _a.sent();
                     console.log(data);
                     if (data.status === 'success') {
+                        react_toastify_1.toast.success('Car Added');
                         router.push('/');
                     }
                     return [2 /*return*/];
@@ -102,26 +106,27 @@ function AddCarsComponent() {
     return (react_3["default"].createElement("div", { className: "grid place-items-center gap-y-2 mt-1 dark:shadow-lg dark:shadow-oceanBlue shadow-xl shadow-silver max-w-[600px] px-16 py-2 rounded-lg" },
         react_3["default"].createElement("h3", { className: "text-xl dark:text-white text-midnight text- font-monsterratBold mb-4" }, "Add Car"),
         react_3["default"].createElement("div", { className: divsClass },
-            react_3["default"].createElement("label", { className: labelsClass, htmlFor: "title" }, "Title"),
-            react_3["default"].createElement("input", { className: "capitalize " + inputsClass, type: "text", name: "title", id: "title", value: cars.title, onChange: changeHandler })),
+            react_3["default"].createElement("label", { className: labelsClass, htmlFor: "title" }, "Brand Name"),
+            react_3["default"].createElement("input", { className: "capitalize " + inputsClass, type: "text", name: "title", id: "title", value: cars.title, onChange: changeHandler, required: true })),
         react_3["default"].createElement("div", { className: divsClass },
-            react_3["default"].createElement("label", { className: labelsClass, htmlFor: "subtitle" }, "Subtitle"),
-            react_3["default"].createElement("input", { className: "capitalize " + inputsClass, type: "text", name: "subtitle", id: "subtitle", value: cars.subtitle, onChange: changeHandler })),
+            react_3["default"].createElement("label", { className: labelsClass, htmlFor: "subtitle" }, "Car Model"),
+            react_3["default"].createElement("input", { className: "capitalize " + inputsClass, type: "text", name: "subtitle", id: "subtitle", value: cars.subtitle, onChange: changeHandler, required: true })),
         react_3["default"].createElement("div", { className: divsClass },
             react_3["default"].createElement("label", { className: labelsClass, htmlFor: "description" }, "Description"),
-            react_3["default"].createElement("input", { className: "capitalize " + inputsClass, type: "text", name: "description", id: "description", value: cars.description, onChange: changeHandler })),
+            react_3["default"].createElement("input", { className: "capitalize " + inputsClass, type: "text", name: "description", id: "description", value: cars.description, onChange: changeHandler, required: true })),
         react_3["default"].createElement("div", { className: divsClass },
             react_3["default"].createElement("label", { className: labelsClass, htmlFor: "date" }, "Made Date"),
-            react_3["default"].createElement("input", { className: "capitalize " + inputsClass, type: "text", name: "date", id: "date", value: cars.date, onChange: changeHandler })),
+            react_3["default"].createElement("input", { className: "capitalize " + inputsClass, type: "text", name: "date", id: "date", value: cars.date, onChange: changeHandler, required: true })),
         react_3["default"].createElement("div", { className: divsClass },
-            react_3["default"].createElement("label", { className: labelsClass, htmlFor: "alt" }, "Alt"),
-            react_3["default"].createElement("input", { className: "capitalize " + inputsClass, type: "text", name: "alt", id: "alt", value: cars.alt, onChange: changeHandler })),
+            react_3["default"].createElement("label", { className: labelsClass, htmlFor: "alt" }, "Alternative Tag"),
+            react_3["default"].createElement("input", { className: "capitalize " + inputsClass, type: "text", name: "alt", id: "alt", value: cars.alt, onChange: changeHandler, required: true })),
         react_3["default"].createElement("div", { className: divsClass },
             react_3["default"].createElement("label", { className: labelsClass, htmlFor: "picture" }, "Car Picture"),
             react_3["default"].createElement("input", { className: inputsClass, type: "file", name: "picture", id: "picture", onChange: changeHandler })),
         react_3["default"].createElement("div", { className: divsClass },
-            react_3["default"].createElement("label", { className: labelsClass, htmlFor: "icon" }, "Icon"),
+            react_3["default"].createElement("label", { className: labelsClass, htmlFor: "icon" }, "Brand Logo"),
             react_3["default"].createElement("input", { className: inputsClass, type: "file", name: "icon", id: "icon", onChange: changeHandler })),
-        react_3["default"].createElement("button", { className: "my-3 px-4 py-2 rounded-lg text-white bg-oceanBlue font-monsterratBold hover:bg-aboveOcean transition-all", onClick: submitHandler }, "Submit")));
+        react_3["default"].createElement(Button_1["default"], { className: "my-3 px-4 py-2 rounded-lg dark:text-white  bg-oceanBlue font-monsterratBold hover:shadow-md hover:shadow-oceanBlue hover:scale-110 transition-all", onClick: submitHandler }, "Submit"),
+        react_3["default"].createElement(react_toastify_1.ToastContainer, null)));
 }
 exports.AddCarsComponent = AddCarsComponent;

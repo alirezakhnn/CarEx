@@ -41,6 +41,7 @@ var react_2 = require("next-auth/react");
 var router_1 = require("next/router");
 var react_3 = require("next-auth/react");
 var link_1 = require("next/link");
+var ui_1 = require("ui");
 function SignUp() {
     var _this = this;
     var router = router_1.useRouter();
@@ -78,7 +79,7 @@ function SignUp() {
             React.createElement("div", { className: "grid gap-y-2" },
                 React.createElement("label", { className: labelsClass, htmlFor: "password" }, "password"),
                 React.createElement("input", { id: "password", type: "password", value: password, onChange: function (e) { return setPassword(e.target.value); }, className: inputsClass })),
-            React.createElement("button", { className: "bg-oceanBlue hover:bg-aboveOcean text-white font-monsterratBold px-4 py-2 rounded-lg mt-5", onClick: loginHandler }, "SignIn"),
+            React.createElement(ui_1.BtnShadow, { onClick: loginHandler }, "SignIn"),
             React.createElement("p", { className: "dark:text-white text-midnight font-monsterratMedium" },
                 " Create An Account?",
                 React.createElement(link_1["default"], { className: "text-oceanBlue", href: "/signup" }, " Sign Up")))));

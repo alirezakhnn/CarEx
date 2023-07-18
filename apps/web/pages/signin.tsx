@@ -3,6 +3,7 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { signIn } from 'next-auth/react';
 import Link from 'next/link';
+import { BtnShadow } from "ui";
 
 export default function SignUp() {
     const router = useRouter();
@@ -50,12 +51,9 @@ export default function SignUp() {
                         className={inputsClass}
                     />
                 </div>
-                <button
-                    className="bg-oceanBlue hover:bg-aboveOcean text-white font-monsterratBold px-4 py-2 rounded-lg mt-5"
-                    onClick={loginHandler}
-                >
+                <BtnShadow onClick={loginHandler}>
                     SignIn
-                </button>
+                </BtnShadow>
                 <p
                     className="dark:text-white text-midnight font-monsterratMedium"
                 > Create An Account?

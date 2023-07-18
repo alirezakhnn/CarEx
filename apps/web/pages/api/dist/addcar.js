@@ -138,10 +138,11 @@ function handler(req, res) {
                     data = carsTimeline === null || carsTimeline === void 0 ? void 0 : carsTimeline.map(function (car) {
                         var pictureBase64 = Buffer.from(car.picture).toString('base64');
                         var iconBase64 = Buffer.from(car.icon).toString('base64');
+                        // Assuming the image is a jpeg. Change this according to your actual image type.
                         var pictureDataUrl = "data:image/jpg;base64," + pictureBase64;
                         var iconDataUrl = "data:image/svg+xml;base64," + iconBase64;
-                        var carObject = car.toObject();
-                        var picture = carObject.picture, icon = carObject.icon, restCar = __rest(carObject, ["picture", "icon"]);
+                        var carObject = car.toObject(); // Convert the Mongoose Document to a plain JavaScript object
+                        var picture = carObject.picture, icon = carObject.icon, restCar = __rest(carObject, ["picture", "icon"]); // Destructure the carObject
                         return __assign(__assign({}, restCar), { pictureDataUrl: pictureDataUrl, iconDataUrl: iconDataUrl });
                     });
                     res.status(200).json({ status: "success", data: data });
