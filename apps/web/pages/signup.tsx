@@ -2,6 +2,9 @@ import { useState } from "react";
 // import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import Link from 'next/link';
+import { BtnShadow } from "ui";
+
+
 
 export default function SignUp() {
     const router = useRouter();
@@ -26,8 +29,9 @@ export default function SignUp() {
             headers: { "Content-Type": "application/json" }
         });
         const data = await res.json();
-        console.log(data);
-        if (data.status === 'success') router.push('/signin');
+        if (data.status === 'success') {
+            router.push('/signin');
+        }
     }
     return (
         <div className="grid justify-center">
@@ -46,12 +50,9 @@ export default function SignUp() {
                         className={inputsClass}
                     />
                 </div>
-                <button
-                    className="bg-oceanBlue hover:bg-aboveOcean text-white font-monsterratBold px-4 py-2 rounded-lg mt-5"
-                    onClick={signupHandler}
-                >
-                    SignUp
-                </button>
+                <BtnShadow onClick={signupHandler}>
+                    Submit
+                </BtnShadow>
                 <p
                     className="dark:text-white text-midnight font-monsterratMedium"
                 > Do you have Account?

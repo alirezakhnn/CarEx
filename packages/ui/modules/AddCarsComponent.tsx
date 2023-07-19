@@ -2,6 +2,9 @@ import { useState, ChangeEvent, useEffect } from "react";
 import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/react';
 import React from "react";
+import Button from '@mui/material/Button';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 interface CarsData {
     title: string;
@@ -40,6 +43,7 @@ export function AddCarsComponent() {
         const data = await res.json();
         console.log(data);
         if (data.status === 'success') {
+            toast.success('Car Added');
             router.push('/');
         }
     };
@@ -67,36 +71,65 @@ export function AddCarsComponent() {
         <div className="grid place-items-center gap-y-2 mt-1 dark:shadow-lg dark:shadow-oceanBlue shadow-xl shadow-silver max-w-[600px] px-16 py-2 rounded-lg">
             <h3 className="text-xl dark:text-white text-midnight text- font-monsterratBold mb-4">Add Car</h3>
             <div className={divsClass}>
-                <label className={labelsClass} htmlFor="title">Title</label>
-                <input className={`capitalize ${inputsClass}`} type="text" name="title" id="title" value={cars.title} onChange={changeHandler} />
+                <label className={labelsClass} htmlFor="title">Brand Name</label>
+                <input className={`capitalize ${inputsClass}`} type="text"
+                    name="title" id="title" value={cars.title}
+                    onChange={changeHandler}
+                    required={true}
+                />
             </div>
             <div className={divsClass}>
-                <label className={labelsClass} htmlFor="subtitle">Subtitle</label>
-                <input className={`capitalize ${inputsClass}`} type="text" name="subtitle" id="subtitle" value={cars.subtitle} onChange={changeHandler} />
+                <label className={labelsClass} htmlFor="subtitle">Car Model</label>
+                <input className={`capitalize ${inputsClass}`} type="text"
+                    name="subtitle" id="subtitle" value={cars.subtitle}
+                    onChange={changeHandler}
+                    required={true}
+                />
             </div>
             <div className={divsClass}>
                 <label className={labelsClass} htmlFor="description">Description</label>
-                <input className={`capitalize ${inputsClass}`} type="text" name="description" id="description" value={cars.description} onChange={changeHandler} />
+                <input className={`capitalize ${inputsClass}`} type="text"
+                    name="description" id="description" value={cars.description}
+                    onChange={changeHandler}
+                    required={true}
+                />
             </div>
             <div className={divsClass}>
                 <label className={labelsClass} htmlFor="date">Made Date</label>
-                <input className={`capitalize ${inputsClass}`} type="text" name="date" id="date" value={cars.date} onChange={changeHandler} />
+                <input className={`capitalize ${inputsClass}`} type="text"
+                    name="date" id="date" value={cars.date}
+                    onChange={changeHandler}
+                    required={true}
+                />
             </div>
             <div className={divsClass}>
-                <label className={labelsClass} htmlFor="alt">Alt</label>
-                <input className={`capitalize ${inputsClass}`} type="text" name="alt" id="alt" value={cars.alt} onChange={changeHandler} />
+                <label className={labelsClass} htmlFor="alt">Alternative Tag</label>
+                <input className={`capitalize ${inputsClass}`} type="text"
+                    name="alt" id="alt" value={cars.alt}
+                    onChange={changeHandler}
+                    required={true}
+                />
             </div>
             <div className={divsClass}>
                 <label className={labelsClass} htmlFor="picture">Car Picture</label>
-                <input className={inputsClass} type="file" name="picture" id="picture" onChange={changeHandler} />
+                <input className={inputsClass} type="file"
+                    name="picture" id="picture"
+                    accept="image/jpg, image/png, image/jpeg"
+                    onChange={changeHandler}
+                />
             </div>
             <div className={divsClass}>
-                <label className={labelsClass} htmlFor="icon">Icon</label>
-                <input className={inputsClass} type="file" name="icon" id="icon" onChange={changeHandler} />
+                <label className={labelsClass} htmlFor="icon">Brand Logo</label>
+                <input className={inputsClass} type="file"
+                    name="icon" id="icon"
+                    accept="image/svg+xml"
+                    onChange={changeHandler}
+                />
             </div>
-            <button className="my-3 px-4 py-2 rounded-lg text-white bg-oceanBlue font-monsterratBold hover:bg-aboveOcean transition-all" onClick={submitHandler}>
+            <Button className="my-3 px-4 py-2 rounded-lg dark:text-white  bg-oceanBlue font-monsterratBold hover:shadow-md hover:shadow-oceanBlue hover:scale-110 transition-all" onClick={submitHandler}>
                 Submit
-            </button>
+            </Button>
+            <ToastContainer />
         </div>
     );
 }

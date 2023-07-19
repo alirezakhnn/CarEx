@@ -68,7 +68,10 @@ function handler(req, res) {
         return __generator(this, function (_d) {
             switch (_d.label) {
                 case 0:
+                    res.setHeader("Access-Control-Allow-Origin", "*");
+                    res.setHeader("Access-Control-Allow-Methods", "GET, POST");
                     if (!(req.method === "POST")) return [3 /*break*/, 7];
+                    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
                     _d.label = 1;
                 case 1:
                     _d.trys.push([1, 3, , 4]);
@@ -138,10 +141,11 @@ function handler(req, res) {
                     data = carsTimeline === null || carsTimeline === void 0 ? void 0 : carsTimeline.map(function (car) {
                         var pictureBase64 = Buffer.from(car.picture).toString('base64');
                         var iconBase64 = Buffer.from(car.icon).toString('base64');
+                        // Use the MIME type from the database
                         var pictureDataUrl = "data:image/jpg;base64," + pictureBase64;
                         var iconDataUrl = "data:image/svg+xml;base64," + iconBase64;
-                        var carObject = car.toObject();
-                        var picture = carObject.picture, icon = carObject.icon, restCar = __rest(carObject, ["picture", "icon"]);
+                        var carObject = car.toObject(); // Convert the Mongoose Document to a plain JavaScript object
+                        var picture = carObject.picture, icon = carObject.icon, restCar = __rest(carObject, ["picture", "icon"]); // Destructure the carObject
                         return __assign(__assign({}, restCar), { pictureDataUrl: pictureDataUrl, iconDataUrl: iconDataUrl });
                     });
                     res.status(200).json({ status: "success", data: data });

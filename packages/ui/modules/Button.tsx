@@ -1,9 +1,10 @@
 import Button from '@mui/material/Button';
+import React from 'react';
 import { useState, ReactNode } from 'react';
 
 interface BtnRotatorProps {
   children: ReactNode;
-  href: string;
+  href?: string;
   className?: string;
   onClick?: any;
 }
@@ -40,3 +41,9 @@ export const BtnRotator = ({ children, href, className, onClick }: BtnRotatorPro
     </Button>
   );
 }
+
+export const BtnShadow = ({ onClick, children }: BtnRotatorProps) => (
+  <Button className="my-3 px-4 py-2 rounded-lg text-white  bg-oceanBlue font-monsterratBold dark:hover:text-white hover:text-midnight hover:shadow-md hover:shadow-oceanBlue hover:scale-110 transition-all" onClick={onClick}>
+    {children}
+  </Button>
+);
