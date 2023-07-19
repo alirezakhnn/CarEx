@@ -68,7 +68,7 @@ export function AddCarsComponent() {
     `;
 
     return (
-        <div className="grid place-items-center gap-y-2 mt-1 dark:shadow-lg dark:shadow-oceanBlue shadow-xl shadow-silver max-w-[600px] px-16 py-2 rounded-lg">
+        <form className="grid place-items-center gap-y-2 mt-1 dark:shadow-lg dark:shadow-oceanBlue shadow-xl shadow-silver max-w-[600px] px-16 py-2 rounded-lg" encType="multipart/form-data">
             <h3 className="text-xl dark:text-white text-midnight text- font-monsterratBold mb-4">Add Car</h3>
             <div className={divsClass}>
                 <label className={labelsClass} htmlFor="title">Brand Name</label>
@@ -126,10 +126,10 @@ export function AddCarsComponent() {
                     onChange={changeHandler}
                 />
             </div>
-            <Button className="my-3 px-4 py-2 rounded-lg dark:text-white  bg-oceanBlue font-monsterratBold hover:shadow-md hover:shadow-oceanBlue hover:scale-110 transition-all" onClick={submitHandler}>
+            <Button className="my-3 px-4 py-2 rounded-lg text-white hover:text-midnight dark:hover:text-white bg-oceanBlue font-monsterratBold hover:shadow-md hover:shadow-oceanBlue hover:scale-110 transition-all" onClick={submitHandler}>
                 Submit
             </Button>
             <ToastContainer />
-        </div>
+        </form>
     );
 }
