@@ -3,19 +3,16 @@ import User, { ICarTimeline } from "../../models/User";
 import { NextApiRequest, NextApiResponse } from "next";
 import { getSession } from "next-auth/react";
 
-// type Car = {
-// toObject(): any | undefined;
-// picture: Buffer;
-// icon: Buffer;
-// };
-
-type DataResponse = {
+export type DataResponse = {
     pictureDataUrl: string;
     iconDataUrl: string;
 } & Omit<ICarTimeline, 'picture' | 'icon'>;
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST");
     if (req.method === "POST") {
+        res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
         try {
             await connectDB();
@@ -79,11 +76,12 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
                 const pictureBase64 = Buffer.from(car.picture).toString('base64');
                 const iconBase64 = Buffer.from(car.icon).toString('base64');
 
+                // Use the MIME type from the database
                 const pictureDataUrl = `data:image/jpg;base64,${pictureBase64}`;
                 const iconDataUrl = `data:image/svg+xml;base64,${iconBase64}`;
 
-                const carObject: any = car.toObject();
-                const { picture, icon, ...restCar } = carObject;
+                const carObject = car.toObject(); // Convert the Mongoose Document to a plain JavaScript object
+                const { picture, icon, ...restCar } = carObject; // Destructure the carObject
                 return { ...restCar, pictureDataUrl, iconDataUrl };
             });
 

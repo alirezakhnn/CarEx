@@ -11,6 +11,7 @@ export interface IUser extends Document {
 }
 
 export interface ICarTimeline {
+    _id: any;
     toObject(): any;
     map: any;
     title: string;

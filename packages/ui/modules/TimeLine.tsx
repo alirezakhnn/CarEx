@@ -21,6 +21,7 @@ import { SquareLoader } from './SquareLoader';
 import Link from 'next/link';
 
 interface CarData {
+    pictureDataUrl: string | undefined;
     _id: string;
     date: string;
     icon?: any;
@@ -57,7 +58,7 @@ export const TimeLine = () => {
             .then(res => res.json())
             .then(data => setData(data.data));
     }, [status]);
-    console.log(data)
+
     const iconstyle = {
         background: 'black', color: '#fff', boxShadow: '0 0 20px #116AE3'
     };
@@ -75,18 +76,20 @@ export const TimeLine = () => {
                                 iconStyle={iconstyle}
                                 icon={<CarIcon icon={element.title} />}
                             >
-                                <img src={element.picture}
-                                    alt={element.alt}
-                                    className="opacity-[85%] ml-8 rounded-xl"
-                                    width={400}
-                                    height={400}
-                                />
-                                <h3 className="vertical-timeline-element-title font-bold font-monsterratBold">{element.title}</h3>
+                                {element.pictureDataUrl && (
+                                    <img src={element.pictureDataUrl}
+                                        alt={element.alt}
+                                        className="opacity-[85%] ml-8 rounded-xl"
+                                        width={400}
+                                        height={400}
+                                    />
+                                )}
+                                <h3 className="vertical-timeline-element-title font-bold font-monsterratBold capitalize">{element.title}</h3>
                                 <h4 className="vertical-timeline-element-subtitle font-monsterratItalic text-oceanBlue">{element.subtitle}</h4>
                                 <p className="font-monsterratMedium"
                                 >{element.description}</p>
                                 <BtnRotator
-                                    href='#'
+                                    href={`cars-info/${element._id}`}
                                     className='mt-6 ml-4'
                                 >
                                     More
