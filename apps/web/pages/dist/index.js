@@ -41,6 +41,8 @@ var react_1 = require("react");
 var ui_1 = require("ui");
 var axios_1 = require("axios");
 var material_1 = require("@mui/material");
+var react_2 = require("next-auth/react");
+var router_1 = require("next/router");
 function getAuthorizationHeader() {
     return __awaiter(this, void 0, void 0, function () {
         var token;
@@ -113,6 +115,8 @@ function Web(_a) {
     var pictureContent = _a.pictureContent;
     var _b = react_1.useState(true), isLoading = _b[0], setIsLoading = _b[1];
     var _c = react_1.useState(false), error = _c[0], setError = _c[1];
+    var status = react_2.useSession().status;
+    var router = router_1.useRouter();
     react_1.useEffect(function () {
         if (pictureContent) {
             if (pictureContent.dark.length > 0 && pictureContent.light.length > 0) {
@@ -126,6 +130,6 @@ function Web(_a) {
     }, [pictureContent]);
     return (react_1["default"].createElement("div", null, isLoading ? (react_1["default"].createElement(ui_1.SquareLoader, null)) : (react_1["default"].createElement(react_1["default"].Fragment, null, error ? (react_1["default"].createElement(material_1.Typography, { variant: "h3", color: "primary.main", className: "text-center mt-[10%]  xxs:text-md sm:text-lg lg:text-xl mx-20" }, "Bad Credential or Request Limit Reached!")) : (react_1["default"].createElement(react_1["default"].Fragment, null,
         react_1["default"].createElement(ui_1.Header, { pictureContent: pictureContent }),
-        react_1["default"].createElement(ui_1.Main, null)))))));
+        status === 'authenticated' ? react_1["default"].createElement(ui_1.Main, null) : null))))));
 }
 exports["default"] = Web;

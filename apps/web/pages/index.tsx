@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Main, Header, SquareLoader } from 'ui';
 import axios, { AxiosResponse } from 'axios';
 import { Typography } from '@mui/material';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
 
 interface WebProps {
   pictureContent: {
@@ -75,6 +77,8 @@ export async function getStaticProps() {
 function Web({ pictureContent }: WebProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
+  const { status } = useSession();
+  const router = useRouter();
 
   useEffect(() => {
     if (pictureContent) {
@@ -102,7 +106,7 @@ function Web({ pictureContent }: WebProps) {
           ) : (
             <>
               <Header pictureContent={pictureContent} />
-              <Main />
+              {status === 'authenticated' ? <Main /> : null}
             </>
           )}
         </>

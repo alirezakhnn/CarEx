@@ -68,7 +68,7 @@ export function AddCarsComponent() {
     `;
 
     return (
-        <form className="grid place-items-center gap-y-2 mt-1 dark:shadow-lg dark:shadow-oceanBlue shadow-xl shadow-silver max-w-[600px] px-16 py-2 rounded-lg" encType="multipart/form-data">
+        <form className="grid place-items-center gap-y-2 mt-1 dark:shadow-lg dark:shadow-oceanBlue shadow-xl shadow-silver max-w-[600px] px-24 py-2 rounded-lg" encType="multipart/form-data">
             <h3 className="text-xl dark:text-white text-midnight text- font-monsterratBold mb-4">Add Car</h3>
             <div className={divsClass}>
                 <label className={labelsClass} htmlFor="title">Brand Name</label>

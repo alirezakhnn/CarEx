@@ -103,7 +103,7 @@ function AddCarsComponent() {
     var inputsClass = "\n    dark:bg-gradient-to-r dark:from-white dark:via-white dark:to-silver bg-midnight\n    rounded-full py-1 dark:text-midnight text-white\n    font-monsterratMedium px-4 transition-all outline-none border-none\n    ";
     var labelsClass = "\n    dark:text-white text-midnight font-monsterratBold\n    ";
     var divsClass = "\n    grid gap-y-1\n    ";
-    return (react_3["default"].createElement("form", { className: "grid place-items-center gap-y-2 mt-1 dark:shadow-lg dark:shadow-oceanBlue shadow-xl shadow-silver max-w-[600px] px-16 py-2 rounded-lg", encType: "multipart/form-data" },
+    return (react_3["default"].createElement("form", { className: "grid place-items-center gap-y-2 mt-1 dark:shadow-lg dark:shadow-oceanBlue shadow-xl shadow-silver max-w-[600px] px-24 py-2 rounded-lg", encType: "multipart/form-data" },
         react_3["default"].createElement("h3", { className: "text-xl dark:text-white text-midnight text- font-monsterratBold mb-4" }, "Add Car"),
         react_3["default"].createElement("div", { className: divsClass },
             react_3["default"].createElement("label", { className: labelsClass, htmlFor: "title" }, "Brand Name"),

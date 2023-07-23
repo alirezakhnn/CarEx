@@ -1,6 +1,8 @@
 import { Footer } from './Footer';
 import { Nav } from './Nav';
 import { motion, Variants } from 'framer-motion';
+import React from 'react';
+import { useSession } from 'next-auth/react';
 
 interface LayoutProps {
     children: React.ReactNode;
@@ -12,6 +14,7 @@ const layoutVariants: Variants = {
 };
 
 export function Layout({ children }: LayoutProps): React.ReactElement {
+    const { status } = useSession();
     return (
         <motion.div
             variants={layoutVariants}
@@ -22,7 +25,7 @@ export function Layout({ children }: LayoutProps): React.ReactElement {
         >
             <Nav />
             <main>{children}</main>
-            <Footer />
+            {status === "authenticated" && <Footer />}
         </motion.div>
     );
 }

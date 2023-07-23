@@ -1,5 +1,6 @@
 import { Typography } from '@mui/material';
 import Link from 'next/link';
+import React from 'react';
 
 interface LogoProps {
     className?: string;

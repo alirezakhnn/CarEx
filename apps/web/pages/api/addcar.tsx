@@ -73,12 +73,17 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 
             const carsTimeline = user.carsTimeline;
             const data: DataResponse[] | undefined = carsTimeline?.map((car: ICarTimeline) => {
-                const pictureBase64 = Buffer.from(car.picture).toString('base64');
-                const iconBase64 = Buffer.from(car.icon).toString('base64');
+                let pictureDataUrl, iconDataUrl;
 
-                // Use the MIME type from the database
-                const pictureDataUrl = `data:image/jpg;base64,${pictureBase64}`;
-                const iconDataUrl = `data:image/svg+xml;base64,${iconBase64}`;
+                if (car.picture) {
+                    const pictureBase64 = Buffer.from(car.picture).toString('base64');
+                    pictureDataUrl = `data:image/jpg;base64,${pictureBase64}`;
+                }
+
+                if (car.icon) {
+                    const iconBase64 = Buffer.from(car.icon).toString('base64');
+                    iconDataUrl = `data:image/svg+xml;base64,${iconBase64}`;
+                }
 
                 const carObject = car.toObject(); // Convert the Mongoose Document to a plain JavaScript object
                 const { picture, icon, ...restCar } = carObject; // Destructure the carObject

@@ -5,6 +5,7 @@ import { Switcher } from '../modules/Switcher';
 import { Hamburger } from '../modules/Hamburger';
 import { motion, Variants } from 'framer-motion';
 import { useSession, signOut } from 'next-auth/react';
+import React from 'react';
 
 interface NavItem {
     id: number;

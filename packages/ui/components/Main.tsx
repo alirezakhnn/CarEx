@@ -1,4 +1,5 @@
 import { TimeLine } from "../modules/TimeLine";
+import React from "react";
 
 export function Main() {
     return (

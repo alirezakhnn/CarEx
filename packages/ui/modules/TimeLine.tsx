@@ -53,10 +53,15 @@ const CarIcon = ({ icon }: any) => {
 export const TimeLine = () => {
     const { status } = useSession();
     const [data, setData] = useState<CarData[] | []>([]);
+    const [loading, setLoading] = useState(true);
     useEffect(() => {
-        if (status === 'authenticated') fetch('api/addcar')
-            .then(res => res.json())
-            .then(data => setData(data.data));
+        if (status === 'authenticated') {
+            fetch('api/addcar')
+                .then(res => res.json())
+                .then(data => setData(data.data));
+            setLoading(false);
+        }
+        setLoading(false);
     }, [status]);
 
     const iconstyle = {
@@ -108,6 +113,9 @@ export const TimeLine = () => {
                         </div>
                     </VerticalTimeline>
                 ) : <SquareLoader />
+            }
+            {
+                loading ? <SquareLoader /> : null
             }
         </>
     );
