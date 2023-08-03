@@ -7,7 +7,7 @@ import { SquareLoader } from "../modules/SquareLoader";
 type CarData = {
     _id: React.Key | null | undefined;
     title: string;
-    pictureDataUrl: string;
+    picture: string;
     alt: string;
     date: string;
     subtitle: string;
@@ -28,7 +28,7 @@ export function CarsDetailsPage({ data }: CarsDetailsPageProps) {
                     data?.map((car: CarData) => (
                         <div className="grid justify-center gap-y-3" key={car._id}>
                             <h3 className="text-xl text-center dark:text-white text-midnight capitalize font-monsterratBold">{car.title}</h3>
-                            <Image className="dark:text-white text-midnight" src={car.pictureDataUrl}
+                            <Image className="dark:text-white text-midnight" src={car.picture}
                                 width={600} height={360}
                                 alt={car.alt}
                             />

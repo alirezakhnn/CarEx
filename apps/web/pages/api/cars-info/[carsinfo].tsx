@@ -1,6 +1,6 @@
 import connectDB from "../../../utils/connectDB";
 import { NextApiRequest, NextApiResponse } from "next";
-import User from "../../../models/User";
+import User, { ICarTimeline } from "../../../models/User";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     try {
@@ -20,7 +20,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 return res.status(404).json({ status: 'failed', message: "No user found with this ID!" });
             }
 
-            const data = user.carsTimeline;
+            const carsTimeline = user.carsTimeline;
+            const data = carsTimeline?.filter((car: ICarTimeline) => car._id.toString() === carsinfo);
+
             if (!data) {
                 return res.status(404).json({ status: 'failed', message: 'invalid data!' })
             }

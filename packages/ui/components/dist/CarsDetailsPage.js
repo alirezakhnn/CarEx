@@ -13,7 +13,7 @@ function CarsDetailsPage(_a) {
         return (react_1["default"].createElement("div", { className: "grid justify-center my-4 mx-10" }, data === null || data === void 0 ? void 0 :
             data.map(function (car) { return (react_1["default"].createElement("div", { className: "grid justify-center gap-y-3", key: car._id },
                 react_1["default"].createElement("h3", { className: "text-xl text-center dark:text-white text-midnight capitalize font-monsterratBold" }, car.title),
-                react_1["default"].createElement(image_1["default"], { className: "dark:text-white text-midnight", src: car.pictureDataUrl, width: 600, height: 360, alt: car.alt }),
+                react_1["default"].createElement(image_1["default"], { className: "dark:text-white text-midnight", src: car.picture, width: 600, height: 360, alt: car.alt }),
                 react_1["default"].createElement("div", { className: "flex justify-around" },
                     react_1["default"].createElement("h5", { className: "dark:text-white text-midnight" },
                         "Model: \u00A0",

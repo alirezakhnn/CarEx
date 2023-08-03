@@ -2,6 +2,12 @@ module.exports = {
   reactStrictMode: true,
   transpilePackages: ["ui"],
   images: {
-    domains:['raw.githubusercontent.com'],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname:'**',
+      },
+    ],
+    // domains:['raw.githubusercontent.com'],
   },
 };
