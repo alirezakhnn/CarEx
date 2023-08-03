@@ -11,23 +11,17 @@ var carTimelineSchema = new mongoose_1.Schema({
         required: true
     },
     picture: {
-        type: Buffer,
-        required: true
+        type: String
     },
     alt: {
         type: String,
         required: true
     },
     date: {
-        type: String,
-        required: true
+        type: String
     },
     description: {
         type: String,
-        required: true
-    },
-    icon: {
-        type: Buffer,
         required: true
     }
 });

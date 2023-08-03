@@ -1,15 +1,4 @@
 "use strict";
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -46,17 +35,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var __rest = (this && this.__rest) || function (s, e) {
-    var t = {};
-    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
-        t[p] = s[p];
-    if (s != null && typeof Object.getOwnPropertySymbols === "function")
-        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
-                t[p[i]] = s[p[i]];
-        }
-    return t;
-};
 exports.__esModule = true;
 var connectDB_1 = require("../../utils/connectDB");
 var User_1 = require("../../models/User");
@@ -64,14 +42,13 @@ var react_1 = require("next-auth/react");
 function handler(req, res) {
     var _a, _b, _c;
     return __awaiter(this, void 0, void 0, function () {
-        var err_1, session, user, data, session, user, carsTimeline, data, err_2;
+        var err_1, session, user, data, user_1, data;
         return __generator(this, function (_d) {
             switch (_d.label) {
                 case 0:
                     res.setHeader("Access-Control-Allow-Origin", "*");
                     res.setHeader("Access-Control-Allow-Methods", "GET, POST");
-                    if (!(req.method === "POST")) return [3 /*break*/, 7];
-                    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+                    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
                     _d.label = 1;
                 case 1:
                     _d.trys.push([1, 3, , 4]);
@@ -82,85 +59,52 @@ function handler(req, res) {
                 case 3:
                     err_1 = _d.sent();
                     console.error(err_1);
-                    return [2 /*return*/, res
-                            .status(500)
-                            .json({ status: "failed", message: "Error in connecting to DB" })];
+                    return [2 /*return*/, res.status(500).json({ status: 'failed', message: 'Error connecting to DB' })];
                 case 4: return [4 /*yield*/, react_1.getSession({ req: req })];
                 case 5:
                     session = _d.sent();
                     if (!session) {
                         return [2 /*return*/, res.status(422).json({
-                                status: "failed",
-                                message: "You are not Logged in"
+                                status: 'failed',
+                                message: 'You are not logged in'
                             })];
                     }
                     return [4 /*yield*/, User_1["default"].findOne({ email: (_a = session.user) === null || _a === void 0 ? void 0 : _a.email })];
                 case 6:
                     user = _d.sent();
                     if (!user) {
-                        return [2 /*return*/, res
-                                .status(404)
-                                .json({ status: "failed", message: "User doesn't exist!" })];
+                        return [2 /*return*/, res.status(404).json({ status: 'failed', message: "User doesn't exist" })];
                     }
+                    if (!(req.method === 'POST')) return [3 /*break*/, 8];
                     data = req.body.data;
                     if (!data) {
-                        return [2 /*return*/, res
-                                .status(422)
-                                .json({ status: "failed", message: "Invalid data!" })];
+                        return [2 /*return*/, res.status(422).json({ status: 'failed', message: 'Invalid data' })];
                     }
                     (_b = user.carsTimeline) === null || _b === void 0 ? void 0 : _b.push(data);
-                    user.save();
-                    res.status(201).json({ status: "success", message: "Car Added" });
-                    return [3 /*break*/, 13];
+                    return [4 /*yield*/, user.save()];
                 case 7:
-                    if (!(req.method === "GET")) return [3 /*break*/, 13];
-                    _d.label = 8;
-                case 8:
-                    _d.trys.push([8, 12, , 13]);
-                    return [4 /*yield*/, connectDB_1["default"]()];
-                case 9:
                     _d.sent();
-                    return [4 /*yield*/, react_1.getSession({ req: req })];
-                case 10:
-                    session = _d.sent();
-                    if (!session) {
-                        return [2 /*return*/, res.status(422).json({
-                                status: "failed",
-                                message: "You are not Logged in"
-                            })];
-                    }
+                    res.status(201).json({ status: 'success', message: 'Car added' });
+                    return [3 /*break*/, 10];
+                case 8:
+                    if (!(req.method === "GET")) return [3 /*break*/, 10];
                     return [4 /*yield*/, User_1["default"].findOne({ email: (_c = session.user) === null || _c === void 0 ? void 0 : _c.email })];
-                case 11:
-                    user = _d.sent();
-                    if (!user) {
+                case 9:
+                    user_1 = _d.sent();
+                    if (!user_1) {
                         return [2 /*return*/, res
                                 .status(404)
-                                .json({ status: "failed", message: "User doesn't exist!" })];
+                                .json({ status: "failed", message: "User doesn't exist" })];
                     }
-                    carsTimeline = user.carsTimeline;
-                    data = carsTimeline === null || carsTimeline === void 0 ? void 0 : carsTimeline.map(function (car) {
-                        var pictureDataUrl, iconDataUrl;
-                        if (car.picture) {
-                            var pictureBase64 = Buffer.from(car.picture).toString('base64');
-                            pictureDataUrl = "data:image/jpg;base64," + pictureBase64;
-                        }
-                        if (car.icon) {
-                            var iconBase64 = Buffer.from(car.icon).toString('base64');
-                            iconDataUrl = "data:image/svg+xml;base64," + iconBase64;
-                        }
-                        var carObject = car.toObject(); // Convert the Mongoose Document to a plain JavaScript object
-                        var picture = carObject.picture, icon = carObject.icon, restCar = __rest(carObject, ["picture", "icon"]); // Destructure the carObject
-                        return __assign(__assign({}, restCar), { pictureDataUrl: pictureDataUrl, iconDataUrl: iconDataUrl });
-                    });
+                    data = user_1.carsTimeline;
+                    if (!data) {
+                        return [2 /*return*/, res
+                                .status(404)
+                                .json({ status: 'failed', message: "data is not available!" })];
+                    }
                     res.status(200).json({ status: "success", data: data });
-                    return [3 /*break*/, 13];
-                case 12:
-                    err_2 = _d.sent();
-                    console.error(err_2);
-                    return [2 /*return*/, res
-                            .status(500)
-                            .json({ status: "failed", message: "Error in connecting to DB" })];
-                case 13: return [2 /*return*/];
+                    _d.label = 10;
+                case 10: return [2 /*return*/];
             }
         });
     });

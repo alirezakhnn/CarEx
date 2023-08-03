@@ -6,97 +6,64 @@ import { getSession } from "next-auth/react";
 export type DataResponse = {
     pictureDataUrl: string;
     iconDataUrl: string;
-} & Omit<ICarTimeline, 'picture' | 'icon'>;
+} & Omit<ICarTimeline, 'picture'>;
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Methods", "GET, POST");
-    if (req.method === "POST") {
-        res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-        try {
-            await connectDB();
-        } catch (err) {
-            console.error(err);
-            return res
-                .status(500)
-                .json({ status: "failed", message: "Error in connecting to DB" });
+    try {
+        await connectDB();
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({ status: 'failed', message: 'Error connecting to DB' });
+    }
+
+    const session = await getSession({ req });
+
+    if (!session) {
+        return res.status(422).json({
+            status: 'failed',
+            message: 'You are not logged in',
+        });
+    }
+
+    const user = await User.findOne({ email: session.user?.email });
+    if (!user) {
+        return res.status(404).json({ status: 'failed', message: "User doesn't exist" });
+    }
+    if (req.method === 'POST') {
+
+        const data: ICarTimeline = req.body.data;
+
+        if (!data) {
+            return res.status(422).json({ status: 'failed', message: 'Invalid data' });
         }
 
-        const session = await getSession({ req });
+        user.carsTimeline?.push(data);
+        await user.save();
 
-        if (!session) {
-            return res.status(422).json({
-                status: "failed",
-                message: "You are not Logged in",
-            });
-        }
+        res.status(201).json({ status: 'success', message: 'Car added' });
+    } else if (req.method === "GET") {
+
 
         const user = await User.findOne({ email: session.user?.email });
         if (!user) {
             return res
                 .status(404)
-                .json({ status: "failed", message: "User doesn't exist!" });
+                .json({ status: "failed", message: "User doesn't exist" });
         }
 
-        const data: ICarTimeline = req.body.data;
-
+        const data = user.carsTimeline;
         if (!data) {
             return res
-                .status(422)
-                .json({ status: "failed", message: "Invalid data!" });
+                .status(404)
+                .json({ status: 'failed', message: "data is not available!" });
         }
 
-        user.carsTimeline?.push(data);
-        user.save();
+        res.status(200).json({ status: "success", data });
 
-        res.status(201).json({ status: "success", message: "Car Added" });
-
-    } else if (req.method === "GET") {
-        try {
-            await connectDB();
-            const session = await getSession({ req });
-
-            if (!session) {
-                return res.status(422).json({
-                    status: "failed",
-                    message: "You are not Logged in",
-                });
-            }
-
-            const user = await User.findOne({ email: session.user?.email });
-            if (!user) {
-                return res
-                    .status(404)
-                    .json({ status: "failed", message: "User doesn't exist!" });
-            }
-
-            const carsTimeline = user.carsTimeline;
-            const data: DataResponse[] | undefined = carsTimeline?.map((car: ICarTimeline) => {
-                let pictureDataUrl, iconDataUrl;
-
-                if (car.picture) {
-                    const pictureBase64 = Buffer.from(car.picture).toString('base64');
-                    pictureDataUrl = `data:image/jpg;base64,${pictureBase64}`;
-                }
-
-                if (car.icon) {
-                    const iconBase64 = Buffer.from(car.icon).toString('base64');
-                    iconDataUrl = `data:image/svg+xml;base64,${iconBase64}`;
-                }
-
-                const carObject = car.toObject(); // Convert the Mongoose Document to a plain JavaScript object
-                const { picture, icon, ...restCar } = carObject; // Destructure the carObject
-                return { ...restCar, pictureDataUrl, iconDataUrl };
-            });
-
-            res.status(200).json({ status: "success", data });
-        } catch (err) {
-            console.error(err);
-            return res
-                .status(500)
-                .json({ status: "failed", message: "Error in connecting to DB" });
-        }
     }
 }
 

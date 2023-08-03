@@ -50,7 +50,7 @@ exports.TimeLine = function () {
         return (react_3["default"].createElement(react_3["default"].Fragment, null,
             status === "authenticated" ? (react_3["default"].createElement(react_vertical_timeline_component_1.VerticalTimeline, null,
                 data.map(function (element) { return (react_3["default"].createElement(react_vertical_timeline_component_1.VerticalTimelineElement, { key: element._id, className: "vertical-timeline-element vertical-timeline-element--work text-midnight dark:text-white", date: element.date, iconStyle: iconstyle, icon: react_3["default"].createElement(CarIcon, { icon: element.title }) },
-                    element.pictureDataUrl && (react_3["default"].createElement("img", { src: element.pictureDataUrl, alt: element.alt, className: "opacity-[85%] ml-8 rounded-xl", width: 400, height: 400 })),
+                    element.picture ? (react_3["default"].createElement("img", { src: element.picture, alt: element.alt, className: "opacity-[85%] ml-8 rounded-xl", width: 400, height: 400 })) : react_3["default"].createElement(SquareLoader_1.SquareLoader, null),
                     react_3["default"].createElement("h3", { className: "vertical-timeline-element-title font-bold font-monsterratBold capitalize" }, element.title),
                     react_3["default"].createElement("h4", { className: "vertical-timeline-element-subtitle font-monsterratItalic text-oceanBlue" }, element.subtitle),
                     react_3["default"].createElement("p", { className: "font-monsterratMedium" }, element.description),

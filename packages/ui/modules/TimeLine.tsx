@@ -21,7 +21,6 @@ import { SquareLoader } from './SquareLoader';
 import Link from 'next/link';
 
 interface CarData {
-    pictureDataUrl: string | undefined;
     _id: string;
     date: string;
     icon?: any;
@@ -81,14 +80,14 @@ export const TimeLine = () => {
                                 iconStyle={iconstyle}
                                 icon={<CarIcon icon={element.title} />}
                             >
-                                {element.pictureDataUrl && (
-                                    <img src={element.pictureDataUrl}
+                                {element.picture ? (
+                                    <img src={element.picture}
                                         alt={element.alt}
                                         className="opacity-[85%] ml-8 rounded-xl"
                                         width={400}
                                         height={400}
                                     />
-                                )}
+                                ) : <SquareLoader />}
                                 <h3 className="vertical-timeline-element-title font-bold font-monsterratBold capitalize">{element.title}</h3>
                                 <h4 className="vertical-timeline-element-subtitle font-monsterratItalic text-oceanBlue">{element.subtitle}</h4>
                                 <p className="font-monsterratMedium"

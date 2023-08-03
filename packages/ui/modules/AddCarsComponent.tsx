@@ -13,7 +13,6 @@ interface CarsData {
     alt: string;
     date: string;
     description: string;
-    icon: string | File;
 }
 
 export function AddCarsComponent() {
@@ -30,8 +29,7 @@ export function AddCarsComponent() {
         picture: "",
         alt: "",
         date: "",
-        description: "",
-        icon: "",
+        description: ""
     });
 
     const submitHandler = async () => {
@@ -112,17 +110,8 @@ export function AddCarsComponent() {
             </div>
             <div className={divsClass}>
                 <label className={labelsClass} htmlFor="picture">Car Picture</label>
-                <input className={inputsClass} type="file"
+                <input className={inputsClass} type="text"
                     name="picture" id="picture"
-                    accept="image/jpg, image/png, image/jpeg"
-                    onChange={changeHandler}
-                />
-            </div>
-            <div className={divsClass}>
-                <label className={labelsClass} htmlFor="icon">Brand Logo</label>
-                <input className={inputsClass} type="file"
-                    name="icon" id="icon"
-                    accept="image/svg+xml"
                     onChange={changeHandler}
                 />
             </div>

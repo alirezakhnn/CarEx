@@ -11,16 +11,20 @@ export interface IUser extends Document {
 }
 
 export interface ICarTimeline {
+    carsTimeline: any;
+    iconDataUrl: any;
+    pictureDataUrl: any;
+    madeYear: any;
+    model: any;
     _id: any;
     toObject(): any;
     map: any;
     title: string;
     subtitle: string;
-    picture: Buffer;
+    picture: string;
     alt: string;
     date: string;
     description: string;
-    icon: Buffer;
 }
 
 const carTimelineSchema = new Schema<ICarTimeline>({
@@ -33,8 +37,7 @@ const carTimelineSchema = new Schema<ICarTimeline>({
         required: true,
     },
     picture: {
-        type: Buffer,
-        required: true,
+        type: String,
     },
     alt: {
         type: String,
@@ -42,14 +45,9 @@ const carTimelineSchema = new Schema<ICarTimeline>({
     },
     date: {
         type: String,
-        required: true,
     },
     description: {
         type: String,
-        required: true,
-    },
-    icon: {
-        type: Buffer,
         required: true,
     },
 });

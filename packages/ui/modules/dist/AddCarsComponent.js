@@ -69,8 +69,7 @@ function AddCarsComponent() {
         picture: "",
         alt: "",
         date: "",
-        description: "",
-        icon: ""
+        description: ""
     }), cars = _a[0], setCars = _a[1];
     var submitHandler = function () { return __awaiter(_this, void 0, void 0, function () {
         var res, data;
@@ -122,10 +121,7 @@ function AddCarsComponent() {
             react_3["default"].createElement("input", { className: "capitalize " + inputsClass, type: "text", name: "alt", id: "alt", value: cars.alt, onChange: changeHandler, required: true })),
         react_3["default"].createElement("div", { className: divsClass },
             react_3["default"].createElement("label", { className: labelsClass, htmlFor: "picture" }, "Car Picture"),
-            react_3["default"].createElement("input", { className: inputsClass, type: "file", name: "picture", id: "picture", accept: "image/jpg, image/png, image/jpeg", onChange: changeHandler })),
-        react_3["default"].createElement("div", { className: divsClass },
-            react_3["default"].createElement("label", { className: labelsClass, htmlFor: "icon" }, "Brand Logo"),
-            react_3["default"].createElement("input", { className: inputsClass, type: "file", name: "icon", id: "icon", accept: "image/svg+xml", onChange: changeHandler })),
+            react_3["default"].createElement("input", { className: inputsClass, type: "text", name: "picture", id: "picture", onChange: changeHandler })),
         react_3["default"].createElement(Button_1["default"], { className: "my-3 px-4 py-2 rounded-lg text-white hover:text-midnight dark:hover:text-white bg-oceanBlue font-monsterratBold hover:shadow-md hover:shadow-oceanBlue hover:scale-110 transition-all", onClick: submitHandler }, "Submit"),
         react_3["default"].createElement(react_toastify_1.ToastContainer, null)));
 }

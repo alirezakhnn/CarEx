@@ -2,13 +2,14 @@
 exports.__esModule = true;
 exports.SquareLoader = void 0;
 require("../css/SquareLoader.css");
+var react_1 = require("react");
 exports.SquareLoader = function () {
-    return (React.createElement("div", { className: "loader mt-[20%]" },
-        React.createElement("div", { className: "loader-square" }),
-        React.createElement("div", { className: "loader-square" }),
-        React.createElement("div", { className: "loader-square" }),
-        React.createElement("div", { className: "loader-square" }),
-        React.createElement("div", { className: "loader-square" }),
-        React.createElement("div", { className: "loader-square" }),
-        React.createElement("div", { className: "loader-square" })));
+    return (react_1["default"].createElement("div", { className: "loader mt-[20%] z-999" },
+        react_1["default"].createElement("div", { className: "loader-square" }),
+        react_1["default"].createElement("div", { className: "loader-square" }),
+        react_1["default"].createElement("div", { className: "loader-square" }),
+        react_1["default"].createElement("div", { className: "loader-square" }),
+        react_1["default"].createElement("div", { className: "loader-square" }),
+        react_1["default"].createElement("div", { className: "loader-square" }),
+        react_1["default"].createElement("div", { className: "loader-square" })));
 };
