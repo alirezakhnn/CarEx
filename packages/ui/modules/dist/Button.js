@@ -13,6 +13,6 @@ exports.BtnRotator = function (_a) {
         react_1["default"].createElement("span", { className: "\n          " + (rotate ? 'rotate-[235deg]' : 'rotate-[-55deg]') + " \n          transition-transform duration-500 ease-in-out\n          py-10 px-20\n        " }, children)));
 };
 exports.BtnShadow = function (_a) {
-    var onClick = _a.onClick, children = _a.children;
-    return (react_1["default"].createElement(Button_1["default"], { className: "my-3 px-4 py-2 rounded-lg text-white  bg-oceanBlue font-monsterratBold dark:hover:text-white hover:text-midnight hover:shadow-md hover:shadow-oceanBlue hover:scale-110 transition-all", onClick: onClick }, children));
+    var onClick = _a.onClick, children = _a.children, color = _a.color, variant = _a.variant, className = _a.className, href = _a.href;
+    return (react_1["default"].createElement(Button_1["default"], { className: "my-3 px-4 py-2 rounded-lg text-white font-monsterratBold hover:scale-110 transition-all " + className, variant: variant, onClick: onClick, color: color, href: href }, children));
 };

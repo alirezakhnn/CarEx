@@ -7,6 +7,8 @@ interface BtnRotatorProps {
   href?: string;
   className?: string;
   onClick?: any;
+  color?: any;
+  variant?: any;
 }
 
 export const BtnRotator = ({ children, href, className, onClick }: BtnRotatorProps): React.ReactElement => {
@@ -42,8 +44,8 @@ export const BtnRotator = ({ children, href, className, onClick }: BtnRotatorPro
   );
 }
 
-export const BtnShadow = ({ onClick, children }: BtnRotatorProps) => (
-  <Button className="my-3 px-4 py-2 rounded-lg text-white  bg-oceanBlue font-monsterratBold dark:hover:text-white hover:text-midnight hover:shadow-md hover:shadow-oceanBlue hover:scale-110 transition-all" onClick={onClick}>
+export const BtnShadow = ({ onClick, children, color, variant, className, href }: BtnRotatorProps) => (
+  <Button className={`my-3 px-4 py-2 rounded-lg text-white font-monsterratBold hover:scale-110 transition-all ${className}`} variant={variant} onClick={onClick} color={color} href={href}>
     {children}
   </Button>
 );

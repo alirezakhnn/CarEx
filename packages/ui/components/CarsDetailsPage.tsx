@@ -3,9 +3,11 @@ import Image from 'next/image';
 import { BtnShadow } from "../modules/Button";
 import Link from 'next/link';
 import { SquareLoader } from "../modules/SquareLoader";
+import { useRouter } from 'next/router';
 
 type CarData = {
-    _id: React.Key | null | undefined;
+    picture: string;
+    _id?: any;
     title: string;
     pictureDataUrl: string;
     alt: string;
@@ -16,10 +18,18 @@ type CarData = {
 
 type CarsDetailsPageProps = {
     data: CarData[];
+    _id?: any;
 };
 
 export function CarsDetailsPage({ data }: CarsDetailsPageProps) {
-    console.log(data);
+    const router = useRouter();
+    const deleteHandler = async () => {
+        const res = await fetch(`api/delete/${data._id}`, {
+            method: 'DELETE'
+        });
+        const newRes = await res.json();
+        if (newRes.status === 'success') router.replace('/');
+    }
 
     if (data) {
         return (
@@ -28,7 +38,7 @@ export function CarsDetailsPage({ data }: CarsDetailsPageProps) {
                     data?.map((car: CarData) => (
                         <div className="grid justify-center gap-y-3" key={car._id}>
                             <h3 className="text-xl text-center dark:text-white text-midnight capitalize font-monsterratBold">{car.title}</h3>
-                            <Image className="dark:text-white text-midnight" src={car.pictureDataUrl}
+                            <Image className="dark:text-white text-midnight" src={car.picture}
                                 width={600} height={360}
                                 alt={car.alt}
                             />
@@ -40,7 +50,10 @@ export function CarsDetailsPage({ data }: CarsDetailsPageProps) {
                         </div>
                     ))
                 }
-                <Link className="justify-self-center" href='/'><BtnShadow>Back To Home</BtnShadow></Link>
+                <div className="grid grid-cols-2 gap-x-6">
+                    <BtnShadow className="bg-oceanBlue hover:shadow-md hover:shadow-oceanBlue" href='/'>Back To Home</BtnShadow>
+                    <BtnShadow color="warning" variant="contained" href="/" onClick={deleteHandler}>Delete</BtnShadow>
+                </div>
             </div>
         );
     }
