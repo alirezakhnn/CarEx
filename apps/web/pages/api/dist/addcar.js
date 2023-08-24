@@ -46,22 +46,17 @@ function handler(req, res) {
         return __generator(this, function (_d) {
             switch (_d.label) {
                 case 0:
-                    res.setHeader("Access-Control-Allow-Origin", "*");
-                    res.setHeader("Access-Control-Allow-Methods", "GET, POST");
-                    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-                    _d.label = 1;
-                case 1:
-                    _d.trys.push([1, 3, , 4]);
+                    _d.trys.push([0, 2, , 3]);
                     return [4 /*yield*/, connectDB_1["default"]()];
-                case 2:
+                case 1:
                     _d.sent();
-                    return [3 /*break*/, 4];
-                case 3:
+                    return [3 /*break*/, 3];
+                case 2:
                     err_1 = _d.sent();
                     console.error(err_1);
                     return [2 /*return*/, res.status(500).json({ status: 'failed', message: 'Error connecting to DB' })];
-                case 4: return [4 /*yield*/, react_1.getSession({ req: req })];
-                case 5:
+                case 3: return [4 /*yield*/, react_1.getSession({ req: req })];
+                case 4:
                     session = _d.sent();
                     if (!session) {
                         return [2 /*return*/, res.status(422).json({
@@ -70,26 +65,26 @@ function handler(req, res) {
                             })];
                     }
                     return [4 /*yield*/, User_1["default"].findOne({ email: (_a = session.user) === null || _a === void 0 ? void 0 : _a.email })];
-                case 6:
+                case 5:
                     user = _d.sent();
                     if (!user) {
                         return [2 /*return*/, res.status(404).json({ status: 'failed', message: "User doesn't exist" })];
                     }
-                    if (!(req.method === 'POST')) return [3 /*break*/, 8];
+                    if (!(req.method === 'POST')) return [3 /*break*/, 7];
                     data = req.body.data;
                     if (!data) {
                         return [2 /*return*/, res.status(422).json({ status: 'failed', message: 'Invalid data' })];
                     }
                     (_b = user.carsTimeline) === null || _b === void 0 ? void 0 : _b.push(data);
                     return [4 /*yield*/, user.save()];
-                case 7:
+                case 6:
                     _d.sent();
                     res.status(201).json({ status: 'success', message: 'Car added' });
-                    return [3 /*break*/, 10];
-                case 8:
-                    if (!(req.method === "GET")) return [3 /*break*/, 10];
+                    return [3 /*break*/, 9];
+                case 7:
+                    if (!(req.method === "GET")) return [3 /*break*/, 9];
                     return [4 /*yield*/, User_1["default"].findOne({ email: (_c = session.user) === null || _c === void 0 ? void 0 : _c.email })];
-                case 9:
+                case 8:
                     user_1 = _d.sent();
                     if (!user_1) {
                         return [2 /*return*/, res
@@ -103,8 +98,8 @@ function handler(req, res) {
                                 .json({ status: 'failed', message: "data is not available!" })];
                     }
                     res.status(200).json({ status: "success", data: data });
-                    _d.label = 10;
-                case 10: return [2 /*return*/];
+                    _d.label = 9;
+                case 9: return [2 /*return*/];
             }
         });
     });

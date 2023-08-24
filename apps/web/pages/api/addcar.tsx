@@ -9,9 +9,6 @@ export type DataResponse = {
 } & Omit<ICarTimeline, 'picture'>;
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Methods", "GET, POST");
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
     try {
         await connectDB();

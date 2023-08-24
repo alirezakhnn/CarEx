@@ -4,7 +4,7 @@ import { useSession } from 'next-auth/react';
 import React from "react";
 import Button from '@mui/material/Button';
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import "../css/toastify.css";
 
 interface CarsData {
     title: string;

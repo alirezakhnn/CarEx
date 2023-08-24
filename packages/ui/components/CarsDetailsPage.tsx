@@ -1,13 +1,15 @@
 import React from "react";
 import Image from 'next/image';
 import { BtnShadow } from "../modules/Button";
-import Link from 'next/link';
 import { SquareLoader } from "../modules/SquareLoader";
+import { useRouter } from 'next/router';
+import { ToastContainer, toast } from "react-toastify";
+import "../css/toastify.css";
 
 type CarData = {
-    _id: React.Key | null | undefined;
-    title: string;
     picture: string;
+    _id?: string;
+    title: string;
     alt: string;
     date: string;
     subtitle: string;
@@ -19,7 +21,19 @@ type CarsDetailsPageProps = {
 };
 
 export function CarsDetailsPage({ data }: CarsDetailsPageProps) {
-    console.log(data);
+    const router = useRouter();
+
+    const deleteHandler = async () => {
+        const carId = data[0]._id;
+        const res = await fetch(`/api/delete/${carId}`, {
+            method: 'DELETE'
+        });
+        const newRes = await res.json();
+        if (newRes || newRes.status === 'success') {
+            toast.success('car deleted!');
+            router.replace('/');
+        }
+    }
 
     if (data) {
         return (
@@ -40,7 +54,11 @@ export function CarsDetailsPage({ data }: CarsDetailsPageProps) {
                         </div>
                     ))
                 }
-                <Link className="justify-self-center" href='/'><BtnShadow>Back To Home</BtnShadow></Link>
+                <div className="grid grid-cols-2 gap-x-6">
+                    <BtnShadow className="bg-oceanBlue hover:shadow-md hover:shadow-oceanBlue dark:hover:text-white hover:text-midnight text-white" href='/'>Back To Home</BtnShadow>
+                    <BtnShadow className="text-midnight hover:text-white dark:text-white dark:shadow-sm dark:hover:shadow-none dark:shadow-silver" color="warning" variant="contained" onClick={deleteHandler}>Delete</BtnShadow>
+                </div>
+                <ToastContainer />
             </div>
         );
     }

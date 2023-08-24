@@ -54,7 +54,7 @@ var react_2 = require("next-auth/react");
 var react_3 = require("react");
 var Button_1 = require("@mui/material/Button");
 var react_toastify_1 = require("react-toastify");
-require("react-toastify/dist/ReactToastify.css");
+require("../css/toastify.css");
 function AddCarsComponent() {
     var _this = this;
     var status = react_2.useSession().status;
