@@ -10,7 +10,7 @@ import Button from '@mui/material/Button';
 
 // import ChangeHistoryIcon from '@mui/icons-material/ChangeHistory';
 
-import { Porsche, BMW, Benz, Audi } from './Icons';
+import { CarIcon } from './Icons';
 
 import AddIcon from '@mui/icons-material/Add';
 
@@ -33,43 +33,25 @@ interface CarData {
     iconStyle?: CSSProperties | undefined;
 };
 
-const CarIcon = ({ icon }: any) => {
-    switch (icon.toLowerCase()) {
-        case "porsche":
-            return <Porsche />;
-        case "bmw":
-            return <BMW />;
-        case "benz":
-            return <Benz />;
-        case "audi":
-            return <Audi />;
-        default:
-            return null;
-    }
-};
-
 
 export const TimeLine = () => {
     const { status } = useSession();
     const [data, setData] = useState<CarData[] | []>([]);
-    const [loading, setLoading] = useState(true);
     useEffect(() => {
         if (status === 'authenticated') {
             fetch('api/addcar')
                 .then(res => res.json())
                 .then(data => setData(data.data));
-            setLoading(false);
         }
-        setLoading(false);
     }, [status]);
 
     const iconstyle = {
         background: 'black', color: '#fff', boxShadow: '0 0 20px #116AE3'
     };
-    if (data) return (
+    return (
         <>
             {
-                status === "authenticated" ? (
+                status === "authenticated" && data ? (
 
                     <VerticalTimeline>
                         {data.map(element => (
@@ -112,9 +94,6 @@ export const TimeLine = () => {
                         </div>
                     </VerticalTimeline>
                 ) : <SquareLoader />
-            }
-            {
-                loading ? <SquareLoader /> : null
             }
         </>
     );

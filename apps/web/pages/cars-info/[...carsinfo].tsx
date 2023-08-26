@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import { CarsDetailsPage } from 'ui';
+import { CarsDetailsPage, SquareLoader } from 'ui';
 
 function Index() {
     const [data, setData] = useState(null)
@@ -16,6 +16,7 @@ function Index() {
             .then(data => setData(data.data));
     }, [isReady, carsinfo])
     if (data) return <CarsDetailsPage data={data} />
+    else return <SquareLoader />
 }
 
 export default Index;

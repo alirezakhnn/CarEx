@@ -66,7 +66,7 @@ function SignUp() {
                 case 1:
                     res = _a.sent();
                     if (!res.error)
-                        router.push("/");
+                        router.replace("/");
                     return [2 /*return*/];
             }
         });

@@ -32,7 +32,7 @@ export default function SignUp() {
             redirect: false,
         });
 
-        if (!res.error) router.push("/");
+        if (!res.error) router.replace("/");
     };
     return (
         <div className="grid justify-center">

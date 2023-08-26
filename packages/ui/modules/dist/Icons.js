@@ -1,6 +1,6 @@
 "use strict";
 exports.__esModule = true;
-exports.CurvedBorder = exports.Audi = exports.Benz = exports.BMW = exports.Porsche = exports.SearchBarIcon = exports.Facebook = exports.Instagram = exports.Telegram = void 0;
+exports.CarIcon = exports.CurvedBorder = exports.Audi = exports.Benz = exports.BMW = exports.Porsche = exports.SearchBarIcon = exports.Facebook = exports.Instagram = exports.Telegram = void 0;
 var Telegram_1 = require("@mui/icons-material/Telegram");
 var Search_1 = require("@mui/icons-material/Search");
 var Instagram_1 = require("@mui/icons-material/Instagram");
@@ -400,4 +400,19 @@ exports.CurvedBorder = function (_a) {
     return (react_2["default"].createElement("div", { className: "curve-border absolute " },
         react_2["default"].createElement("svg", { id: "curvedBorder", height: "150px", width: "100rem", viewBox: "0 0 1440 181", preserveAspectRatio: "none", className: "c-PJLV c-PJLV-ifGHEql-css transition-all duration-1000" },
             react_2["default"].createElement("path", { d: "M0 96l60-10.7C120 75 240 53 360 74.7 480 96 600 160 720 176s240-16 360-42.7c120-26.3 240-48.3 300-58.6l60-10.7V0H0v96z", fill: fill, fillRule: "nonzero", stroke: "none", strokeWidth: "1" }))));
+};
+exports.CarIcon = function (_a) {
+    var icon = _a.icon;
+    switch (icon.toLowerCase()) {
+        case "porsche":
+            return react_2["default"].createElement(exports.Porsche, null);
+        case "bmw":
+            return react_2["default"].createElement(exports.BMW, null);
+        case "benz":
+            return react_2["default"].createElement(exports.Benz, null);
+        case "audi":
+            return react_2["default"].createElement(exports.Audi, null);
+        default:
+            return null;
+    }
 };

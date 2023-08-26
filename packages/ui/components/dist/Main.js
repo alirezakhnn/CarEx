@@ -1,10 +1,12 @@
 "use strict";
 exports.__esModule = true;
 exports.Main = void 0;
+var react_1 = require("next-auth/react");
+var SquareLoader_1 = require("../modules/SquareLoader");
 var TimeLine_1 = require("../modules/TimeLine");
-var react_1 = require("react");
+var react_2 = require("react");
 function Main() {
-    return (react_1["default"].createElement("div", { className: "z-10 mt-[13%]" },
-        react_1["default"].createElement(TimeLine_1.TimeLine, null)));
+    var status = react_1.useSession().status;
+    return (react_2["default"].createElement("div", { className: "z-10 mt-[13%]" }, status === 'authenticated' ? react_2["default"].createElement(TimeLine_1.TimeLine, null) : react_2["default"].createElement(SquareLoader_1.SquareLoader, null)));
 }
 exports.Main = Main;

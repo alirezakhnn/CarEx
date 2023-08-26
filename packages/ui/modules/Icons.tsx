@@ -197,3 +197,20 @@ export const CurvedBorder = ({ fill }: any) => (
         </svg>
     </div>
 );
+
+
+
+export const CarIcon = ({ icon }: any) => {
+    switch (icon.toLowerCase()) {
+        case "porsche":
+            return <Porsche />;
+        case "bmw":
+            return <BMW />;
+        case "benz":
+            return <Benz />;
+        case "audi":
+            return <Audi />;
+        default:
+            return null;
+    }
+};
