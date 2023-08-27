@@ -99,11 +99,11 @@ function AddCarsComponent() {
         var _b = e.target, name = _b.name, value = _b.value;
         setCars(__assign(__assign({}, cars), (_a = {}, _a[name] = value, _a)));
     };
-    var inputsClass = "\n    dark:bg-gradient-to-r dark:from-white dark:via-white dark:to-silver bg-midnight\n    rounded-full py-1 dark:text-midnight text-white\n    font-monsterratMedium px-4 transition-all outline-none border-none\n    ";
-    var labelsClass = "\n    dark:text-white text-midnight font-monsterratBold\n    ";
-    var divsClass = "\n    grid gap-y-1\n    ";
-    return (react_3["default"].createElement("form", { className: "grid place-items-center gap-y-2 mt-1 dark:shadow-lg dark:shadow-oceanBlue shadow-xl shadow-silver max-w-[600px] px-24 py-2 rounded-lg", encType: "multipart/form-data" },
-        react_3["default"].createElement("h3", { className: "text-xl dark:text-white text-midnight text- font-monsterratBold mb-4" }, "Add Car"),
+    var inputsClass = "\n    rounded-lg outline-none px-4 py-1\n    focus:shadow-lg focus:shadow-midnight bg-gradient-to-r from-silver via-white to-silver\n    font-monsterratMedium focus:shadow-outline focus:scale-110\n    transition-all m-2\n    ";
+    var labelsClass = "\n    dark:text-white text-midnight font-monsterratItalic\n    ";
+    var divsClass = "\n    grid grid-cols-2 place-items-center py-2\n    ";
+    return (react_3["default"].createElement("form", { className: "grid my-16 dark:hover:shadow-lg dark:hover:shadow-deepOcean hover:shadow-lg hover:shadow-silver hover:scale-110 transition-all max-w-[600px] px-24 py-2 rounded-lg", encType: "multipart/form-data" },
+        react_3["default"].createElement("h3", { className: "text-xl justify-self-center dark:text-white text-midnight text- font-monsterratBold mb-4" }, "Add Car"),
         react_3["default"].createElement("div", { className: divsClass },
             react_3["default"].createElement("label", { className: labelsClass, htmlFor: "title" }, "Brand Name"),
             react_3["default"].createElement("input", { className: "capitalize " + inputsClass, type: "text", name: "title", id: "title", value: cars.title, onChange: changeHandler, required: true })),
@@ -112,7 +112,7 @@ function AddCarsComponent() {
             react_3["default"].createElement("input", { className: "capitalize " + inputsClass, type: "text", name: "subtitle", id: "subtitle", value: cars.subtitle, onChange: changeHandler, required: true })),
         react_3["default"].createElement("div", { className: divsClass },
             react_3["default"].createElement("label", { className: labelsClass, htmlFor: "description" }, "Description"),
-            react_3["default"].createElement("input", { className: "capitalize " + inputsClass, type: "text", name: "description", id: "description", value: cars.description, onChange: changeHandler, required: true })),
+            react_3["default"].createElement("textarea", { className: "capitalize max-w-[250px] min-h-[70px] max-h-[70px] " + inputsClass, name: "description", id: "description", value: cars.description, onChange: changeHandler, required: true })),
         react_3["default"].createElement("div", { className: divsClass },
             react_3["default"].createElement("label", { className: labelsClass, htmlFor: "date" }, "Made Date"),
             react_3["default"].createElement("input", { className: "capitalize " + inputsClass, type: "text", name: "date", id: "date", value: cars.date, onChange: changeHandler, required: true })),
@@ -122,7 +122,7 @@ function AddCarsComponent() {
         react_3["default"].createElement("div", { className: divsClass },
             react_3["default"].createElement("label", { className: labelsClass, htmlFor: "picture" }, "Car Picture"),
             react_3["default"].createElement("input", { className: inputsClass, type: "text", name: "picture", id: "picture", onChange: changeHandler })),
-        react_3["default"].createElement(Button_1["default"], { className: "my-3 px-4 py-2 rounded-lg text-white hover:text-midnight dark:hover:text-white bg-oceanBlue font-monsterratBold hover:shadow-md hover:shadow-oceanBlue hover:scale-110 transition-all", onClick: submitHandler }, "Submit"),
+        react_3["default"].createElement(Button_1["default"], { className: "my-5 px-4 py-2 rounded-lg text-white hover:text-midnight dark:hover:text-white bg-oceanBlue font-monsterratBold hover:shadow-md hover:shadow-oceanBlue hover:scale-110 transition-all", onClick: submitHandler }, "Submit"),
         react_3["default"].createElement(react_toastify_1.ToastContainer, null)));
 }
 exports.AddCarsComponent = AddCarsComponent;

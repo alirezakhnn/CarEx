@@ -10,7 +10,7 @@ var framer_motion_1 = require("framer-motion");
 var react_1 = require("next-auth/react");
 var react_2 = require("react");
 exports.navItems = [
-    { id: 1, title: 'All', href: '/' },
+    { id: 1, title: 'Add', href: '/add-car' },
     { id: 2, title: 'City', href: '/' },
     { id: 3, title: 'Contact', href: '/' },
     { id: 4, title: 'Blog', href: '/' },

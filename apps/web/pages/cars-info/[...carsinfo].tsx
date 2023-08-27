@@ -15,8 +15,14 @@ function Index() {
             .then(res => res.json())
             .then(data => setData(data.data));
     }, [isReady, carsinfo])
-    if (data) return <CarsDetailsPage data={data} />
-    else return <SquareLoader />
+    return (
+        <>
+            {data ? <CarsDetailsPage data={data} /> : <SquareLoader />}
+        </>
+    );
 }
 
 export default Index;
+
+
+// when i switch into this page the elements crash!*

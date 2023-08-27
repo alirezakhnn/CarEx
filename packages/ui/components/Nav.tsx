@@ -14,7 +14,7 @@ interface NavItem {
 }
 
 export const navItems: NavItem[] = [
-    { id: 1, title: 'All', href: '/' },
+    { id: 1, title: 'Add', href: '/add-car' },
     { id: 2, title: 'City', href: '/' },
     { id: 3, title: 'Contact', href: '/' },
     { id: 4, title: 'Blog', href: '/' },

@@ -23,7 +23,7 @@ export function Layout({ children }: LayoutProps): React.ReactElement {
             transition={{ duration: 0.5 }}
             className="grid"
         >
-            <Nav />
+            {status === 'authenticated' && <Nav />}
             <main>{children}</main>
             {status === "authenticated" && <Footer />}
         </motion.div>

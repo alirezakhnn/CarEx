@@ -1,6 +1,7 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
 import '../css/switcher.css';
+import React from 'react';
 
 interface SwitcherProps { }
 

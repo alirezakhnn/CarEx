@@ -46,28 +46,29 @@ export function AddCarsComponent() {
         }
     };
 
-    const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    const changeHandler = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setCars({ ...cars, [name]: value })
     };
 
     const inputsClass = `
-    dark:bg-gradient-to-r dark:from-white dark:via-white dark:to-silver bg-midnight
-    rounded-full py-1 dark:text-midnight text-white
-    font-monsterratMedium px-4 transition-all outline-none border-none
+    rounded-lg outline-none px-4 py-1
+    focus:shadow-lg focus:shadow-midnight bg-gradient-to-r from-silver via-white to-silver
+    font-monsterratMedium focus:shadow-outline focus:scale-110
+    transition-all m-2
     `;
 
     const labelsClass = `
-    dark:text-white text-midnight font-monsterratBold
+    dark:text-white text-midnight font-monsterratItalic
     `;
 
     const divsClass = `
-    grid gap-y-1
+    grid grid-cols-2 place-items-center py-2
     `;
 
     return (
-        <form className="grid place-items-center gap-y-2 mt-1 dark:shadow-lg dark:shadow-oceanBlue shadow-xl shadow-silver max-w-[600px] px-24 py-2 rounded-lg" encType="multipart/form-data">
-            <h3 className="text-xl dark:text-white text-midnight text- font-monsterratBold mb-4">Add Car</h3>
+        <form className="grid my-16 dark:hover:shadow-lg dark:hover:shadow-deepOcean hover:shadow-lg hover:shadow-silver hover:scale-110 transition-all max-w-[600px] px-24 py-2 rounded-lg" encType="multipart/form-data">
+            <h3 className="text-xl justify-self-center dark:text-white text-midnight text- font-monsterratBold mb-4">Add Car</h3>
             <div className={divsClass}>
                 <label className={labelsClass} htmlFor="title">Brand Name</label>
                 <input className={`capitalize ${inputsClass}`} type="text"
@@ -86,7 +87,7 @@ export function AddCarsComponent() {
             </div>
             <div className={divsClass}>
                 <label className={labelsClass} htmlFor="description">Description</label>
-                <input className={`capitalize ${inputsClass}`} type="text"
+                <textarea className={`capitalize max-w-[250px] min-h-[70px] max-h-[70px] ${inputsClass}`}
                     name="description" id="description" value={cars.description}
                     onChange={changeHandler}
                     required={true}
@@ -115,7 +116,7 @@ export function AddCarsComponent() {
                     onChange={changeHandler}
                 />
             </div>
-            <Button className="my-3 px-4 py-2 rounded-lg text-white hover:text-midnight dark:hover:text-white bg-oceanBlue font-monsterratBold hover:shadow-md hover:shadow-oceanBlue hover:scale-110 transition-all" onClick={submitHandler}>
+            <Button className="my-5 px-4 py-2 rounded-lg text-white hover:text-midnight dark:hover:text-white bg-oceanBlue font-monsterratBold hover:shadow-md hover:shadow-oceanBlue hover:scale-110 transition-all" onClick={submitHandler}>
                 Submit
             </Button>
             <ToastContainer />

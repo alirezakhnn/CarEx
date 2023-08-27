@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { DropDown } from "./DropDown";
 import '../css/hamburger.css';
+import React from 'react';
 
 export function Hamburger() {
     // this state is for when the hamburger is checked it changes the style of hamburger

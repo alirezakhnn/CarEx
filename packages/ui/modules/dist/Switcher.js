@@ -4,6 +4,7 @@ exports.Switcher = void 0;
 var react_1 = require("react");
 var next_themes_1 = require("next-themes");
 require("../css/switcher.css");
+var react_2 = require("react");
 function Switcher(props) {
     var _a = next_themes_1.useTheme(), systemTheme = _a.systemTheme, theme = _a.theme, setTheme = _a.setTheme;
     var currentTheme = theme === 'system' ? systemTheme : theme;
@@ -14,9 +15,9 @@ function Switcher(props) {
     var checkHandler = function (e) {
         setChecked(e.target.checked);
     };
-    return (React.createElement(React.Fragment, null,
-        React.createElement("input", { type: "checkbox", id: "switcher", checked: checked, onChange: checkHandler }),
-        React.createElement("label", { htmlFor: "switcher", className: "switch bg-gradient-to-b from-transparent \n            via-white to-silver \n            shadow-lg dark:shadow-midnight\n            ", onClick: function () {
+    return (react_2["default"].createElement(react_2["default"].Fragment, null,
+        react_2["default"].createElement("input", { type: "checkbox", id: "switcher", checked: checked, onChange: checkHandler }),
+        react_2["default"].createElement("label", { htmlFor: "switcher", className: "switch bg-gradient-to-b from-transparent \n            via-white to-silver \n            shadow-lg dark:shadow-midnight\n            ", onClick: function () {
                 if (currentTheme === 'dark' && checked) {
                     setTheme('light');
                 }
@@ -24,6 +25,6 @@ function Switcher(props) {
                     setTheme('dark');
                 }
             } },
-            React.createElement("div", { className: "powersign" }))));
+            react_2["default"].createElement("div", { className: "powersign" }))));
 }
 exports.Switcher = Switcher;

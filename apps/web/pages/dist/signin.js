@@ -42,7 +42,10 @@ var router_1 = require("next/router");
 var react_3 = require("next-auth/react");
 var link_1 = require("next/link");
 var ui_1 = require("ui");
-function SignUp() {
+var material_1 = require("@mui/material");
+var Google_1 = require("@mui/icons-material/Google");
+var Switcher_1 = require("ui/modules/Switcher");
+function SignIn() {
     var _this = this;
     var router = router_1.useRouter();
     var status = react_2.useSession().status;
@@ -52,8 +55,8 @@ function SignUp() {
         if (status === 'authenticated')
             router.replace('/');
     }, [status]);
-    var labelsClass = "\n    font-monsterratBold dark:text-white text-midnight\n    ";
-    var inputsClass = "\n    rounded-lg outline-none border-none px-4 py-1\n    bg-gradient-to-r dark:from-silver dark:to-white\n    from-midnight to-silver dark:text-midnight text-white\n    font-monsterratMedium\n    ";
+    var labelsClass = "\n    font-monsterratItalic dark:text-white text-midnight\n    ";
+    var inputsClass = "\n    rounded-lg outline-none px-4 py-1\n    focus:shadow-lg focus:shadow-midnight bg-gradient-to-r from-white to-silver\n    font-monsterratMedium focus:shadow-outline focus:scale-110\n    transition-all m-2\n    ";
     var loginHandler = function () { return __awaiter(_this, void 0, void 0, function () {
         var res;
         return __generator(this, function (_a) {
@@ -71,17 +74,25 @@ function SignUp() {
             }
         });
     }); };
-    return (React.createElement("div", { className: "grid justify-center" },
-        React.createElement("div", { className: "grid place-items-center gap-y-4 rounded-lg shadow-lg dark:shadow-oceanBlue shadow-silver max-w-[600px] mt-6 px-16 py-6" },
-            React.createElement("div", { className: "grid gap-y-2" },
-                React.createElement("label", { className: labelsClass, htmlFor: "email" }, "Email"),
-                React.createElement("input", { id: "email", type: "text", value: email, onChange: function (e) { return setEmail(e.target.value); }, className: inputsClass })),
-            React.createElement("div", { className: "grid gap-y-2" },
-                React.createElement("label", { className: labelsClass, htmlFor: "password" }, "password"),
-                React.createElement("input", { id: "password", type: "password", value: password, onChange: function (e) { return setPassword(e.target.value); }, className: inputsClass })),
-            React.createElement(ui_1.BtnShadow, { onClick: loginHandler }, "SignIn"),
-            React.createElement("p", { className: "dark:text-white text-midnight font-monsterratMedium" },
-                " Create An Account?",
-                React.createElement(link_1["default"], { className: "text-oceanBlue", href: "/signup" }, " Sign Up")))));
+    return (React.createElement("div", { className: "flex justify-center gap-2 mt-20" },
+        React.createElement("div", { className: "grid justify-center" },
+            React.createElement("div", { className: "grid place-items-center rounded-l-lg border-2 border-oceanBlue max-w-[600px] px-16 py-12" },
+                React.createElement("div", { className: "grid grid-cols-2 place-items-center mr-10 mb-4" },
+                    React.createElement(Switcher_1.Switcher, null),
+                    React.createElement(material_1.Typography, { variant: "h4", className: "dark:text-white text-midnight font-monsterratItalic font-bold text-md" }, "Sign In")),
+                React.createElement("div", { className: "grid gap-y-2" },
+                    React.createElement("label", { className: labelsClass, htmlFor: "email" }, "Email"),
+                    React.createElement("input", { id: "email", type: "text", value: email, onChange: function (e) { return setEmail(e.target.value); }, className: inputsClass, required: true })),
+                React.createElement("div", { className: "grid gap-y-2" },
+                    React.createElement("label", { className: labelsClass, htmlFor: "password" }, "password"),
+                    React.createElement("input", { id: "password", type: "password", value: password, onChange: function (e) { return setPassword(e.target.value); }, className: inputsClass, required: true })),
+                React.createElement(ui_1.BtnShadow, { onClick: loginHandler, className: "shadow-lg shadow-deepOcean hover:shadow-md hover:shadow-deepOcean dark:text-white text-midnight" }, "SignIn"),
+                React.createElement(ui_1.BtnShadow, { className: "shadow-md shadow-oceanBlue hover:shadow-none dark:text-white text-midnight flex gap-2 hover:bg-aboveOcean hover:text-white hover:scale-110" },
+                    React.createElement(Google_1["default"], null),
+                    "SignIn with Google"),
+                React.createElement("p", { className: "dark:text-white text-midnight font-monsterratItalic" },
+                    " Create An Account?",
+                    React.createElement(link_1["default"], { className: "text-oceanBlue", href: "/signup" }, " Sign Up")))),
+        React.createElement("img", { src: "/images/dark/edgeCar.jpg", alt: "edgeCar_signin", className: "max-w-[550px] max-h-[550px] rounded-r-lg shadow-md shadow-oceanBlue opacity-[40%] xs:hidden xl:block" })));
 }
-exports["default"] = SignUp;
+exports["default"] = SignIn;

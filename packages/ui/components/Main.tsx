@@ -6,8 +6,8 @@ import React from "react";
 export function Main() {
     const { status } = useSession();
     return (
-        <div className="z-10 mt-[13%]">
-            { status === 'authenticated' ? <TimeLine /> : <SquareLoader /> }
+        <div className="z-10 mt-[45vh]">
+            {status === 'authenticated' ? <TimeLine /> : <SquareLoader />}
         </div>
     );
 }

@@ -14,7 +14,7 @@ function Layout(_a) {
     var children = _a.children;
     var status = react_2.useSession().status;
     return (react_1["default"].createElement(framer_motion_1.motion.div, { variants: layoutVariants, initial: "initial", animate: "animate", transition: { duration: 0.5 }, className: "grid" },
-        react_1["default"].createElement(Nav_1.Nav, null),
+        status === 'authenticated' && react_1["default"].createElement(Nav_1.Nav, null),
         react_1["default"].createElement("main", null, children),
         status === "authenticated" && react_1["default"].createElement(Footer_1.Footer, null)));
 }
