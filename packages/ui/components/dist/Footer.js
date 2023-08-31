@@ -22,7 +22,7 @@ function Footer() {
         { href: '/', content: "Contact" },
         { href: '/', content: "All" },
     ];
-    return (react_1["default"].createElement("div", null,
+    return (react_1["default"].createElement("div", { className: "mt-[20%]" },
         react_1["default"].createElement(Icons_1.CurvedBorder, { fill: theme === 'dark' || theme !== 'light' ? "#000" : "#fff" }),
         react_1["default"].createElement("footer", { className: "grid py-8 text-white bg-deepOcean gap-y-6 px-24 mt-5" },
             react_1["default"].createElement(Logo_1.Logo, { className: "text-white" }),

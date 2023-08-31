@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { navItems } from '../components/Nav';
+import React from 'react';
 /* this component works when the screen is on tablet size or less
 and hamburger menu is checked */
 export function DropDown() {
@@ -14,7 +15,7 @@ export function DropDown() {
             w-[100vw] h-[100vh] md:landscape:h-[130vh] 
             sm:landscape:h-[150vh]
             transition-all
-            duration-500 font-monsterratMedium z-20`}>
+            duration-500 font-monsterratMedium z-50`}>
             <ul className="grid gap-y-3">
                 {
                     navItems.map(({ id, href, title }) => (

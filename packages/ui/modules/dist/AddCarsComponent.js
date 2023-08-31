@@ -101,9 +101,9 @@ function AddCarsComponent() {
     };
     var inputsClass = "\n    rounded-lg outline-none px-4 py-1\n    focus:shadow-lg focus:shadow-midnight bg-gradient-to-r from-silver via-white to-silver\n    font-monsterratMedium focus:shadow-outline focus:scale-110\n    transition-all m-2\n    ";
     var labelsClass = "\n    dark:text-white text-midnight font-monsterratItalic\n    ";
-    var divsClass = "\n    grid grid-cols-2 place-items-center py-2\n    ";
-    return (react_3["default"].createElement("form", { className: "grid my-16 dark:hover:shadow-lg dark:hover:shadow-deepOcean hover:shadow-lg hover:shadow-silver hover:scale-110 transition-all max-w-[600px] px-24 py-2 rounded-lg", encType: "multipart/form-data" },
-        react_3["default"].createElement("h3", { className: "text-xl justify-self-center dark:text-white text-midnight text- font-monsterratBold mb-4" }, "Add Car"),
+    var divsClass = "\n    grid xxs:grid-cols-1 md:grid-cols-2 place-items-center py-2\n    ";
+    return (react_3["default"].createElement("form", { className: "grid my-16 dark:hover:shadow-lg dark:hover:shadow-deepOcean hover:shadow-lg hover:shadow-silver transition-all max-w-[600px] px-24 py-2 rounded-lg xxs:mx-5 md:mx-0", encType: "multipart/form-data" },
+        react_3["default"].createElement("h3", { className: "xxs:text-md sm:text-xl justify-self-center dark:text-white text-midnight text- font-monsterratBold mb-4" }, "Add Car"),
         react_3["default"].createElement("div", { className: divsClass },
             react_3["default"].createElement("label", { className: labelsClass, htmlFor: "title" }, "Brand Name"),
             react_3["default"].createElement("input", { className: "capitalize " + inputsClass, type: "text", name: "title", id: "title", value: cars.title, onChange: changeHandler, required: true })),

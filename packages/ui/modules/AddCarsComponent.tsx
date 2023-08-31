@@ -63,12 +63,12 @@ export function AddCarsComponent() {
     `;
 
     const divsClass = `
-    grid grid-cols-2 place-items-center py-2
+    grid xxs:grid-cols-1 md:grid-cols-2 place-items-center py-2
     `;
 
     return (
-        <form className="grid my-16 dark:hover:shadow-lg dark:hover:shadow-deepOcean hover:shadow-lg hover:shadow-silver hover:scale-110 transition-all max-w-[600px] px-24 py-2 rounded-lg" encType="multipart/form-data">
-            <h3 className="text-xl justify-self-center dark:text-white text-midnight text- font-monsterratBold mb-4">Add Car</h3>
+        <form className="grid my-16 dark:hover:shadow-lg dark:hover:shadow-deepOcean hover:shadow-lg hover:shadow-silver transition-all max-w-[600px] px-24 py-2 rounded-lg xxs:mx-5 md:mx-0" encType="multipart/form-data">
+            <h3 className="xxs:text-md sm:text-xl justify-self-center dark:text-white text-midnight text- font-monsterratBold mb-4">Add Car</h3>
             <div className={divsClass}>
                 <label className={labelsClass} htmlFor="title">Brand Name</label>
                 <input className={`capitalize ${inputsClass}`} type="text"

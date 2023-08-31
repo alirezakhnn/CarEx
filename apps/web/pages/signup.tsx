@@ -40,7 +40,7 @@ export default function SignUp() {
     return (
         <div className="flex justify-center gap-2 mt-20">
             <div className="grid justify-center">
-                <div className="grid place-items-center rounded-l-lg border-2 border-oceanBlue max-w-[600px] px-16 py-12">
+                <div className="grid place-items-center rounded-l-lg border-2 border-oceanBlue max-w-[600px] xxs:px-5 sm:px-16 py-12 xxs:mx-5 sm:mx-0">
                     <div className="grid grid-cols-2 place-items-center mr-10 mb-4">
                         <Switcher />
                         <Typography
@@ -87,7 +87,7 @@ export default function SignUp() {
             <img
                 src="/images/dark/modernDarkCarMoonlightBlue.jpg"
                 alt="edgeCar_signin"
-                className="max-w-[600px] max-h-[550px] rounded-r-lg shadow-md shadow-oceanBlue opacity-[40%] xs:hidden xl:block"
+                className="max-w-[600px] max-h-[550px] rounded-r-lg shadow-md shadow-oceanBlue opacity-[40%] xxs:hidden xl:block"
             />
             <ToastContainer />
         </div>

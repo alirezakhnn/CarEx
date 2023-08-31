@@ -37,7 +37,7 @@ export function CarsDetailsPage({ data }: CarsDetailsPageProps) {
 
     if (data) {
         return (
-            <div className="grid justify-center my-4 mx-10">
+            <div className="grid justify-center my-4 mx-10 xxs:px-5 md:px-0">
                 {
                     data?.map((car: CarData) => (
                         <div className="grid justify-center gap-y-3" key={car._id}>
@@ -54,7 +54,7 @@ export function CarsDetailsPage({ data }: CarsDetailsPageProps) {
                         </div>
                     ))
                 }
-                <div className="grid grid-cols-2 gap-x-6">
+                <div className="grid justify-self-center grid-cols-2 gap-x-6">
                     <BtnShadow className="bg-oceanBlue hover:shadow-md hover:shadow-oceanBlue dark:hover:text-white hover:text-midnight text-white" href='/'>Back To Home</BtnShadow>
                     <BtnShadow className="text-midnight hover:text-white dark:text-white dark:shadow-sm dark:hover:shadow-none dark:shadow-silver" color="warning" variant="contained" onClick={deleteHandler}>Delete</BtnShadow>
                 </div>

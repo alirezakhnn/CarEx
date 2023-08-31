@@ -40,7 +40,7 @@ export default function SignIn() {
     return (
         <div className="flex justify-center gap-2 mt-20">
             <div className="grid justify-center">
-                <div className="grid place-items-center rounded-l-lg border-2 border-oceanBlue max-w-[600px] px-16 py-12">
+                <div className="grid place-items-center rounded-l-lg border-2 border-oceanBlue max-w-[600px] xxs:px-5 xs:px-16 py-12 xss:mx-5 sm:mx-0">
                     <div className="grid grid-cols-2 place-items-center mr-10 mb-4">
                         <Switcher />
                         <Typography
@@ -87,7 +87,7 @@ export default function SignIn() {
             <img
                 src="/images/dark/edgeCar.jpg"
                 alt="edgeCar_signin"
-                className="max-w-[550px] max-h-[550px] rounded-r-lg shadow-md shadow-oceanBlue opacity-[40%] xs:hidden xl:block"
+                className="max-w-[550px] max-h-[550px] rounded-r-lg shadow-md shadow-oceanBlue opacity-[40%] xxs:hidden xl:block"
             />
         </div>
     );

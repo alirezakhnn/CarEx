@@ -71,7 +71,7 @@ function CarsDetailsPage(_a) {
         });
     }); };
     if (data) {
-        return (react_1["default"].createElement("div", { className: "grid justify-center my-4 mx-10" }, data === null || data === void 0 ? void 0 :
+        return (react_1["default"].createElement("div", { className: "grid justify-center my-4 mx-10 xxs:px-5 md:px-0" }, data === null || data === void 0 ? void 0 :
             data.map(function (car) { return (react_1["default"].createElement("div", { className: "grid justify-center gap-y-3", key: car._id },
                 react_1["default"].createElement("h3", { className: "text-xl text-center dark:text-white text-midnight capitalize font-monsterratBold" }, car.title),
                 react_1["default"].createElement(image_1["default"], { className: "dark:text-white text-midnight", src: car.picture, width: 600, height: 360, alt: car.alt }),
@@ -85,7 +85,7 @@ function CarsDetailsPage(_a) {
                 react_1["default"].createElement("p", { className: "font-bold dark:text-white text-midnight my-5 max-w-[600px]" },
                     "Description: \u00A0",
                     react_1["default"].createElement("span", { className: "font-monsterratItalic text-aboveOcean" }, car.description)))); }),
-            react_1["default"].createElement("div", { className: "grid grid-cols-2 gap-x-6" },
+            react_1["default"].createElement("div", { className: "grid justify-self-center grid-cols-2 gap-x-6" },
                 react_1["default"].createElement(Button_1.BtnShadow, { className: "bg-oceanBlue hover:shadow-md hover:shadow-oceanBlue dark:hover:text-white hover:text-midnight text-white", href: '/' }, "Back To Home"),
                 react_1["default"].createElement(Button_1.BtnShadow, { className: "text-midnight hover:text-white dark:text-white dark:shadow-sm dark:hover:shadow-none dark:shadow-silver", color: "warning", variant: "contained", onClick: deleteHandler }, "Delete")),
             react_1["default"].createElement(react_toastify_1.ToastContainer, null)));

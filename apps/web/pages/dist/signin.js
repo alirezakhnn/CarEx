@@ -76,7 +76,7 @@ function SignIn() {
     }); };
     return (React.createElement("div", { className: "flex justify-center gap-2 mt-20" },
         React.createElement("div", { className: "grid justify-center" },
-            React.createElement("div", { className: "grid place-items-center rounded-l-lg border-2 border-oceanBlue max-w-[600px] px-16 py-12" },
+            React.createElement("div", { className: "grid place-items-center rounded-l-lg border-2 border-oceanBlue max-w-[600px] xxs:px-5 xs:px-16 py-12 xss:mx-5 sm:mx-0" },
                 React.createElement("div", { className: "grid grid-cols-2 place-items-center mr-10 mb-4" },
                     React.createElement(Switcher_1.Switcher, null),
                     React.createElement(material_1.Typography, { variant: "h4", className: "dark:text-white text-midnight font-monsterratItalic font-bold text-md" }, "Sign In")),
@@ -93,6 +93,6 @@ function SignIn() {
                 React.createElement("p", { className: "dark:text-white text-midnight font-monsterratItalic" },
                     " Create An Account?",
                     React.createElement(link_1["default"], { className: "text-oceanBlue", href: "/signup" }, " Sign Up")))),
-        React.createElement("img", { src: "/images/dark/edgeCar.jpg", alt: "edgeCar_signin", className: "max-w-[550px] max-h-[550px] rounded-r-lg shadow-md shadow-oceanBlue opacity-[40%] xs:hidden xl:block" })));
+        React.createElement("img", { src: "/images/dark/edgeCar.jpg", alt: "edgeCar_signin", className: "max-w-[550px] max-h-[550px] rounded-r-lg shadow-md shadow-oceanBlue opacity-[40%] xxs:hidden xl:block" })));
 }
 exports["default"] = SignIn;

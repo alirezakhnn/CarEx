@@ -77,7 +77,7 @@ function SignUp() {
     var inputsClass = "\n    rounded-lg outline-none px-4 py-1\n    focus:shadow-lg focus:shadow-midnight bg-gradient-to-r from-white to-silver\n    font-monsterratMedium focus:shadow-outline focus:scale-110\n    transition-all m-2\n    ";
     return (React.createElement("div", { className: "flex justify-center gap-2 mt-20" },
         React.createElement("div", { className: "grid justify-center" },
-            React.createElement("div", { className: "grid place-items-center rounded-l-lg border-2 border-oceanBlue max-w-[600px] px-16 py-12" },
+            React.createElement("div", { className: "grid place-items-center rounded-l-lg border-2 border-oceanBlue max-w-[600px] xxs:px-5 sm:px-16 py-12 xxs:mx-5 sm:mx-0" },
                 React.createElement("div", { className: "grid grid-cols-2 place-items-center mr-10 mb-4" },
                     React.createElement(Switcher_1.Switcher, null),
                     React.createElement(material_1.Typography, { variant: "h4", className: "dark:text-white text-midnight font-monsterratItalic font-bold text-md" }, "Sign Up")),
@@ -94,7 +94,7 @@ function SignUp() {
                 React.createElement("p", { className: "dark:text-white text-midnight font-monsterratItalic" },
                     " do you have account?",
                     React.createElement(link_1["default"], { className: "text-oceanBlue", href: "/signin" }, " \u00A0Login")))),
-        React.createElement("img", { src: "/images/dark/modernDarkCarMoonlightBlue.jpg", alt: "edgeCar_signin", className: "max-w-[600px] max-h-[550px] rounded-r-lg shadow-md shadow-oceanBlue opacity-[40%] xs:hidden xl:block" }),
+        React.createElement("img", { src: "/images/dark/modernDarkCarMoonlightBlue.jpg", alt: "edgeCar_signin", className: "max-w-[600px] max-h-[550px] rounded-r-lg shadow-md shadow-oceanBlue opacity-[40%] xxs:hidden xl:block" }),
         React.createElement(react_toastify_1.ToastContainer, null)));
 }
 exports["default"] = SignUp;
