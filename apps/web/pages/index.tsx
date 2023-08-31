@@ -101,7 +101,7 @@ function Web({ pictureContent }: WebProps) {
             <Typography
               variant="h3"
               color="primary.main"
-              className="text-center mt-[10%]  xxs:text-md sm:text-lg lg:text-xl mx-20"
+              className="text-center mt-[10%]  xxs:text-md leading-relaxed sm:text-lg lg:text-xl mx-20"
             >Bad Credential or Request Limit Reached!</Typography>
           ) : (
             <>

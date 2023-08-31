@@ -22,11 +22,20 @@ function Footer() {
         { href: '/', content: "Contact" },
         { href: '/', content: "All" },
     ];
-    return (react_1["default"].createElement("div", { className: "mt-[20%]" },
-        react_1["default"].createElement(Icons_1.CurvedBorder, { fill: theme === 'dark' || theme !== 'light' ? "#000" : "#fff" }),
-        react_1["default"].createElement("footer", { className: "grid py-8 text-white bg-deepOcean gap-y-6 px-24 mt-5" },
-            react_1["default"].createElement(Logo_1.Logo, { className: "text-white" }),
-            react_1["default"].createElement("ul", { className: "grid place-items-center ml-[5%] font-monsterratMedium grid-cols-4 gap-y-5 list-none dark:text-white mt-20" }, footerLinks.map(function (item, index) { return (react_1["default"].createElement(link_1["default"], { className: "font-monsterratItalic hover:text-silver transition-all", key: index, href: item.href }, item.content)); }))),
-        react_1["default"].createElement(Icons_1.CurvedBorder, { fill: "#03234f" })));
+    var _a = react_1.useState(false), fillColor = _a[0], setFillColor = _a[1];
+    react_1.useEffect(function () {
+        if (theme === 'dark' || theme === 'system' || theme === 'undefined' || theme !== 'light') {
+            setFillColor(true);
+        }
+        else if (theme === 'light') {
+            setFillColor(false);
+        }
+    }, [theme]);
+    return (react_1["default"].createElement("div", { className: "mt-[20%] z-0" },
+        react_1["default"].createElement(Icons_1.CurvedBorder, { fill: fillColor ? '#000' : '#fff' }),
+        react_1["default"].createElement("footer", { className: "grid py-8 text-white bg-deepOcean gap-y-6 px-24 mt-5 xxs:min-w-[100vw] md:min-w-screen" },
+            react_1["default"].createElement(Logo_1.Logo, { className: "dark:text-white text-silver" }),
+            react_1["default"].createElement("ul", { className: "grid place-items-center ml-[5%] font-monsterratMedium xxs:grid-cols-2 md:grid-cols-4 gap-y-5 list-none dark:text-white mt-20" }, footerLinks.map(function (item, index) { return (react_1["default"].createElement(link_1["default"], { className: "font-monsterratItalic hover:text-silver transition-all", key: index, href: item.href }, item.content)); }))),
+        react_1["default"].createElement(Icons_1.CurvedBorder, { fill: "#03234f", className: "xxs:mt-[-2%]" })));
 }
 exports.Footer = Footer;

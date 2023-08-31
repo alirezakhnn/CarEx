@@ -4,7 +4,7 @@ import Document, { Html, Head, Main, NextScript } from 'next/document'
 class MyDocument extends Document {
     render() {
         return (
-            <Html lang="en" className="xl:grid justify-center">
+            <Html lang="en" className="xl:grid">
                 <Head>
                     {/* add meta tags, favicon, global stylesheets, etc. */}
                     {/* <link rel="icon" type="image/svg+xml" href="/CarEx.svg" /> */}

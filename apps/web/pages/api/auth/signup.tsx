@@ -19,7 +19,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (!email || !password) {
         return res.status(422).json({
             status: "failed",
-            message: "Invalid data",
+            message: "Empty Input",
         });
     }
 
@@ -28,7 +28,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (existingUser) {
         return res
             .status(422)
-            .json({ status: "failed", message: "User exists already!" });
+            .json({ status: "failed", message: "User exists already" });
     }
 
     const hashedPassword = await hashPassword(password);

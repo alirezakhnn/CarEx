@@ -65,7 +65,7 @@ function handler(req, res) {
                     if (!email || !password) {
                         return [2 /*return*/, res.status(422).json({
                                 status: "failed",
-                                message: "Invalid data"
+                                message: "Empty Input"
                             })];
                     }
                     return [4 /*yield*/, User_1["default"].findOne({ email: email })];
@@ -74,7 +74,7 @@ function handler(req, res) {
                     if (existingUser) {
                         return [2 /*return*/, res
                                 .status(422)
-                                .json({ status: "failed", message: "User exists already!" })];
+                                .json({ status: "failed", message: "User exists already" })];
                     }
                     return [4 /*yield*/, auth_1.hashPassword(password)];
                 case 6:

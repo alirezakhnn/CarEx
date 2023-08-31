@@ -65,7 +65,7 @@ export const TimeLine = () => {
                                 {element.picture ? (
                                     <img src={element.picture}
                                         alt={element.alt}
-                                        className="opacity-[85%] ml-8 rounded-xl"
+                                        className="opacity-[85%] md:ml-8 rounded-xl"
                                         width={400}
                                         height={400}
                                     />

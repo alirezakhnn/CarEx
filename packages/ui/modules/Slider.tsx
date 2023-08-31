@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import '../css/Slider.css';
+import React from 'react';
 
 SwiperCore.use([Pagination, Autoplay, EffectCoverflow]);
 
@@ -32,7 +33,7 @@ export function Slider(props: SliderProps): React.ReactElement {
     const { resolvedTheme } = useTheme();
 
     return (
-        <div className="container ml-16 min-w-[100vw] dark:block absolute lg:top-[-35vh] xxs:top-0 w-screen justify-center bg-center bg-fixed justify-self-center z-0 xs:top-[-5%]">
+        <div className="container xxs:min-w-[150vw] md:min-w-[100vw] dark:block absolute lg:top-[-35vh] xxs:top-0 justify-center bg-center bg-fixed justify-self-center z-0 xs:top-[-5%]">
             <Swiper
                 slidesPerView={1}
                 pagination={{ clickable: true }}

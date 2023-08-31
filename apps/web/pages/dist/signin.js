@@ -41,10 +41,12 @@ var react_2 = require("next-auth/react");
 var router_1 = require("next/router");
 var react_3 = require("next-auth/react");
 var link_1 = require("next/link");
+var image_1 = require("next/image");
 var ui_1 = require("ui");
 var material_1 = require("@mui/material");
 var Google_1 = require("@mui/icons-material/Google");
 var Switcher_1 = require("ui/modules/Switcher");
+var react_toastify_1 = require("react-toastify");
 function SignIn() {
     var _this = this;
     var router = router_1.useRouter();
@@ -68,8 +70,13 @@ function SignIn() {
                     })];
                 case 1:
                     res = _a.sent();
-                    if (!res.error)
+                    if (!res.error) {
+                        react_toastify_1.toast.success('login successful');
                         router.replace("/");
+                    }
+                    else if (res.error) {
+                        react_toastify_1.toast.error('incorrect email or password!');
+                    }
                     return [2 /*return*/];
             }
         });
@@ -93,6 +100,7 @@ function SignIn() {
                 React.createElement("p", { className: "dark:text-white text-midnight font-monsterratItalic" },
                     " Create An Account?",
                     React.createElement(link_1["default"], { className: "text-oceanBlue", href: "/signup" }, " Sign Up")))),
-        React.createElement("img", { src: "/images/dark/edgeCar.jpg", alt: "edgeCar_signin", className: "max-w-[550px] max-h-[550px] rounded-r-lg shadow-md shadow-oceanBlue opacity-[40%] xxs:hidden xl:block" })));
+        React.createElement(image_1["default"], { width: 550, height: 550, src: "/images/dark/edgeCar.jpg", alt: "edgeCar_signin", className: "max-w-[550px] max-h-[550px] rounded-r-lg shadow-md shadow-oceanBlue opacity-[40%] xxs:hidden xl:block" }),
+        React.createElement(react_toastify_1.ToastContainer, null)));
 }
 exports["default"] = SignIn;

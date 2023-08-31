@@ -39,6 +39,7 @@ exports.__esModule = true;
 var react_1 = require("react");
 var router_1 = require("next/router");
 var link_1 = require("next/link");
+var image_1 = require("next/image");
 var ui_1 = require("ui");
 var material_1 = require("@mui/material");
 var Google_1 = require("@mui/icons-material/Google");
@@ -69,6 +70,7 @@ function SignUp() {
                         react_toastify_1.toast.success('sign up successfully done');
                         router.push('/signin');
                     }
+                    react_toastify_1.toast.warning(data.message + " or wrong info!");
                     return [2 /*return*/];
             }
         });
@@ -94,7 +96,7 @@ function SignUp() {
                 React.createElement("p", { className: "dark:text-white text-midnight font-monsterratItalic" },
                     " do you have account?",
                     React.createElement(link_1["default"], { className: "text-oceanBlue", href: "/signin" }, " \u00A0Login")))),
-        React.createElement("img", { src: "/images/dark/modernDarkCarMoonlightBlue.jpg", alt: "edgeCar_signin", className: "max-w-[600px] max-h-[550px] rounded-r-lg shadow-md shadow-oceanBlue opacity-[40%] xxs:hidden xl:block" }),
+        React.createElement(image_1["default"], { width: 550, height: 550, src: "/images/dark/modernDarkCarMoonlightBlue.jpg", alt: "edgeCar_signup", className: "max-w-[600px] max-h-[550px] rounded-r-lg shadow-md shadow-oceanBlue opacity-[40%] xxs:hidden xl:block" }),
         React.createElement(react_toastify_1.ToastContainer, null)));
 }
 exports["default"] = SignUp;

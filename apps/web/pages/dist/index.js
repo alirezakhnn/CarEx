@@ -128,7 +128,7 @@ function Web(_a) {
             setIsLoading(false);
         }
     }, [pictureContent]);
-    return (react_1["default"].createElement("div", null, isLoading ? (react_1["default"].createElement(ui_1.SquareLoader, null)) : (react_1["default"].createElement(react_1["default"].Fragment, null, error ? (react_1["default"].createElement(material_1.Typography, { variant: "h3", color: "primary.main", className: "text-center mt-[10%]  xxs:text-md sm:text-lg lg:text-xl mx-20" }, "Bad Credential or Request Limit Reached!")) : (react_1["default"].createElement(react_1["default"].Fragment, null,
+    return (react_1["default"].createElement("div", null, isLoading ? (react_1["default"].createElement(ui_1.SquareLoader, null)) : (react_1["default"].createElement(react_1["default"].Fragment, null, error ? (react_1["default"].createElement(material_1.Typography, { variant: "h3", color: "primary.main", className: "text-center mt-[10%]  xxs:text-md leading-relaxed sm:text-lg lg:text-xl mx-20" }, "Bad Credential or Request Limit Reached!")) : (react_1["default"].createElement(react_1["default"].Fragment, null,
         react_1["default"].createElement(ui_1.Header, { pictureContent: pictureContent }),
         status === 'authenticated' ? react_1["default"].createElement(ui_1.Main, null) : null))))));
 }

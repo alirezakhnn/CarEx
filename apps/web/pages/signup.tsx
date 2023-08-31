@@ -1,8 +1,7 @@
-import { useState, useEffect } from "react";
-import { useSession } from "next-auth/react";
+import { useState } from "react";
 import { useRouter } from "next/router";
-import { signIn } from 'next-auth/react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { BtnShadow } from "ui";
 import { Typography } from "@mui/material";
 import GoogleIcon from '@mui/icons-material/Google';
@@ -26,6 +25,7 @@ export default function SignUp() {
             toast.success('sign up successfully done')
             router.push('/signin');
         }
+        toast.warning(`${data.message} or wrong info!`);
     }
 
     const labelsClass = `
@@ -84,9 +84,11 @@ export default function SignUp() {
                     </p>
                 </div>
             </div>
-            <img
+            <Image
+                width={550}
+                height={550}
                 src="/images/dark/modernDarkCarMoonlightBlue.jpg"
-                alt="edgeCar_signin"
+                alt="edgeCar_signup"
                 className="max-w-[600px] max-h-[550px] rounded-r-lg shadow-md shadow-oceanBlue opacity-[40%] xxs:hidden xl:block"
             />
             <ToastContainer />

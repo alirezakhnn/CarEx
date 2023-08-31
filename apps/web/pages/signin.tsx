@@ -3,10 +3,12 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { signIn } from 'next-auth/react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { BtnShadow } from "ui";
 import { Typography } from "@mui/material";
 import GoogleIcon from '@mui/icons-material/Google';
 import { Switcher } from "ui/modules/Switcher";
+import { toast, ToastContainer } from 'react-toastify';
 
 export default function SignIn() {
     const router = useRouter();
@@ -35,7 +37,13 @@ export default function SignIn() {
             redirect: false,
         });
 
-        if (!res.error) router.replace("/");
+        if (!res.error) {
+            toast.success('login successful')
+            router.replace("/");
+        }
+        else if (res.error) {
+            toast.error('incorrect email or password!');
+        }
     };
     return (
         <div className="flex justify-center gap-2 mt-20">
@@ -84,11 +92,14 @@ export default function SignIn() {
                     </p>
                 </div>
             </div>
-            <img
+            <Image
+                width={550}
+                height={550}
                 src="/images/dark/edgeCar.jpg"
                 alt="edgeCar_signin"
                 className="max-w-[550px] max-h-[550px] rounded-r-lg shadow-md shadow-oceanBlue opacity-[40%] xxs:hidden xl:block"
             />
+            <ToastContainer />
         </div>
     );
 }
