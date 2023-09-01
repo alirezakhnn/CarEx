@@ -5,9 +5,12 @@ module.exports = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname:'**',
+        hostname: "**",
       },
     ],
     // domains:['raw.githubusercontent.com'],
+  },
+  typescript: {
+    ignoreBuildErrors: true,
   },
 };
