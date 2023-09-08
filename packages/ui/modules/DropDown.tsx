@@ -1,9 +1,15 @@
+import { useSession, signOut } from "next-auth/react";
 import Link from "next/link";
 import { navItems } from "../components/Nav";
+import { BtnShadow } from "./Button";
 import React from "react";
 /* this component works when the screen is on tablet size or less
 and hamburger menu is checked */
 export function DropDown() {
+  const { status } = useSession();
+  const logOutHandler = () => {
+    signOut();
+  };
   return (
     <div
       className={`shadow-lg shadow-silver dark:bg-darknight 
@@ -30,8 +36,14 @@ export function DropDown() {
             {title}
           </Link>
         ))}
-        <Link href="/signup">SignUp</Link>
-        <Link href="/signin">SignIN</Link>
+        {status === "authenticated" ? (
+          <BtnShadow onClick={logOutHandler}>SignOut</BtnShadow>
+        ) : (
+          <>
+            <BtnShadow href="/signup">SignUp</BtnShadow>
+            <BtnShadow href="/signin">SignIn</BtnShadow>
+          </>
+        )}
       </ul>
     </div>
   );
