@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { Main, Header, SquareLoader } from 'ui';
-import axios, { AxiosResponse } from 'axios';
-import { Typography } from '@mui/material';
-import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/router';
+import React, { useState, useEffect } from "react";
+import { Main, Header, SquareLoader } from "ui";
+import axios, { AxiosResponse } from "axios";
+import { Typography } from "@mui/material";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 interface WebProps {
   pictureContent: {
@@ -28,7 +28,7 @@ async function getAuthorizationHeader() {
 
 export async function getStaticProps() {
   try {
-    const baseUrl = 'https://api.github.com/repos/alirezakhnn/CarExPics';
+    const baseUrl = "https://api.github.com/repos/alirezakhnn/CarExPics";
     const headers = await getAuthorizationHeader();
 
     // Fetch the list of directories
@@ -40,9 +40,12 @@ export async function getStaticProps() {
 
     // For each directory, fetch the list of files and their download URLs
     const promises = directories.map(async (directory: Directory) => {
-      const dirResponse: AxiosResponse<File[]> = await axios.get(directory.url, {
-        headers,
-      });
+      const dirResponse: AxiosResponse<File[]> = await axios.get(
+        directory.url,
+        {
+          headers,
+        }
+      );
       const files: File[] = dirResponse.data;
 
       return files.map((file: File) => ({
@@ -65,7 +68,7 @@ export async function getStaticProps() {
       },
     };
   } catch (error) {
-    console.error('Error fetching data:', error);
+    console.error("Error fetching data:", error);
     return {
       props: {
         pictureContent: null,
@@ -102,11 +105,13 @@ function Web({ pictureContent }: WebProps) {
               variant="h3"
               color="primary.main"
               className="text-center mt-[10%]  xxs:text-md leading-relaxed sm:text-lg lg:text-xl mx-20"
-            >Bad Credential or Request Limit Reached!</Typography>
+            >
+              Bad Credential or Request Limit Reached!
+            </Typography>
           ) : (
             <>
               <Header pictureContent={pictureContent} />
-              {status === 'authenticated' ? <Main /> : null}
+              {status === "authenticated" ? <Main /> : null}
             </>
           )}
         </>
