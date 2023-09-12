@@ -10,4 +10,5 @@ export * from "./modules/SquareLoader";
 export * from "./modules/TimeLine";
 export * from "./modules/AddCarsComponent";
 export * from "./modules/BrandNav";
+export * from './modules/AboutMeCard';
 export * from "./Theme";

@@ -60,7 +60,7 @@ function getStaticProps() {
             switch (_b.label) {
                 case 0:
                     _b.trys.push([0, 4, , 5]);
-                    baseUrl = 'https://api.github.com/repos/alirezakhnn/CarExPics';
+                    baseUrl = "https://api.github.com/repos/alirezakhnn/CarExPics";
                     return [4 /*yield*/, getAuthorizationHeader()];
                 case 1:
                     headers_1 = _b.sent();
@@ -99,7 +99,7 @@ function getStaticProps() {
                         }];
                 case 4:
                     error_1 = _b.sent();
-                    console.error('Error fetching data:', error_1);
+                    console.error("Error fetching data:", error_1);
                     return [2 /*return*/, {
                             props: {
                                 pictureContent: null
@@ -130,6 +130,6 @@ function Web(_a) {
     }, [pictureContent]);
     return (react_1["default"].createElement("div", null, isLoading ? (react_1["default"].createElement(ui_1.SquareLoader, null)) : (react_1["default"].createElement(react_1["default"].Fragment, null, error ? (react_1["default"].createElement(material_1.Typography, { variant: "h3", color: "primary.main", className: "text-center mt-[10%]  xxs:text-md leading-relaxed sm:text-lg lg:text-xl mx-20" }, "Bad Credential or Request Limit Reached!")) : (react_1["default"].createElement(react_1["default"].Fragment, null,
         react_1["default"].createElement(ui_1.Header, { pictureContent: pictureContent }),
-        status === 'authenticated' ? react_1["default"].createElement(ui_1.Main, null) : null))))));
+        status === "authenticated" ? react_1["default"].createElement(ui_1.Main, null) : null))))));
 }
 exports["default"] = Web;
