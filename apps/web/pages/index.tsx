@@ -22,6 +22,7 @@ interface File {
 }
 
 async function getAuthorizationHeader() {
+  // eslint-disable-next-line turbo/no-undeclared-env-vars
   const token = process.env.GITHUB_TOKEN;
   return { Authorization: `Bearer${token}` };
 }
